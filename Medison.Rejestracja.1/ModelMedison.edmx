@@ -1,41 +1,41 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx">
   <!-- EF Runtime content -->
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="medisonModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+    <Schema Namespace="medisonModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns="http://schemas.microsoft.com/ado/2006/04/edm/ssdl">
         <EntityContainer Name="medisonModelStoreContainer">
-          <EntitySet Name="CelSzablony" EntityType="medisonModel.Store.CelSzablony" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="ChodziLezy" EntityType="medisonModel.Store.ChodziLezy" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="DaneLekarza" EntityType="medisonModel.Store.DaneLekarza" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="dtproperties" EntityType="medisonModel.Store.dtproperties" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Leki" EntityType="medisonModel.Store.Leki" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="OpisyRachunku" EntityType="medisonModel.Store.OpisyRachunku" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="PacBezNazwisk" EntityType="medisonModel.Store.PacBezNazwisk" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Pacjenci" EntityType="medisonModel.Store.Pacjenci" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Plcie" EntityType="medisonModel.Store.Plcie" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Pokrewienstwo" EntityType="medisonModel.Store.Pokrewienstwo" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Rachunki" EntityType="medisonModel.Store.Rachunki" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Recepty" EntityType="medisonModel.Store.Recepty" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Skierowania" EntityType="medisonModel.Store.Skierowania" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="SkierowaniaCele" EntityType="medisonModel.Store.SkierowaniaCele" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="SkierowaniaPoradnie" EntityType="medisonModel.Store.SkierowaniaPoradnie" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="StatystycznaKlasyfikacjaChorob" EntityType="medisonModel.Store.StatystycznaKlasyfikacjaChorob" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="sysdiagrams" EntityType="medisonModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="SzabGrupy" EntityType="medisonModel.Store.SzabGrupy" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Szablony" EntityType="medisonModel.Store.Szablony" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Towary" EntityType="medisonModel.Store.Towary" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="TypyDokumentow" EntityType="medisonModel.Store.TypyDokumentow" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="UbezpieczonyW" EntityType="medisonModel.Store.UbezpieczonyW" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Usg" EntityType="medisonModel.Store.Usg" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Wizyty" EntityType="medisonModel.Store.Wizyty" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="WizytyPacBezNazwisk" EntityType="medisonModel.Store.WizytyPacBezNazwisk" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Zaklady" EntityType="medisonModel.Store.Zaklady" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Zaklady_Kopia" EntityType="medisonModel.Store.Zaklady_Kopia" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Zaswiadczenia" EntityType="medisonModel.Store.Zaswiadczenia" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Zdjecia" EntityType="medisonModel.Store.Zdjecia" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Zdjecia_ar" EntityType="medisonModel.Store.Zdjecia_ar" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CelSzablony" EntityType="medisonModel.Store.CelSzablony" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="ChodziLezy" EntityType="medisonModel.Store.ChodziLezy" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="DaneLekarza" EntityType="medisonModel.Store.DaneLekarza" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="dtproperties" EntityType="medisonModel.Store.dtproperties" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Leki" EntityType="medisonModel.Store.Leki" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="OpisyRachunku" EntityType="medisonModel.Store.OpisyRachunku" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="PacBezNazwisk" EntityType="medisonModel.Store.PacBezNazwisk" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Pacjenci" EntityType="medisonModel.Store.Pacjenci" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Plcie" EntityType="medisonModel.Store.Plcie" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Pokrewienstwo" EntityType="medisonModel.Store.Pokrewienstwo" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Rachunki" EntityType="medisonModel.Store.Rachunki" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Recepty" EntityType="medisonModel.Store.Recepty" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Skierowania" EntityType="medisonModel.Store.Skierowania" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="SkierowaniaCele" EntityType="medisonModel.Store.SkierowaniaCele" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="SkierowaniaPoradnie" EntityType="medisonModel.Store.SkierowaniaPoradnie" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="StatystycznaKlasyfikacjaChorob" EntityType="medisonModel.Store.StatystycznaKlasyfikacjaChorob" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="sysdiagrams" EntityType="medisonModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="SzabGrupy" EntityType="medisonModel.Store.SzabGrupy" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Szablony" EntityType="medisonModel.Store.Szablony" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Towary" EntityType="medisonModel.Store.Towary" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="TypyDokumentow" EntityType="medisonModel.Store.TypyDokumentow" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="UbezpieczonyW" EntityType="medisonModel.Store.UbezpieczonyW" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Usg" EntityType="medisonModel.Store.Usg" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Wizyty" EntityType="medisonModel.Store.Wizyty" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="WizytyPacBezNazwisk" EntityType="medisonModel.Store.WizytyPacBezNazwisk" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Zaklady" EntityType="medisonModel.Store.Zaklady" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Zaklady_Kopia" EntityType="medisonModel.Store.Zaklady_Kopia" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Zaswiadczenia" EntityType="medisonModel.Store.Zaswiadczenia" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Zdjecia" EntityType="medisonModel.Store.Zdjecia" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Zdjecia_ar" EntityType="medisonModel.Store.Zdjecia_ar" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
           <AssociationSet Name="FK_OpisyRachunku_Rachunki" Association="medisonModel.Store.FK_OpisyRachunku_Rachunki">
             <End Role="Rachunki" EntitySet="Rachunki" />
             <End Role="OpisyRachunku" EntitySet="OpisyRachunku" />
@@ -805,8 +805,8 @@
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="medisonModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
-        <EntityContainer Name="medisonEntities" annotation:LazyLoadingEnabled="true">
+      <Schema Namespace="medisonModel" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2006/04/edm">
+        <EntityContainer Name="medisonEntities" annotation:LazyLoadingEnabled="true" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
           <EntitySet Name="CelSzablony" EntityType="medisonModel.CelSzablony" />
           <EntitySet Name="ChodziLezy" EntityType="medisonModel.ChodziLezy" />
           <EntitySet Name="DaneLekarza" EntityType="medisonModel.DaneLekarza" />
@@ -914,14 +914,14 @@
           <Key>
             <PropertyRef Name="idCelSzablon" />
           </Key>
-          <Property Name="idCelSzablon" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idCelSzablon" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="cel" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
         </EntityType>
         <EntityType Name="ChodziLezy">
           <Key>
             <PropertyRef Name="NrChodziLezy" />
           </Key>
-          <Property Name="NrChodziLezy" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NrChodziLezy" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="OpisChodziLezy" Type="String" MaxLength="15" Unicode="true" FixedLength="false" />
           <NavigationProperty Name="Wizyty" Relationship="medisonModel.FK_Wizyty_ChodziLezy" FromRole="ChodziLezy" ToRole="Wizyty" />
         </EntityType>
@@ -929,7 +929,7 @@
           <Key>
             <PropertyRef Name="NrGabinetu" />
           </Key>
-          <Property Name="NrGabinetu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NrGabinetu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="Imie" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="Nazwisko" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="NrLekarza" Type="Int32" />
@@ -950,7 +950,7 @@
             <PropertyRef Name="id" />
             <PropertyRef Name="property" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="objectid" Type="Int32" />
           <Property Name="property" Type="String" Nullable="false" MaxLength="64" Unicode="false" FixedLength="false" />
           <Property Name="value" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
@@ -962,7 +962,7 @@
           <Key>
             <PropertyRef Name="NrLeku" />
           </Key>
-          <Property Name="NrLeku" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NrLeku" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="NazwaLeku" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="PostacLeku" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="Opis" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
@@ -977,7 +977,7 @@
           <Key>
             <PropertyRef Name="NrOpisuRach" />
           </Key>
-          <Property Name="NrOpisuRach" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NrOpisuRach" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="IDrachunku" Type="Int64" />
           <Property Name="NrTowaru" Type="Int32" />
           <Property Name="NazwaTowaru" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
@@ -997,7 +997,7 @@
           <Key>
             <PropertyRef Name="Nrp" />
           </Key>
-          <Property Name="Nrp" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nrp" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="Nazwisko" Type="String" MaxLength="40" Unicode="true" FixedLength="false" />
           <Property Name="Nazwisko2" Type="String" MaxLength="40" Unicode="true" FixedLength="false" />
           <Property Name="Imie" Type="String" MaxLength="30" Unicode="true" FixedLength="false" />
@@ -1037,7 +1037,7 @@
           <Key>
             <PropertyRef Name="Nrp" />
           </Key>
-          <Property Name="Nrp" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nrp" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="Nazwisko" Type="String" MaxLength="40" Unicode="false" FixedLength="false" />
           <Property Name="Nazwisko2" Type="String" MaxLength="40" Unicode="false" FixedLength="false" />
           <Property Name="Imie" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
@@ -1101,7 +1101,7 @@
           <Key>
             <PropertyRef Name="IDrachunku" />
           </Key>
-          <Property Name="IDrachunku" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDrachunku" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="Nrp" Type="Int64" />
           <Property Name="NrGabinetu" Type="Int32" />
           <Property Name="Numerrachunku" Type="Int32" />
@@ -1134,7 +1134,7 @@
           <Key>
             <PropertyRef Name="NrRecepty" />
           </Key>
-          <Property Name="NrRecepty" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NrRecepty" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="NrWizyty" Type="Int64" />
           <Property Name="NrLeku" Type="Int32" />
           <Property Name="Ilosc" Type="String" MaxLength="16" Unicode="true" FixedLength="false" />
@@ -1152,7 +1152,7 @@
           <Key>
             <PropertyRef Name="NrSkierow" />
           </Key>
-          <Property Name="NrSkierow" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NrSkierow" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="Nrp" Type="Int64" />
           <Property Name="DataSkierow" Type="DateTime" />
           <Property Name="Rozpoznanie" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
@@ -1164,7 +1164,7 @@
           <Key>
             <PropertyRef Name="idCelu" />
           </Key>
-          <Property Name="idCelu" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idCelu" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="poradnia" Type="Int64" />
           <Property Name="cel" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
           <NavigationProperty Name="SkierowaniaPoradnie" Relationship="medisonModel.FK_Table2_SkierowaniaPoradnie" FromRole="SkierowaniaCele" ToRole="SkierowaniaPoradnie" />
@@ -1173,7 +1173,7 @@
           <Key>
             <PropertyRef Name="idPoradni" />
           </Key>
-          <Property Name="idPoradni" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idPoradni" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="NazwaPoradni" Type="String" MaxLength="150" Unicode="false" FixedLength="false" />
           <NavigationProperty Name="SkierowaniaCele" Relationship="medisonModel.FK_Table2_SkierowaniaPoradnie" FromRole="SkierowaniaPoradnie" ToRole="SkierowaniaCele" />
         </EntityType>
@@ -1193,7 +1193,7 @@
           </Key>
           <Property Name="name" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
           <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="version" Type="Int32" />
           <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
@@ -1201,7 +1201,7 @@
           <Key>
             <PropertyRef Name="NrGrSzablon" />
           </Key>
-          <Property Name="NrGrSzablon" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NrGrSzablon" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="GrupaSz" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
           <NavigationProperty Name="Szablony" Relationship="medisonModel.FK_Szablony_SzabGrupy" FromRole="SzabGrupy" ToRole="Szablony" />
         </EntityType>
@@ -1209,7 +1209,7 @@
           <Key>
             <PropertyRef Name="NrSzablonu" />
           </Key>
-          <Property Name="NrSzablonu" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NrSzablonu" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="NrGabinetu" Type="Int32" />
           <Property Name="NrRodzSzab" Type="Int32" />
           <Property Name="Kolejnosc" Type="Int32" />
@@ -1222,7 +1222,7 @@
           <Key>
             <PropertyRef Name="NrTowaru" />
           </Key>
-          <Property Name="NrTowaru" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NrTowaru" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="IndeksT" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="SWWKWiU" Type="String" MaxLength="15" Unicode="true" FixedLength="false" />
           <Property Name="Kategoria" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
@@ -1255,7 +1255,7 @@
           <Key>
             <PropertyRef Name="NrUsg" />
           </Key>
-          <Property Name="NrUsg" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NrUsg" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="CzyjeUsgSkrot" Type="String" MaxLength="2" Unicode="true" FixedLength="false" />
           <Property Name="CzyjeUsg" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="KwotaUsg" Type="Decimal" Precision="19" Scale="4" />
@@ -1265,7 +1265,7 @@
           <Key>
             <PropertyRef Name="NrWizyty" />
           </Key>
-          <Property Name="NrWizyty" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NrWizyty" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="Nrp" Type="Int64" />
           <Property Name="DataWizyty" Type="DateTime" />
           <Property Name="GodzWizyty" Type="DateTime" />
@@ -1320,7 +1320,7 @@
           <Key>
             <PropertyRef Name="NrWizyty" />
           </Key>
-          <Property Name="NrWizyty" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NrWizyty" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="Nrp" Type="Int32" />
           <Property Name="DataWizyty" Type="DateTime" />
           <Property Name="GodzWizyty" Type="DateTime" />
@@ -1365,7 +1365,7 @@
           <Key>
             <PropertyRef Name="NrZakladu" />
           </Key>
-          <Property Name="NrZakladu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NrZakladu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="NazwaZakladuPracy" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
           <Property Name="KodZakladuPracy" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="MiastoZakladuPracy" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
@@ -1379,7 +1379,7 @@
           <Key>
             <PropertyRef Name="NrZakladu" />
           </Key>
-          <Property Name="NrZakladu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NrZakladu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="NIPzakladu" Type="String" MaxLength="13" Unicode="true" FixedLength="false" />
           <Property Name="NazwaZakladuPracy" Type="String" MaxLength="43" Unicode="true" FixedLength="false" />
           <Property Name="KodZakladuPracy" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
@@ -1391,7 +1391,7 @@
           <Key>
             <PropertyRef Name="NrZaswiad" />
           </Key>
-          <Property Name="NrZaswiad" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NrZaswiad" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="Nrp" Type="Int64" />
           <Property Name="DataZaswiad" Type="DateTime" />
           <Property Name="Rozpoznanie" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
@@ -1402,7 +1402,7 @@
           <Key>
             <PropertyRef Name="NrZdj" />
           </Key>
-          <Property Name="NrZdj" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NrZdj" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="wybor" Type="Boolean" />
           <Property Name="plikzdj" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="opiszdj" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
@@ -1413,7 +1413,7 @@
           <Key>
             <PropertyRef Name="NrZdj" />
           </Key>
-          <Property Name="NrZdj" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NrZdj" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="wybor" Type="Boolean" />
           <Property Name="plikzdj" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="opiszdj" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
@@ -1643,7 +1643,7 @@
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
-      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+      <Mapping Space="C-S" xmlns="urn:schemas-microsoft-com:windows:storage:mapping:CS">
         <EntityContainerMapping StorageEntityContainer="medisonModelStoreContainer" CdmEntityContainer="medisonEntities">
           <EntitySetMapping Name="CelSzablony"><EntityTypeMapping TypeName="medisonModel.CelSzablony"><MappingFragment StoreEntitySet="CelSzablony">
             <ScalarProperty Name="idCelSzablon" ColumnName="idCelSzablon" />
@@ -2036,7 +2036,7 @@
     </edmx:Mappings>
   </edmx:Runtime>
   <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
-  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <Designer xmlns="http://schemas.microsoft.com/ado/2007/06/edmx">
     <Connection>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
