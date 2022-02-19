@@ -1,0 +1,251 @@
+﻿<UserControl x:Class="UserControlRachunek1"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xml:lang="pl-PL"
+             mc:Ignorable="d" 
+             d:DesignHeight="893" d:DesignWidth="836" FontSize="16">
+    <StackPanel  Margin="20">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <StackPanel HorizontalAlignment="Left" Grid.Column="0">
+                <TextBlock Text="Sprzedawca:" FontWeight="Bold" Padding="5"/>
+                <TextBlock Text="{Binding Path=NazwaFV}" Height="80" />
+                <StackPanel Orientation="Horizontal" >
+                    <TextBlock Text="{Binding Path=Kod}" Padding="0,0,5,0"/>
+                    <TextBlock Text="{Binding Path=MiastoFV}" Padding="0,0,5,0"/>
+                    <TextBlock Text="{Binding Path=AdresFV}" Padding="0,0,5,0"/>
+                </StackPanel>
+                <TextBlock Text="{Binding Path=TelefonFV}" Padding="0,0,5,0"/>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="NIP" Padding="0,0,5,0"/>
+                    <TextBlock Text="{Binding Path=NIPFV}" Padding="0,0,5,0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Nr konta" Padding="0,0,5,0"/>
+                    <TextBlock Text="{Binding Path=NrKontaFV}" Padding="0,0,5,0"/>
+                </StackPanel>
+
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Right" Grid.Column="1">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Miejsce wystawienia:" Padding="0,0,5,0"/>
+                    <TextBlock Text="Gorzów Wlkp." Padding="0,0,5,0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Data wystawienia" Padding="0,0,5,0"/>
+                    <TextBlock Text="{Binding Path=DataWystawienia,StringFormat=\{0:d\}}" Padding="0,0,5,0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Data wykonania usługi" Padding="0,0,5,0"/>
+                    <!--<TextBlock Text="{Binding Path=MiesiacSprzedazy}" Padding="0,0,5,0"/>-->
+                    <TextBlock Text="{Binding Path=DataWystawienia,StringFormat=\{0:d\}}" Padding="0,0,5,0"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Sposób zapłaty" Padding="0,0,5,0"/>
+                    <TextBlock Text="{Binding Path=RachunekPlatnosc}" Padding="0,0,5,0"/>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment ="Center" Margin="0,30,0,0">
+            <TextBlock Text="{Binding Path=RachunekTyp}" Padding="0,10,10,0" FontWeight="Bold" FontSize="18" />
+            <!--<TextBlock Text="{Binding Path=Numerrachunku}" Padding="0,10,10,0" FontWeight="Bold" FontSize="18" />-->
+            <TextBlock Text="{Binding Path=NumerrachunkuOpis}" Padding="0,10,10,0" FontWeight="Bold" FontSize="18" />
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment ="Center" Margin="0,0,0,30">
+            <!--<TextBlock Text="{Binding Path=FvOryginal}" Padding="0,0,0,0" FontWeight="Bold" FontSize="14" />-->
+        </StackPanel>
+        <StackPanel Margin="0,0,0,30">
+            <TextBlock Text="Nabywca:" Padding="0,10,0,0" FontWeight="Bold" />
+            <TextBlock Text="{Binding Path=NaKogo}" FontWeight="Bold" FontSize="16" />
+            <StackPanel Orientation="Horizontal" >
+                <TextBlock Text="{Binding Path=NaKogoKod}" Padding="0,0,5,0"/>
+                <TextBlock Text="{Binding Path=NaKogoAdres}" Padding="0,0,5,0"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
+                <TextBlock Text="NIP:" Padding="0,0,5,0"/>
+                <TextBlock Text="{Binding Path=NaKogoNIP}" Padding="0,0,5,0"/>
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel Name="Rachunek" Visibility="{Binding Path=czyRachunek}">
+            <DataGrid ItemsSource="{Binding Path=OpisyRachunku}" IsReadOnly="False" HorizontalAlignment="Right" AlternationCount="0" AlternatingRowBackground="White" RowHeaderWidth="0" CanUserAddRows="False" Name="GridRachunek" FontSize="10" BorderBrush="Transparent" >
+                <DataGrid.CellStyle  >
+                    <Style TargetType="{x:Type DataGridCell }">
+                        <Style.Triggers>
+                            <Trigger Property="DataGridCell.IsSelected" Value="True">
+                                <Setter Property="Background" Value="White"/>
+                                <Setter Property="Foreground"  Value="Black" />
+                                <Setter Property="BorderBrush" Value="Transparent" />
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </DataGrid.CellStyle >
+                <DataGrid.ColumnHeaderStyle>
+                    <Style TargetType="{x:Type DataGridColumnHeader }">
+                        <Setter Property="Background" Value="white"/>
+                        <Setter Property="Foreground" Value="Black" />
+                        <Setter Property="FontWeight" Value="Bold" />
+                        <Setter Property="FontSize" Value="12"/>
+                        <Setter Property="BorderBrush" Value="Gray" />
+                        <Setter Property="BorderThickness" Value="1"/>
+                    </Style>
+                </DataGrid.ColumnHeaderStyle>
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn Header="Nazwa towaru" Width="350">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Path=Towary.Nazwa}" TextWrapping="Wrap" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTextColumn Header="Cena netto" Binding="{Binding Path=CenaNetto,StringFormat=\{0:c\}}" Width="70"/>
+                    <DataGridTextColumn Header="Ilość" Binding="{Binding Path=Ilosc}" Width="70"/>
+                    <DataGridTextColumn Header="Jm" Binding="{Binding Path=JedMiary}" Width="30"/>
+                    <DataGridTextColumn  Binding="{Binding Path=WartoscNetto,StringFormat=\{0:c\}}" Width="70">
+                        <DataGridTextColumn.Header>
+                            <TextBlock Text="Wartość netto" TextWrapping="Wrap" />
+                        </DataGridTextColumn.Header>
+                    </DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
+        <StackPanel Name="Faktura" Visibility="{Binding Path=czyFaktura}">
+            <DataGrid ItemsSource="{Binding Path=OpisyRachunku}" IsReadOnly="False" HorizontalAlignment="Right" AlternationCount="0" AlternatingRowBackground="White" RowHeaderWidth="0" CanUserAddRows="False"  Name="GridFaktura"  FontSize="10" BorderBrush="Transparent" >
+                <DataGrid.CellStyle  >
+                    <Style TargetType="{x:Type DataGridCell }">
+                        <Style.Triggers>
+                            <Trigger Property="DataGridCell.IsSelected" Value="True">
+                                <Setter Property="Background" Value="White"/>
+                                <Setter Property="Foreground"  Value="Black" />
+                                <Setter Property="BorderBrush" Value="Transparent"  />
+                                
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </DataGrid.CellStyle >
+                <DataGrid.ColumnHeaderStyle>
+                    <Style TargetType="{x:Type DataGridColumnHeader }">
+                        <Setter Property="Background" Value="white"/>
+                        <Setter Property="Foreground" Value="Black" />
+                        <Setter Property="FontWeight" Value="Bold" />
+                        <Setter Property="FontSize" Value="12"/>
+                        <Setter Property="BorderBrush" Value="Gray" />
+                        <Setter Property="BorderThickness" Value="1"/>
+                    </Style>
+                </DataGrid.ColumnHeaderStyle>
+                
+                <DataGrid.Columns>
+                    
+                    <DataGridTemplateColumn Header="Nazwa towaru" Width="240">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Path=Towary.Nazwa}" TextWrapping="Wrap" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTextColumn Header="SWWKWiU" Binding="{Binding Path=SWWKWiU}" Width="70"/>
+                    <DataGridTextColumn Header="Cena netto" Binding="{Binding Path=CenaNetto,StringFormat=\{0:c\}}" Width="70"/>
+                    <DataGridTextColumn Header="Ilość" Binding="{Binding Path=Ilosc}" Width="40"/>
+                    <DataGridTextColumn Header="Jm" Binding="{Binding Path=JedMiary}" Width="30"/>
+                    <DataGridTextColumn  Binding="{Binding Path=WartoscNetto,StringFormat=\{0:c\}}" Width="70">
+                        <DataGridTextColumn.Header>
+                            <TextBlock Text="Wartość netto" TextWrapping="Wrap" />
+                        </DataGridTextColumn.Header>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn  Binding="{Binding Path=StawkaVatString}" Width="50">
+                        <DataGridTextColumn.Header>
+                            <TextBlock Text="Stawka VAT" TextWrapping="Wrap" />
+                        </DataGridTextColumn.Header>
+                    </DataGridTextColumn>
+
+                    <DataGridTextColumn  Binding="{Binding Path=WartoscVAT,StringFormat=\{0:c\}}" Width="70">
+                        <DataGridTextColumn.Header>
+                            <TextBlock Text="Wartość VAT" TextWrapping="Wrap" />
+                        </DataGridTextColumn.Header>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn  Binding="{Binding Path=WartoscBrutto,StringFormat=\{0:c\}}" Width="70">
+                        <DataGridTextColumn.Header>
+                            <TextBlock Text="Wartość brutto" TextWrapping="Wrap" />
+                        </DataGridTextColumn.Header>
+                    </DataGridTextColumn>
+
+                </DataGrid.Columns>
+            </DataGrid>
+            <DataGrid ItemsSource="{Binding Path=podsumowanieVAT}" IsReadOnly="False" HorizontalAlignment="Right" AlternationCount="0" AlternatingRowBackground="White" RowHeaderWidth="1" CanUserAddRows="False"   FontSize="10" BorderBrush="Transparent">
+                <DataGrid.CellStyle  >
+                    <Style TargetType="{x:Type DataGridCell }">
+                        <Style.Triggers>
+                            <Trigger Property="DataGridCell.IsSelected" Value="True">
+                                <Setter Property="Background" Value="White"/>
+                                <Setter Property="Foreground"  Value="Black" />
+                                <Setter Property="BorderBrush" Value="Transparent" />
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </DataGrid.CellStyle >
+                <DataGrid.ColumnHeaderStyle>
+                    <Style TargetType="{x:Type DataGridColumnHeader }">
+                        <Setter Property="Background" Value="white"/>
+                        <Setter Property="Foreground" Value="Black" />
+                        <Setter Property="FontWeight" Value="Bold" />
+                        <Setter Property="FontSize" Value="12"/>
+                        <Setter Property="BorderBrush" Value="Gray" />
+                        <Setter Property="BorderThickness" Value="1"/>
+                    </Style>
+                </DataGrid.ColumnHeaderStyle>
+
+                <DataGrid.Columns>
+
+                    <DataGridTextColumn  Binding="{Binding Path=wartoscNetto,StringFormat=\{0:c\}}" Width="70">
+                        <DataGridTextColumn.Header>
+                            <TextBlock Text="Wartość netto" TextWrapping="Wrap" />
+                        </DataGridTextColumn.Header>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn  Binding="{Binding Path=stawka,StringFormat=\{0:P\}}" Width="50">
+                        <DataGridTextColumn.Header>
+                            <TextBlock Text="Stawka VAT" TextWrapping="Wrap" />
+                        </DataGridTextColumn.Header>
+                    </DataGridTextColumn>
+
+                    <DataGridTextColumn  Binding="{Binding Path=wartoscVat,StringFormat=\{0:c\}}" Width="70">
+                        <DataGridTextColumn.Header>
+                            <TextBlock Text="Wartość VAT" TextWrapping="Wrap" />
+                        </DataGridTextColumn.Header>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn  Binding="{Binding Path=wartoscBrutto,StringFormat=\{0:c\}}" Width="70">
+                        <DataGridTextColumn.Header>
+                            <TextBlock Text="Wartość brutto" TextWrapping="Wrap" />
+                        </DataGridTextColumn.Header>
+                    </DataGridTextColumn>
+
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
+            <TextBlock Text="Wpłata:" Padding="0,20,5,0"/>
+            <TextBlock Text="{Binding Path=Wplaty,StringFormat=\{0:c\}}" Padding="0,20,5,0"/>
+        </StackPanel>
+        <Grid Margin="0,30,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0" HorizontalAlignment="Left">
+                <TextBlock Text="Podpis osoby upoważnionej do wystawienia faktury" HorizontalAlignment="center"/>
+                <TextBlock Text="{Binding Path=Wystawil}" HorizontalAlignment="center"/>
+                <TextBlock Text="...................................................." HorizontalAlignment="center" Padding="0,40,0,0"/>
+            </StackPanel>
+            <StackPanel Grid.Column="1" HorizontalAlignment="Right" >
+                <TextBlock Text="Podpis osoby upoważnionej do odbioru faktury" HorizontalAlignment="center"/>
+                <TextBlock Text="{Binding Path=NaKogo}" HorizontalAlignment="center"/>
+                <TextBlock Text="...................................................." HorizontalAlignment="center" Padding="0,40,0,0"/>
+            </StackPanel>
+        </Grid>
+        <TextBlock Text="{Binding Path=Info}" FontSize="10"/>
+    </StackPanel>
+</UserControl>

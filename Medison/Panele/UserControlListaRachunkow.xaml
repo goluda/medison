@@ -1,0 +1,41 @@
+﻿<UserControl x:Class="UserControlListaRachunkow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="280" d:DesignWidth="686">
+    <Grid>
+        <Label Content="Lista rachunków" Height="37" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Century Gothic" FontSize="18" />
+
+        <DataGrid AutoGenerateColumns="False" AlternationCount="2" Margin="12,43,12,12" ItemsSource="{Binding }" Name="DataGrid1" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Image MouseEnter="NajechaneMyszka" MouseLeave="OdjechaneMyszka" Opacity="0.5" Height="20" MouseDown="Usun" Tag="{Binding }" Source="/Medison;component/Images/delete.png" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Binding="{Binding rocznik}" Header="Rocznik"/>
+                <DataGridTextColumn Binding="{Binding DataWystawienia, StringFormat=\{0:d\}}" Header="Data wystawienia"/>
+                <DataGridTextColumn Binding="{Binding TypRachunku}" Header="Typ rachunku"/>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="FV" Tag="{Binding }" Click="WyswietlRachunek"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Binding="{Binding nrRachunku1}" Header=" Numer rachunku"/>
+                <DataGridTextColumn Binding="{Binding NIPFV}" Header="NIPFV"/>
+                <DataGridTextColumn Binding="{Binding NazwaFV}" Header="Wystawił"/>
+                <DataGridTextColumn Binding="{Binding NaKogoNIP}" Header="Na kogo NIP"/>
+                <DataGridTextColumn Binding="{Binding NaKogo}" Header="Na kogo"/>
+                <DataGridTextColumn Binding="{Binding brutto1, StringFormat=\{0:c\}}" Header="Brutto"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+
+    </Grid>
+</UserControl>

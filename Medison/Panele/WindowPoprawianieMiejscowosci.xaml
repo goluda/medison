@@ -1,0 +1,22 @@
+﻿<Window x:Class="WindowPoprawianieMiejscowosci"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="WindowPoprawianieMiejscowosci" Height="362" Width="598" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <DataGrid AutoGenerateColumns="False" Margin="15,20,9,8" Name="DataGrid1">
+            <DataGrid.Columns>
+                <DataGridTextColumn  Header="Miejscowość" Binding="{Binding Path=Miejscowosc}" IsReadOnly="True" />
+                <DataGridTextColumn  Header="Kod pocztowy" Binding="{Binding Path=KodPocztowy}" IsReadOnly="True" />
+                <DataGridTextColumn  Header="Nowa miejscowość" Binding="{Binding Path=NowaMiejscowosc,UpdateSourceTrigger=LostFocus}"/>
+                <DataGridTextColumn  Header="Nowy kod pocztowy" Binding="{Binding Path=NowyKodPocztowy,UpdateSourceTrigger=LostFocus}"/>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Popraw" Tag="{Binding }" Click="Popraw"></Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

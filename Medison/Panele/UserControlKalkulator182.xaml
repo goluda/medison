@@ -1,0 +1,23 @@
+﻿<UserControl x:Class="UserControlKalkulator182"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="45" d:DesignWidth="248" Background="Yellow" 
+             xml:lang="pl-PL">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Label Content="Początek zwolnienia" Grid.Column="0" Grid.Row="0"/>
+        <Label Content="+182 dni" Grid.Column="1" Grid.Row="0"/>
+        <Label Content="{Binding Path=dataKoniec,StringFormat=\{0:d\}}" Grid.Column="1" Grid.Row="1"/>
+        <TextBox Text="{Binding Path=dataStart,StringFormat=\{0:d\},UpdateSourceTrigger=LostFocus}" Grid.Column="0" Grid.Row="1"/>
+    </Grid>
+</UserControl>

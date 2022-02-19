@@ -1,0 +1,4 @@
+﻿Data Source=.\sqlexpress;Initial Catalog=medison;Persist Security Info=True;User ID=sql;Password=sql" providerName="System.Data.SqlClient" /><add name="medisonEntities1" connectionString="metadata=res://*/ModelMedison.csdl|res://*/ModelMedison.ssdl|res://*/ModelMedison.msl;provider=System.Data.SqlClient;provider connection string=&quot;Data Source=.\sqlexpress;Initial Catalog=medison;Persist Security Info=True;User ID=sql;Password=sql;MultipleActiveResultSets=True&quot;
+
+
+Data Source=192.168.0.155;Initial Catalog=medison;Persist Security Info=True;User ID=sa;Password=medison1!" providerName="System.Data.SqlClient" /><add name="medisonEntities1" connectionString="metadata=res://*/ModelMedison.csdl|res://*/ModelMedison.ssdl|res://*/ModelMedison.msl;provider=System.Data.SqlClient;provider connection string=&quot;Data Source=.\sqlexpress;Initial Catalog=medison;Persist Security Info=True;User ID=sql;Password=sql;MultipleActiveResultSets=True&quot;

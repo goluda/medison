@@ -1,0 +1,20 @@
+﻿<Window x:Class="WindowPodgladDokumentu"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="WindowPodgladDokumentu" Height="439" Width="652" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Button Background="Transparent" Height="30" HorizontalAlignment="Right" Margin="0,7,7,0" Name="Button1" VerticalAlignment="Top" Width="110">
+            <StackPanel Orientation="Horizontal">
+                <Image Margin="-10" Source="/Medison;component/Images/back.png" Width="40" />
+                <Label Content="Wróć" FontWeight="Bold" Margin="10,0" />
+            </StackPanel>
+        </Button>
+        <Button Background="Transparent" Height="30" HorizontalAlignment="Right" Margin="0,7,123,0" Name="Button5" VerticalAlignment="Top" Width="110">
+            <StackPanel Orientation="Horizontal">
+                <Image Margin="-10" Source="/Medison;component/Images/Print.png" Width="40" />
+                <Label Content="Drukuj" FontWeight="Bold" Margin="10,0" />
+            </StackPanel>
+        </Button>
+        <DocumentViewer Margin="6,60,8,3" Name="DocumentViewer1" />
+    </Grid>
+</Window>

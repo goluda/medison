@@ -1,0 +1,2206 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="medisonModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CelSzablony">
+          <Key>
+            <PropertyRef Name="idCelSzablon" />
+          </Key>
+          <Property Name="idCelSzablon" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cel" Type="text" />
+        </EntityType>
+        <EntityType Name="ChodziLezy">
+          <Key>
+            <PropertyRef Name="NrChodziLezy" />
+          </Key>
+          <Property Name="NrChodziLezy" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OpisChodziLezy" Type="nvarchar" MaxLength="15" />
+        </EntityType>
+        <EntityType Name="DaneLekarza">
+          <Key>
+            <PropertyRef Name="NrGabinetu" />
+          </Key>
+          <Property Name="NrGabinetu" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Imie" Type="nvarchar" MaxLength="50" />
+          <Property Name="Nazwisko" Type="nvarchar" MaxLength="50" />
+          <Property Name="NrLekarza" Type="int" />
+          <Property Name="Nazwa" Type="nvarchar" MaxLength="100" />
+          <Property Name="Kod" Type="nvarchar" MaxLength="50" />
+          <Property Name="Miasto" Type="nvarchar" MaxLength="50" />
+          <Property Name="Adres" Type="nvarchar" MaxLength="50" />
+          <Property Name="Telefon" Type="nvarchar" MaxLength="50" />
+          <Property Name="Komorka" Type="nvarchar" MaxLength="50" />
+          <Property Name="NIP" Type="nvarchar" MaxLength="50" />
+          <Property Name="Bank" Type="nvarchar" MaxLength="50" />
+          <Property Name="NrKonta" Type="nvarchar" MaxLength="50" />
+          <Property Name="ZakonczonoDane" Type="datetime" />
+          <Property Name="NIPlekarza" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="dtproperties">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="property" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="objectid" Type="int" />
+          <Property Name="property" Type="varchar" MaxLength="64" Nullable="false" />
+          <Property Name="value" Type="varchar" MaxLength="255" />
+          <Property Name="uvalue" Type="nvarchar" MaxLength="255" />
+          <Property Name="lvalue" Type="image" />
+          <Property Name="version" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Leki">
+          <Key>
+            <PropertyRef Name="NrLeku" />
+          </Key>
+          <Property Name="NrLeku" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NazwaLeku" Type="nvarchar" MaxLength="50" />
+          <Property Name="PostacLeku" Type="nvarchar" MaxLength="50" />
+          <Property Name="Opis" Type="nvarchar" MaxLength="50" />
+          <Property Name="Opakowanie" Type="nvarchar" MaxLength="50" />
+          <Property Name="Dawkowanie" Type="nvarchar" MaxLength="250" />
+          <Property Name="Odplatnosc" Type="nvarchar" MaxLength="20" />
+          <Property Name="Wycofany" Type="bit" />
+          <Property Name="refundacja" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="OpisyRachunku">
+          <Key>
+            <PropertyRef Name="NrOpisuRach" />
+          </Key>
+          <Property Name="NrOpisuRach" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDrachunku" Type="bigint" />
+          <Property Name="NrTowaru" Type="int" />
+          <Property Name="NazwaTowaru" Type="nvarchar" MaxLength="200" />
+          <Property Name="ZwolnienieVAT" Type="bit" />
+          <Property Name="StawkaVAT" Type="float" />
+          <Property Name="SWWKWiU" Type="nvarchar" MaxLength="15" />
+          <Property Name="JedMiary" Type="nvarchar" MaxLength="5" />
+          <Property Name="CenaNetto" Type="money" />
+          <Property Name="Ilosc" Type="float" />
+          <Property Name="WartoscNetto" Type="money" />
+          <Property Name="WartoscVAT" Type="money" />
+          <Property Name="WartoscBrutto" Type="money" />
+        </EntityType>
+        <EntityType Name="PacBezNazwisk">
+          <Key>
+            <PropertyRef Name="Nrp" />
+          </Key>
+          <Property Name="Nrp" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nazwisko" Type="nvarchar" MaxLength="40" />
+          <Property Name="Nazwisko2" Type="nvarchar" MaxLength="40" />
+          <Property Name="Imie" Type="nvarchar" MaxLength="30" />
+          <Property Name="Imie2" Type="nvarchar" MaxLength="30" />
+          <Property Name="Plec" Type="nvarchar" MaxLength="1" />
+          <Property Name="rodzina" Type="nvarchar" MaxLength="10" />
+          <Property Name="DataUrodzenia" Type="datetime" />
+          <Property Name="DataUrodzeniaOsobyPodOp" Type="datetime" />
+          <Property Name="Kod" Type="nvarchar" MaxLength="6" />
+          <Property Name="Miejscowosc" Type="nvarchar" MaxLength="50" />
+          <Property Name="Adres" Type="nvarchar" MaxLength="50" />
+          <Property Name="NrDomu" Type="nvarchar" MaxLength="8" />
+          <Property Name="NrLokalu" Type="nvarchar" MaxLength="8" />
+          <Property Name="Telefon" Type="nvarchar" MaxLength="50" />
+          <Property Name="NIP" Type="nvarchar" MaxLength="50" />
+          <Property Name="Pesel" Type="nvarchar" MaxLength="11" />
+          <Property Name="Dowod" Type="nvarchar" MaxLength="20" />
+          <Property Name="Paszport" Type="nvarchar" MaxLength="30" />
+          <Property Name="SymbolKasy" Type="nvarchar" MaxLength="3" />
+          <Property Name="NrUbezpieczonyW" Type="int" />
+          <Property Name="GrKrwi" Type="nvarchar" MaxLength="50" />
+          <Property Name="Rh" Type="nvarchar" MaxLength="50" />
+          <Property Name="NIPzakladu" Type="nvarchar" MaxLength="50" />
+          <Property Name="NazwaZakladuPracy" Type="nvarchar" MaxLength="43" />
+          <Property Name="KodZakladuPracy" Type="nvarchar" MaxLength="50" />
+          <Property Name="MiastoZakladuPracy" Type="nvarchar" MaxLength="50" />
+          <Property Name="AdresZakladuPracy" Type="nvarchar" MaxLength="35" />
+          <Property Name="Zawod" Type="nvarchar" MaxLength="30" />
+          <Property Name="UBEZP" Type="nvarchar" MaxLength="35" />
+          <Property Name="UWAGI" Type="ntext" />
+          <Property Name="DataWprowadzenia" Type="datetime" />
+          <Property Name="PoczatekZwoln180" Type="datetime" />
+          <Property Name="Kiedy180dni" Type="datetime" />
+          <Property Name="NrZakladuPac" Type="int" />
+        </EntityType>
+        <EntityType Name="Pacjenci">
+          <Key>
+            <PropertyRef Name="Nrp" />
+          </Key>
+          <Property Name="Nrp" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nazwisko" Type="varchar" MaxLength="40" />
+          <Property Name="Nazwisko2" Type="varchar" MaxLength="40" />
+          <Property Name="Imie" Type="varchar" MaxLength="30" />
+          <Property Name="Imie2" Type="varchar" MaxLength="30" />
+          <Property Name="Plec" Type="varchar" MaxLength="1" />
+          <Property Name="rodzina" Type="varchar" MaxLength="10" />
+          <Property Name="DataUrodzenia" Type="datetime" />
+          <Property Name="DataUrodzeniaOsobyPodOp" Type="datetime" />
+          <Property Name="Kod" Type="varchar" MaxLength="6" />
+          <Property Name="Miejscowosc" Type="varchar" MaxLength="50" />
+          <Property Name="Adres" Type="varchar" MaxLength="50" />
+          <Property Name="NrDomu" Type="varchar" MaxLength="8" />
+          <Property Name="NrLokalu" Type="varchar" MaxLength="8" />
+          <Property Name="Telefon" Type="varchar" MaxLength="50" />
+          <Property Name="NIP" Type="varchar" MaxLength="50" />
+          <Property Name="Pesel" Type="varchar" MaxLength="11" />
+          <Property Name="Dowod" Type="varchar" MaxLength="20" />
+          <Property Name="Paszport" Type="varchar" MaxLength="30" />
+          <Property Name="SymbolKasy" Type="varchar" MaxLength="3" />
+          <Property Name="NrUbezpieczonyW" Type="int" />
+          <Property Name="GrKrwi" Type="varchar" MaxLength="50" />
+          <Property Name="Rh" Type="varchar" MaxLength="50" />
+          <Property Name="NIPzakladu" Type="varchar" MaxLength="50" />
+          <Property Name="NazwaZakladuPracy" Type="varchar" MaxLength="43" />
+          <Property Name="KodZakladuPracy" Type="varchar" MaxLength="50" />
+          <Property Name="MiastoZakladuPracy" Type="varchar" MaxLength="50" />
+          <Property Name="AdresZakladuPracy" Type="varchar" MaxLength="35" />
+          <Property Name="Zawod" Type="varchar" MaxLength="30" />
+          <Property Name="UBEZP" Type="varchar" MaxLength="35" />
+          <Property Name="UWAGI" Type="text" />
+          <Property Name="DataWprowadzenia" Type="datetime" />
+          <Property Name="PoczatekZwoln180" Type="datetime" />
+          <Property Name="Kiedy180dni" Type="datetime" />
+          <Property Name="NrZakladuPac" Type="int" />
+          <Property Name="KasaChorych" Type="varchar" MaxLength="10" />
+          <Property Name="ReceptaUprawnienia" Type="varchar" MaxLength="5" />
+          <Property Name="ReceptaChorobyPrzewlekle" Type="varchar" MaxLength="5" />
+        </EntityType>
+        <EntityType Name="Plcie">
+          <Key>
+            <PropertyRef Name="nrplec" />
+          </Key>
+          <Property Name="nrplec" Type="int" Nullable="false" />
+          <Property Name="Plec" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Pokrewienstwo">
+          <Key>
+            <PropertyRef Name="KodPokrew" />
+          </Key>
+          <Property Name="KodPokrew" Type="int" Nullable="false" />
+          <Property Name="OpisPokrewienstwa" Type="nvarchar" MaxLength="60" />
+        </EntityType>
+        <EntityType Name="Rachunki">
+          <Key>
+            <PropertyRef Name="IDrachunku" />
+          </Key>
+          <Property Name="IDrachunku" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nrp" Type="bigint" />
+          <Property Name="NrGabinetu" Type="int" />
+          <Property Name="Numerrachunku" Type="int" />
+          <Property Name="EndFixNrRachunku" Type="nvarchar" MaxLength="5" />
+          <Property Name="DataWystawienia" Type="datetime" />
+          <Property Name="NaKogo" Type="nvarchar" MaxLength="255" />
+          <Property Name="NaKogoAdres" Type="nvarchar" MaxLength="50" />
+          <Property Name="NaKogoKod" Type="nvarchar" MaxLength="50" />
+          <Property Name="NaKogoNIP" Type="nvarchar" MaxLength="50" />
+          <Property Name="TypRachunku" Type="nvarchar" MaxLength="20" />
+          <Property Name="VAT" Type="money" />
+          <Property Name="Netto" Type="money" />
+          <Property Name="Brutto" Type="money" />
+          <Property Name="Wystawil" Type="nvarchar" MaxLength="50" />
+          <Property Name="NazwaFV" Type="nvarchar" MaxLength="100" />
+          <Property Name="KodFV" Type="nvarchar" MaxLength="50" />
+          <Property Name="MiastoFV" Type="nvarchar" MaxLength="50" />
+          <Property Name="AdresFV" Type="nvarchar" MaxLength="50" />
+          <Property Name="TelefonFV" Type="nvarchar" MaxLength="50" />
+          <Property Name="KomorkaFV" Type="nvarchar" MaxLength="50" />
+          <Property Name="NIPFV" Type="nvarchar" MaxLength="50" />
+          <Property Name="BankFV" Type="nvarchar" MaxLength="50" />
+          <Property Name="NrKontaFV" Type="nvarchar" MaxLength="50" />
+          <Property Name="SposobZap" Type="nvarchar" MaxLength="8" />
+          <Property Name="Wplaty" Type="money" />
+        </EntityType>
+        <EntityType Name="Recepty">
+          <Key>
+            <PropertyRef Name="NrRecepty" />
+          </Key>
+          <Property Name="NrRecepty" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NrWizyty" Type="bigint" />
+          <Property Name="NrLeku" Type="int" />
+          <Property Name="Ilosc" Type="nvarchar" MaxLength="150" />
+          <Property Name="Postac" Type="nvarchar" MaxLength="50" />
+          <Property Name="Dawkowanie" Type="nvarchar" MaxLength="150" />
+          <Property Name="Odplatnosc" Type="nvarchar" MaxLength="15" />
+          <Property Name="Uwagi" Type="nvarchar" MaxLength="50" />
+          <Property Name="Dawka" Type="varchar" MaxLength="10" />
+          <Property Name="indywidualna" Type="bit" />
+          <Property Name="ReceptaChorobyPrzewlekle" Type="varchar" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="Skierowania">
+          <Key>
+            <PropertyRef Name="NrSkierow" />
+          </Key>
+          <Property Name="NrSkierow" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nrp" Type="bigint" />
+          <Property Name="DataSkierow" Type="datetime" />
+          <Property Name="Rozpoznanie" Type="ntext" />
+          <Property Name="Cel" Type="nvarchar" MaxLength="255" />
+          <Property Name="DoKogo" Type="nvarchar" MaxLength="100" />
+          <Property Name="xml" Type="text" />
+        </EntityType>
+        <EntityType Name="SkierowaniaCele">
+          <Key>
+            <PropertyRef Name="idCelu" />
+          </Key>
+          <Property Name="idCelu" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="poradnia" Type="bigint" />
+          <Property Name="cel" Type="text" />
+        </EntityType>
+        <EntityType Name="SkierowaniaPoradnie">
+          <Key>
+            <PropertyRef Name="idPoradni" />
+          </Key>
+          <Property Name="idPoradni" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NazwaPoradni" Type="varchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="StatystycznaKlasyfikacjaChorob">
+          <Key>
+            <PropertyRef Name="NrStatystyczny" />
+          </Key>
+          <Property Name="NrStatystyczny" Type="nvarchar" MaxLength="6" Nullable="false" />
+          <Property Name="Rozpoznanie" Type="varchar" MaxLength="85" />
+          <Property Name="kod" Type="int" />
+          <Property Name="kod_grupy" Type="int" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="SzabGrupy">
+          <Key>
+            <PropertyRef Name="NrGrSzablon" />
+          </Key>
+          <Property Name="NrGrSzablon" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GrupaSz" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Szablony">
+          <Key>
+            <PropertyRef Name="NrSzablonu" />
+          </Key>
+          <Property Name="NrSzablonu" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NrGabinetu" Type="int" />
+          <Property Name="NrRodzSzab" Type="int" />
+          <Property Name="Kolejnosc" Type="int" />
+          <Property Name="Skrot" Type="varchar" MaxLength="50" />
+          <Property Name="OpisSz" Type="text" />
+          <Property Name="NrGrSzablon" Type="bigint" />
+        </EntityType>
+        <EntityType Name="Towary">
+          <Key>
+            <PropertyRef Name="NrTowaru" />
+          </Key>
+          <Property Name="NrTowaru" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IndeksT" Type="nvarchar" MaxLength="50" />
+          <Property Name="SWWKWiU" Type="nvarchar" MaxLength="15" />
+          <Property Name="Kategoria" Type="nvarchar" MaxLength="50" />
+          <Property Name="Nazwa" Type="nvarchar" MaxLength="200" />
+          <Property Name="Wymiary" Type="nvarchar" MaxLength="12" />
+          <Property Name="JedMiary" Type="nvarchar" MaxLength="5" />
+          <Property Name="CenaNettoZakup" Type="money" />
+          <Property Name="CenaNettoSugerowana" Type="money" />
+          <Property Name="StawkaVAT" Type="float" />
+          <Property Name="ZwolnienieVAT" Type="bit" />
+        </EntityType>
+        <EntityType Name="TypyDokumentow">
+          <Key>
+            <PropertyRef Name="NrTypuDokumentu" />
+          </Key>
+          <Property Name="NrTypuDokumentu" Type="int" Nullable="false" />
+          <Property Name="NazwaDokumentu" Type="nvarchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="UbezpieczonyW">
+          <Key>
+            <PropertyRef Name="NrUbezpieczonyW" />
+          </Key>
+          <Property Name="NrUbezpieczonyW" Type="int" Nullable="false" />
+          <Property Name="OpisUbezpieczonyW" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Usg">
+          <Key>
+            <PropertyRef Name="NrUsg" />
+          </Key>
+          <Property Name="NrUsg" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CzyjeUsgSkrot" Type="nvarchar" MaxLength="2" />
+          <Property Name="CzyjeUsg" Type="nvarchar" MaxLength="50" />
+          <Property Name="KwotaUsg" Type="money" />
+        </EntityType>
+        <EntityType Name="Wizyty">
+          <Key>
+            <PropertyRef Name="NrWizyty" />
+          </Key>
+          <Property Name="NrWizyty" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nrp" Type="bigint" />
+          <Property Name="DataWizyty" Type="datetime" />
+          <Property Name="GodzWizyty" Type="datetime" />
+          <Property Name="wszedl" Type="datetime" />
+          <Property Name="wyszedl" Type="datetime" />
+          <Property Name="Wplata" Type="money" />
+          <Property Name="NrUsg" Type="int" />
+          <Property Name="L4" Type="bit" />
+          <Property Name="WystawionoDnia" Type="datetime" />
+          <Property Name="ZwolnienieOd" Type="datetime" />
+          <Property Name="ZwolnienieDo" Type="datetime" />
+          <Property Name="ZwolnienieDni" Type="int" />
+          <Property Name="NrStatystycznyChoroby" Type="nvarchar" MaxLength="6" />
+          <Property Name="KodABC1" Type="nvarchar" MaxLength="1" />
+          <Property Name="KodABC2" Type="nvarchar" MaxLength="1" />
+          <Property Name="KodABC3" Type="nvarchar" MaxLength="1" />
+          <Property Name="KodABC4" Type="nvarchar" MaxLength="1" />
+          <Property Name="NrChodziLezy" Type="int" />
+          <Property Name="NrTypuDokumentu" Type="int" />
+          <Property Name="KodPokrewienstwa" Type="int" />
+          <Property Name="NrGabinetu" Type="int" />
+          <Property Name="ImieLekarza" Type="nvarchar" MaxLength="50" />
+          <Property Name="NazwiskoLekarza" Type="nvarchar" MaxLength="50" />
+          <Property Name="NrLekarza" Type="int" />
+          <Property Name="NIPLekarza" Type="nvarchar" MaxLength="13" />
+          <Property Name="Id" Type="smallint" />
+          <Property Name="NIPzakladu" Type="nvarchar" MaxLength="13" />
+          <Property Name="NazwaZakladuPracy" Type="nvarchar" MaxLength="255" />
+          <Property Name="KodZakladuPracy" Type="nvarchar" MaxLength="50" />
+          <Property Name="MiastoZakladuPracy" Type="nvarchar" MaxLength="50" />
+          <Property Name="AdresZakladuPracy" Type="nvarchar" MaxLength="35" />
+          <Property Name="Wywiad" Type="ntext" />
+          <Property Name="Badania" Type="ntext" />
+          <Property Name="usg" Type="ntext" />
+          <Property Name="Rozpoznanie" Type="ntext" />
+          <Property Name="Zalecenia" Type="ntext" />
+          <Property Name="Uwagi" Type="ntext" />
+          <Property Name="TerazTen" Type="bit" />
+          <Property Name="CzyDrukowac" Type="bit" />
+          <Property Name="NrZakladuWiz" Type="int" />
+          <Property Name="potwierdzona" Type="bit" />
+          <Property Name="karta" Type="bit" />
+          <Property Name="WplataKarta" Type="money" />
+          <Property Name="DensityGel" Type="varchar" MaxLength="250" />
+          <Property Name="DensityGelOpis" Type="varchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="WizytyPacBezNazwisk">
+          <Key>
+            <PropertyRef Name="NrWizyty" />
+          </Key>
+          <Property Name="NrWizyty" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nrp" Type="int" />
+          <Property Name="DataWizyty" Type="datetime" />
+          <Property Name="GodzWizyty" Type="datetime" />
+          <Property Name="wszedl" Type="datetime" />
+          <Property Name="wyszedl" Type="datetime" />
+          <Property Name="Wplata" Type="money" />
+          <Property Name="L4" Type="bit" />
+          <Property Name="WystawionoDnia" Type="datetime" />
+          <Property Name="ZwolnienieOd" Type="datetime" />
+          <Property Name="ZwolnienieDo" Type="datetime" />
+          <Property Name="ZwolnienieDni" Type="int" />
+          <Property Name="NrStatystycznyChoroby" Type="nvarchar" MaxLength="6" />
+          <Property Name="KodABC1" Type="nvarchar" MaxLength="1" />
+          <Property Name="KodABC2" Type="nvarchar" MaxLength="1" />
+          <Property Name="KodABC3" Type="nvarchar" MaxLength="1" />
+          <Property Name="KodABC4" Type="nvarchar" MaxLength="1" />
+          <Property Name="NrChodziLezy" Type="int" />
+          <Property Name="NrTypuDokumentu" Type="int" />
+          <Property Name="KodPokrewienstwa" Type="nvarchar" MaxLength="3" />
+          <Property Name="NrGabinetu" Type="int" />
+          <Property Name="ImieLekarza" Type="nvarchar" MaxLength="50" />
+          <Property Name="NazwiskoLekarza" Type="nvarchar" MaxLength="50" />
+          <Property Name="NrLekarza" Type="int" />
+          <Property Name="NIPLekarza" Type="nvarchar" MaxLength="50" />
+          <Property Name="Id" Type="smallint" />
+          <Property Name="NIPzakladu" Type="nvarchar" MaxLength="50" />
+          <Property Name="NazwaZakladuPracy" Type="nvarchar" MaxLength="43" />
+          <Property Name="KodZakladuPracy" Type="nvarchar" MaxLength="50" />
+          <Property Name="MiastoZakladuPracy" Type="nvarchar" MaxLength="50" />
+          <Property Name="AdresZakladuPracy" Type="nvarchar" MaxLength="35" />
+          <Property Name="Wywiad" Type="ntext" />
+          <Property Name="Badania" Type="ntext" />
+          <Property Name="usg" Type="ntext" />
+          <Property Name="Rozpoznanie" Type="ntext" />
+          <Property Name="Zalecenia" Type="ntext" />
+          <Property Name="Uwagi" Type="ntext" />
+          <Property Name="TerazTen" Type="bit" />
+          <Property Name="CzyDrukowac" Type="bit" />
+          <Property Name="NrZakladuWiz" Type="int" />
+        </EntityType>
+        <EntityType Name="Zaklady">
+          <Key>
+            <PropertyRef Name="NrZakladu" />
+          </Key>
+          <Property Name="NrZakladu" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NazwaZakladuPracy" Type="nvarchar" MaxLength="255" />
+          <Property Name="KodZakladuPracy" Type="nvarchar" MaxLength="50" />
+          <Property Name="MiastoZakladuPracy" Type="nvarchar" MaxLength="50" />
+          <Property Name="AdresZakladuPracy" Type="nvarchar" MaxLength="35" />
+          <Property Name="bledny" Type="bit" />
+          <Property Name="NIPzakladu" Type="nvarchar" MaxLength="13" />
+          <Property Name="NIPzakladu_old" Type="nvarchar" MaxLength="13" />
+        </EntityType>
+        <EntityType Name="Zaklady_Kopia">
+          <Key>
+            <PropertyRef Name="NrZakladu" />
+          </Key>
+          <Property Name="NrZakladu" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NIPzakladu" Type="nvarchar" MaxLength="13" />
+          <Property Name="NazwaZakladuPracy" Type="nvarchar" MaxLength="43" />
+          <Property Name="KodZakladuPracy" Type="nvarchar" MaxLength="50" />
+          <Property Name="MiastoZakladuPracy" Type="nvarchar" MaxLength="50" />
+          <Property Name="AdresZakladuPracy" Type="nvarchar" MaxLength="35" />
+          <Property Name="bledny" Type="bit" />
+        </EntityType>
+        <EntityType Name="Zaswiadczenia">
+          <Key>
+            <PropertyRef Name="NrZaswiad" />
+          </Key>
+          <Property Name="NrZaswiad" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nrp" Type="bigint" />
+          <Property Name="DataZaswiad" Type="datetime" />
+          <Property Name="Rozpoznanie" Type="text" />
+          <Property Name="Cel" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Zdjecia">
+          <Key>
+            <PropertyRef Name="NrZdj" />
+          </Key>
+          <Property Name="NrZdj" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="wybor" Type="bit" />
+          <Property Name="plikzdj" Type="nvarchar" MaxLength="50" />
+          <Property Name="opiszdj" Type="nvarchar" MaxLength="50" />
+          <Property Name="NrWizyty" Type="bigint" />
+        </EntityType>
+        <EntityType Name="Zdjecia_ar">
+          <Key>
+            <PropertyRef Name="NrZdj" />
+          </Key>
+          <Property Name="NrZdj" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="wybor" Type="bit" />
+          <Property Name="plikzdj" Type="nvarchar" MaxLength="50" />
+          <Property Name="opiszdj" Type="nvarchar" MaxLength="50" />
+          <Property Name="NrWizyty" Type="int" />
+          <Property Name="Data_ar" Type="datetime" />
+          <Property Name="Typ_ar" Type="nvarchar" MaxLength="1" />
+          <Property Name="Kto" Type="nvarchar" MaxLength="50" />
+          <Property Name="Gdzie" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_OpisyRachunku_Rachunki">
+          <End Role="Rachunki" Type="Self.Rachunki" Multiplicity="0..1" />
+          <End Role="OpisyRachunku" Type="Self.OpisyRachunku" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rachunki">
+              <PropertyRef Name="IDrachunku" />
+            </Principal>
+            <Dependent Role="OpisyRachunku">
+              <PropertyRef Name="IDrachunku" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OpisyRachunku_Towary">
+          <End Role="Towary" Type="Self.Towary" Multiplicity="0..1" />
+          <End Role="OpisyRachunku" Type="Self.OpisyRachunku" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Towary">
+              <PropertyRef Name="NrTowaru" />
+            </Principal>
+            <Dependent Role="OpisyRachunku">
+              <PropertyRef Name="NrTowaru" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pacjenci_UbezpieczonyW">
+          <End Role="UbezpieczonyW" Type="Self.UbezpieczonyW" Multiplicity="0..1" />
+          <End Role="Pacjenci" Type="Self.Pacjenci" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UbezpieczonyW">
+              <PropertyRef Name="NrUbezpieczonyW" />
+            </Principal>
+            <Dependent Role="Pacjenci">
+              <PropertyRef Name="NrUbezpieczonyW" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pacjenci_Zaklady">
+          <End Role="Zaklady" Type="Self.Zaklady" Multiplicity="0..1" />
+          <End Role="Pacjenci" Type="Self.Pacjenci" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zaklady">
+              <PropertyRef Name="NrZakladu" />
+            </Principal>
+            <Dependent Role="Pacjenci">
+              <PropertyRef Name="NrZakladuPac" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rachunki_Pacjenci">
+          <End Role="Pacjenci" Type="Self.Pacjenci" Multiplicity="0..1" />
+          <End Role="Rachunki" Type="Self.Rachunki" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pacjenci">
+              <PropertyRef Name="Nrp" />
+            </Principal>
+            <Dependent Role="Rachunki">
+              <PropertyRef Name="Nrp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Recepty_Leki">
+          <End Role="Leki" Type="Self.Leki" Multiplicity="0..1" />
+          <End Role="Recepty" Type="Self.Recepty" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Leki">
+              <PropertyRef Name="NrLeku" />
+            </Principal>
+            <Dependent Role="Recepty">
+              <PropertyRef Name="NrLeku" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Recepty_Wizyty">
+          <End Role="Wizyty" Type="Self.Wizyty" Multiplicity="0..1" />
+          <End Role="Recepty" Type="Self.Recepty" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Wizyty">
+              <PropertyRef Name="NrWizyty" />
+            </Principal>
+            <Dependent Role="Recepty">
+              <PropertyRef Name="NrWizyty" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Skierowania_Pacjenci">
+          <End Role="Pacjenci" Type="Self.Pacjenci" Multiplicity="0..1" />
+          <End Role="Skierowania" Type="Self.Skierowania" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pacjenci">
+              <PropertyRef Name="Nrp" />
+            </Principal>
+            <Dependent Role="Skierowania">
+              <PropertyRef Name="Nrp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Szablony_SzabGrupy">
+          <End Role="SzabGrupy" Type="Self.SzabGrupy" Multiplicity="0..1" />
+          <End Role="Szablony" Type="Self.Szablony" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SzabGrupy">
+              <PropertyRef Name="NrGrSzablon" />
+            </Principal>
+            <Dependent Role="Szablony">
+              <PropertyRef Name="NrGrSzablon" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table2_SkierowaniaPoradnie">
+          <End Role="SkierowaniaPoradnie" Type="Self.SkierowaniaPoradnie" Multiplicity="0..1" />
+          <End Role="SkierowaniaCele" Type="Self.SkierowaniaCele" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SkierowaniaPoradnie">
+              <PropertyRef Name="idPoradni" />
+            </Principal>
+            <Dependent Role="SkierowaniaCele">
+              <PropertyRef Name="poradnia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Wizyty_ChodziLezy">
+          <End Role="ChodziLezy" Type="Self.ChodziLezy" Multiplicity="0..1" />
+          <End Role="Wizyty" Type="Self.Wizyty" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ChodziLezy">
+              <PropertyRef Name="NrChodziLezy" />
+            </Principal>
+            <Dependent Role="Wizyty">
+              <PropertyRef Name="NrChodziLezy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Wizyty_Pacjenci">
+          <End Role="Pacjenci" Type="Self.Pacjenci" Multiplicity="0..1" />
+          <End Role="Wizyty" Type="Self.Wizyty" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pacjenci">
+              <PropertyRef Name="Nrp" />
+            </Principal>
+            <Dependent Role="Wizyty">
+              <PropertyRef Name="Nrp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Wizyty_Pokrewienstwo">
+          <End Role="Pokrewienstwo" Type="Self.Pokrewienstwo" Multiplicity="0..1" />
+          <End Role="Wizyty" Type="Self.Wizyty" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pokrewienstwo">
+              <PropertyRef Name="KodPokrew" />
+            </Principal>
+            <Dependent Role="Wizyty">
+              <PropertyRef Name="KodPokrewienstwa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Wizyty_StatystycznaKlasyfikacjaChorob">
+          <End Role="StatystycznaKlasyfikacjaChorob" Type="Self.StatystycznaKlasyfikacjaChorob" Multiplicity="0..1" />
+          <End Role="Wizyty" Type="Self.Wizyty" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StatystycznaKlasyfikacjaChorob">
+              <PropertyRef Name="NrStatystyczny" />
+            </Principal>
+            <Dependent Role="Wizyty">
+              <PropertyRef Name="NrStatystycznyChoroby" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Wizyty_TypyDokumentow">
+          <End Role="TypyDokumentow" Type="Self.TypyDokumentow" Multiplicity="0..1" />
+          <End Role="Wizyty" Type="Self.Wizyty" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypyDokumentow">
+              <PropertyRef Name="NrTypuDokumentu" />
+            </Principal>
+            <Dependent Role="Wizyty">
+              <PropertyRef Name="NrTypuDokumentu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Wizyty_Usg">
+          <End Role="Usg" Type="Self.Usg" Multiplicity="0..1" />
+          <End Role="Wizyty" Type="Self.Wizyty" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usg">
+              <PropertyRef Name="NrUsg" />
+            </Principal>
+            <Dependent Role="Wizyty">
+              <PropertyRef Name="NrUsg" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Zaswiadczenia_Pacjenci">
+          <End Role="Pacjenci" Type="Self.Pacjenci" Multiplicity="0..1" />
+          <End Role="Zaswiadczenia" Type="Self.Zaswiadczenia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pacjenci">
+              <PropertyRef Name="Nrp" />
+            </Principal>
+            <Dependent Role="Zaswiadczenia">
+              <PropertyRef Name="Nrp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Zdjecia_Wizyty">
+          <End Role="Wizyty" Type="Self.Wizyty" Multiplicity="0..1" />
+          <End Role="Zdjecia" Type="Self.Zdjecia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Wizyty">
+              <PropertyRef Name="NrWizyty" />
+            </Principal>
+            <Dependent Role="Zdjecia">
+              <PropertyRef Name="NrWizyty" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="medisonModelStoreContainer">
+          <EntitySet Name="CelSzablony" EntityType="Self.CelSzablony" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ChodziLezy" EntityType="Self.ChodziLezy" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DaneLekarza" EntityType="Self.DaneLekarza" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="dtproperties" EntityType="Self.dtproperties" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Leki" EntityType="Self.Leki" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OpisyRachunku" EntityType="Self.OpisyRachunku" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PacBezNazwisk" EntityType="Self.PacBezNazwisk" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pacjenci" EntityType="Self.Pacjenci" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Plcie" EntityType="Self.Plcie" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pokrewienstwo" EntityType="Self.Pokrewienstwo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Rachunki" EntityType="Self.Rachunki" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Recepty" EntityType="Self.Recepty" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Skierowania" EntityType="Self.Skierowania" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SkierowaniaCele" EntityType="Self.SkierowaniaCele" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SkierowaniaPoradnie" EntityType="Self.SkierowaniaPoradnie" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StatystycznaKlasyfikacjaChorob" EntityType="Self.StatystycznaKlasyfikacjaChorob" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SzabGrupy" EntityType="Self.SzabGrupy" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Szablony" EntityType="Self.Szablony" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Towary" EntityType="Self.Towary" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TypyDokumentow" EntityType="Self.TypyDokumentow" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UbezpieczonyW" EntityType="Self.UbezpieczonyW" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usg" EntityType="Self.Usg" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Wizyty" EntityType="Self.Wizyty" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WizytyPacBezNazwisk" EntityType="Self.WizytyPacBezNazwisk" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Zaklady" EntityType="Self.Zaklady" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Zaklady_Kopia" EntityType="Self.Zaklady_Kopia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Zaswiadczenia" EntityType="Self.Zaswiadczenia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Zdjecia" EntityType="Self.Zdjecia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Zdjecia_ar" EntityType="Self.Zdjecia_ar" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_OpisyRachunku_Rachunki" Association="Self.FK_OpisyRachunku_Rachunki">
+            <End Role="Rachunki" EntitySet="Rachunki" />
+            <End Role="OpisyRachunku" EntitySet="OpisyRachunku" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OpisyRachunku_Towary" Association="Self.FK_OpisyRachunku_Towary">
+            <End Role="Towary" EntitySet="Towary" />
+            <End Role="OpisyRachunku" EntitySet="OpisyRachunku" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pacjenci_UbezpieczonyW" Association="Self.FK_Pacjenci_UbezpieczonyW">
+            <End Role="UbezpieczonyW" EntitySet="UbezpieczonyW" />
+            <End Role="Pacjenci" EntitySet="Pacjenci" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pacjenci_Zaklady" Association="Self.FK_Pacjenci_Zaklady">
+            <End Role="Zaklady" EntitySet="Zaklady" />
+            <End Role="Pacjenci" EntitySet="Pacjenci" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rachunki_Pacjenci" Association="Self.FK_Rachunki_Pacjenci">
+            <End Role="Pacjenci" EntitySet="Pacjenci" />
+            <End Role="Rachunki" EntitySet="Rachunki" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Recepty_Leki" Association="Self.FK_Recepty_Leki">
+            <End Role="Leki" EntitySet="Leki" />
+            <End Role="Recepty" EntitySet="Recepty" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Recepty_Wizyty" Association="Self.FK_Recepty_Wizyty">
+            <End Role="Wizyty" EntitySet="Wizyty" />
+            <End Role="Recepty" EntitySet="Recepty" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Skierowania_Pacjenci" Association="Self.FK_Skierowania_Pacjenci">
+            <End Role="Pacjenci" EntitySet="Pacjenci" />
+            <End Role="Skierowania" EntitySet="Skierowania" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Szablony_SzabGrupy" Association="Self.FK_Szablony_SzabGrupy">
+            <End Role="SzabGrupy" EntitySet="SzabGrupy" />
+            <End Role="Szablony" EntitySet="Szablony" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table2_SkierowaniaPoradnie" Association="Self.FK_Table2_SkierowaniaPoradnie">
+            <End Role="SkierowaniaPoradnie" EntitySet="SkierowaniaPoradnie" />
+            <End Role="SkierowaniaCele" EntitySet="SkierowaniaCele" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Wizyty_ChodziLezy" Association="Self.FK_Wizyty_ChodziLezy">
+            <End Role="ChodziLezy" EntitySet="ChodziLezy" />
+            <End Role="Wizyty" EntitySet="Wizyty" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Wizyty_Pacjenci" Association="Self.FK_Wizyty_Pacjenci">
+            <End Role="Pacjenci" EntitySet="Pacjenci" />
+            <End Role="Wizyty" EntitySet="Wizyty" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Wizyty_Pokrewienstwo" Association="Self.FK_Wizyty_Pokrewienstwo">
+            <End Role="Pokrewienstwo" EntitySet="Pokrewienstwo" />
+            <End Role="Wizyty" EntitySet="Wizyty" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Wizyty_StatystycznaKlasyfikacjaChorob" Association="Self.FK_Wizyty_StatystycznaKlasyfikacjaChorob">
+            <End Role="StatystycznaKlasyfikacjaChorob" EntitySet="StatystycznaKlasyfikacjaChorob" />
+            <End Role="Wizyty" EntitySet="Wizyty" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Wizyty_TypyDokumentow" Association="Self.FK_Wizyty_TypyDokumentow">
+            <End Role="TypyDokumentow" EntitySet="TypyDokumentow" />
+            <End Role="Wizyty" EntitySet="Wizyty" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Wizyty_Usg" Association="Self.FK_Wizyty_Usg">
+            <End Role="Usg" EntitySet="Usg" />
+            <End Role="Wizyty" EntitySet="Wizyty" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Zaswiadczenia_Pacjenci" Association="Self.FK_Zaswiadczenia_Pacjenci">
+            <End Role="Pacjenci" EntitySet="Pacjenci" />
+            <End Role="Zaswiadczenia" EntitySet="Zaswiadczenia" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Zdjecia_Wizyty" Association="Self.FK_Zdjecia_Wizyty">
+            <End Role="Wizyty" EntitySet="Wizyty" />
+            <End Role="Zdjecia" EntitySet="Zdjecia" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="medisonModel" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2009/11/edm" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+        <EntityContainer Name="medisonEntities" annotation:LazyLoadingEnabled="true" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+          <EntitySet Name="ChodziLezy" EntityType="medisonModel.ChodziLezy" />
+          <EntitySet Name="DaneLekarza" EntityType="medisonModel.DaneLekarza" />
+          <EntitySet Name="dtproperties" EntityType="medisonModel.dtproperties" />
+          <EntitySet Name="Leki" EntityType="medisonModel.Leki" />
+          <EntitySet Name="OpisyRachunku" EntityType="medisonModel.OpisyRachunku" />
+          <EntitySet Name="PacBezNazwisk" EntityType="medisonModel.PacBezNazwisk" />
+          <EntitySet Name="Pacjenci" EntityType="medisonModel.Pacjenci" />
+          <EntitySet Name="Plcie" EntityType="medisonModel.Plcie" />
+          <EntitySet Name="Pokrewienstwo" EntityType="medisonModel.Pokrewienstwo" />
+          <EntitySet Name="Recepty" EntityType="medisonModel.Recepty" />
+          <EntitySet Name="Skierowania" EntityType="medisonModel.Skierowania" />
+          <EntitySet Name="StatystycznaKlasyfikacjaChorob" EntityType="medisonModel.StatystycznaKlasyfikacjaChorob" />
+          <EntitySet Name="sysdiagrams" EntityType="medisonModel.sysdiagrams" />
+          <EntitySet Name="SzabGrupy" EntityType="medisonModel.SzabGrupy" />
+          <EntitySet Name="Szablony" EntityType="medisonModel.Szablony" />
+          <EntitySet Name="Towary" EntityType="medisonModel.Towary" />
+          <EntitySet Name="TypyDokumentow" EntityType="medisonModel.TypyDokumentow" />
+          <EntitySet Name="UbezpieczonyW" EntityType="medisonModel.UbezpieczonyW" />
+          <EntitySet Name="Usg" EntityType="medisonModel.Usg" />
+          <EntitySet Name="Wizyty" EntityType="medisonModel.Wizyty" />
+          <EntitySet Name="WizytyPacBezNazwisk" EntityType="medisonModel.WizytyPacBezNazwisk" />
+          <EntitySet Name="Zaklady" EntityType="medisonModel.Zaklady" />
+          <EntitySet Name="Zaklady_Kopia" EntityType="medisonModel.Zaklady_Kopia" />
+          <EntitySet Name="Zaswiadczenia" EntityType="medisonModel.Zaswiadczenia" />
+          <EntitySet Name="Zdjecia" EntityType="medisonModel.Zdjecia" />
+          <EntitySet Name="Zdjecia_ar" EntityType="medisonModel.Zdjecia_ar" />
+          <AssociationSet Name="FK_Wizyty_ChodziLezy" Association="medisonModel.FK_Wizyty_ChodziLezy">
+            <End Role="ChodziLezy" EntitySet="ChodziLezy" />
+            <End Role="Wizyty" EntitySet="Wizyty" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Recepty_Leki" Association="medisonModel.FK_Recepty_Leki">
+            <End Role="Leki" EntitySet="Leki" />
+            <End Role="Recepty" EntitySet="Recepty" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OpisyRachunku_Towary" Association="medisonModel.FK_OpisyRachunku_Towary">
+            <End Role="Towary" EntitySet="Towary" />
+            <End Role="OpisyRachunku" EntitySet="OpisyRachunku" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pacjenci_UbezpieczonyW" Association="medisonModel.FK_Pacjenci_UbezpieczonyW">
+            <End Role="UbezpieczonyW" EntitySet="UbezpieczonyW" />
+            <End Role="Pacjenci" EntitySet="Pacjenci" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pacjenci_Zaklady" Association="medisonModel.FK_Pacjenci_Zaklady">
+            <End Role="Zaklady" EntitySet="Zaklady" />
+            <End Role="Pacjenci" EntitySet="Pacjenci" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Skierowania_Pacjenci" Association="medisonModel.FK_Skierowania_Pacjenci">
+            <End Role="Pacjenci" EntitySet="Pacjenci" />
+            <End Role="Skierowania" EntitySet="Skierowania" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Wizyty_Pacjenci" Association="medisonModel.FK_Wizyty_Pacjenci">
+            <End Role="Pacjenci" EntitySet="Pacjenci" />
+            <End Role="Wizyty" EntitySet="Wizyty" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Zaswiadczenia_Pacjenci" Association="medisonModel.FK_Zaswiadczenia_Pacjenci">
+            <End Role="Pacjenci" EntitySet="Pacjenci" />
+            <End Role="Zaswiadczenia" EntitySet="Zaswiadczenia" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Wizyty_Pokrewienstwo" Association="medisonModel.FK_Wizyty_Pokrewienstwo">
+            <End Role="Pokrewienstwo" EntitySet="Pokrewienstwo" />
+            <End Role="Wizyty" EntitySet="Wizyty" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Recepty_Wizyty" Association="medisonModel.FK_Recepty_Wizyty">
+            <End Role="Wizyty" EntitySet="Wizyty" />
+            <End Role="Recepty" EntitySet="Recepty" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Wizyty_StatystycznaKlasyfikacjaChorob" Association="medisonModel.FK_Wizyty_StatystycznaKlasyfikacjaChorob">
+            <End Role="StatystycznaKlasyfikacjaChorob" EntitySet="StatystycznaKlasyfikacjaChorob" />
+            <End Role="Wizyty" EntitySet="Wizyty" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Szablony_SzabGrupy" Association="medisonModel.FK_Szablony_SzabGrupy">
+            <End Role="SzabGrupy" EntitySet="SzabGrupy" />
+            <End Role="Szablony" EntitySet="Szablony" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Wizyty_TypyDokumentow" Association="medisonModel.FK_Wizyty_TypyDokumentow">
+            <End Role="TypyDokumentow" EntitySet="TypyDokumentow" />
+            <End Role="Wizyty" EntitySet="Wizyty" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Wizyty_Usg" Association="medisonModel.FK_Wizyty_Usg">
+            <End Role="Usg" EntitySet="Usg" />
+            <End Role="Wizyty" EntitySet="Wizyty" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Zdjecia_Wizyty" Association="medisonModel.FK_Zdjecia_Wizyty">
+            <End Role="Wizyty" EntitySet="Wizyty" />
+            <End Role="Zdjecia" EntitySet="Zdjecia" />
+          </AssociationSet>
+          <EntitySet Name="SkierowaniaCele" EntityType="medisonModel.SkierowaniaCele" />
+          <EntitySet Name="SkierowaniaPoradnie" EntityType="medisonModel.SkierowaniaPoradnie" />
+          <AssociationSet Name="FK_Table2_SkierowaniaPoradnie" Association="medisonModel.FK_Table2_SkierowaniaPoradnie">
+            <End Role="SkierowaniaPoradnie" EntitySet="SkierowaniaPoradnie" />
+            <End Role="SkierowaniaCele" EntitySet="SkierowaniaCele" />
+          </AssociationSet>
+          <EntitySet Name="CelSzablony" EntityType="medisonModel.CelSzablony" />
+          <EntitySet Name="Rachunki" EntityType="medisonModel.Rachunki" />
+          <AssociationSet Name="FK_OpisyRachunku_Rachunki" Association="medisonModel.FK_OpisyRachunku_Rachunki">
+            <End Role="Rachunki" EntitySet="Rachunki" />
+            <End Role="OpisyRachunku" EntitySet="OpisyRachunku" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rachunki_Pacjenci" Association="medisonModel.FK_Rachunki_Pacjenci">
+            <End Role="Pacjenci" EntitySet="Pacjenci" />
+            <End Role="Rachunki" EntitySet="Rachunki" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="ChodziLezy">
+          <Key>
+            <PropertyRef Name="NrChodziLezy" />
+          </Key>
+          <Property Name="NrChodziLezy" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="OpisChodziLezy" Type="String" MaxLength="15" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Wizyty" Relationship="medisonModel.FK_Wizyty_ChodziLezy" FromRole="ChodziLezy" ToRole="Wizyty" />
+        </EntityType>
+        <EntityType Name="DaneLekarza">
+          <Key>
+            <PropertyRef Name="NrGabinetu" />
+          </Key>
+          <Property Name="NrGabinetu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="Imie" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Nazwisko" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="NrLekarza" Type="Int32" />
+          <Property Name="Nazwa" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="Kod" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Miasto" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Adres" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Telefon" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Komorka" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="NIP" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Bank" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="NrKonta" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ZakonczonoDane" Type="DateTime" Precision="3" />
+          <Property Name="NIPlekarza" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="dtproperties">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="property" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="objectid" Type="Int32" />
+          <Property Name="property" Type="String" Nullable="false" MaxLength="64" Unicode="false" FixedLength="false" />
+          <Property Name="value" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="uvalue" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="lvalue" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="version" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Leki">
+          <Key>
+            <PropertyRef Name="NrLeku" />
+          </Key>
+          <Property Name="NrLeku" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="NazwaLeku" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="PostacLeku" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Opis" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Opakowanie" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Dawkowanie" Type="String" MaxLength="250" Unicode="true" FixedLength="false" />
+          <Property Name="Odplatnosc" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="Wycofany" Type="Boolean" />
+          <NavigationProperty Name="Recepty" Relationship="medisonModel.FK_Recepty_Leki" FromRole="Leki" ToRole="Recepty" />
+          <Property Type="String" Name="refundacja" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="OpisyRachunku">
+          <Key>
+            <PropertyRef Name="NrOpisuRach" />
+          </Key>
+          <Property Name="NrOpisuRach" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="IDrachunku" Type="Int64" />
+          <Property Name="NrTowaru" Type="Int32" />
+          <Property Name="NazwaTowaru" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+          <Property Name="ZwolnienieVAT" Type="Boolean" />
+          <Property Name="StawkaVAT" Type="Double" />
+          <Property Name="SWWKWiU" Type="String" MaxLength="15" Unicode="true" FixedLength="false" />
+          <Property Name="JedMiary" Type="String" MaxLength="5" Unicode="true" FixedLength="false" />
+          <Property Name="CenaNetto" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Ilosc" Type="Double" />
+          <Property Name="WartoscNetto" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="WartoscVAT" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="WartoscBrutto" Type="Decimal" Precision="19" Scale="4" />
+          <NavigationProperty Name="Towary" Relationship="medisonModel.FK_OpisyRachunku_Towary" FromRole="OpisyRachunku" ToRole="Towary" />
+          <NavigationProperty Name="Rachunki" Relationship="medisonModel.FK_OpisyRachunku_Rachunki" FromRole="OpisyRachunku" ToRole="Rachunki" />
+        </EntityType>
+        <EntityType Name="PacBezNazwisk">
+          <Key>
+            <PropertyRef Name="Nrp" />
+          </Key>
+          <Property Name="Nrp" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="Nazwisko" Type="String" MaxLength="40" Unicode="true" FixedLength="false" />
+          <Property Name="Nazwisko2" Type="String" MaxLength="40" Unicode="true" FixedLength="false" />
+          <Property Name="Imie" Type="String" MaxLength="30" Unicode="true" FixedLength="false" />
+          <Property Name="Imie2" Type="String" MaxLength="30" Unicode="true" FixedLength="false" />
+          <Property Name="Plec" Type="String" MaxLength="1" Unicode="true" FixedLength="false" />
+          <Property Name="rodzina" Type="String" MaxLength="10" Unicode="true" FixedLength="false" />
+          <Property Name="DataUrodzenia" Type="DateTime" Precision="3" />
+          <Property Name="DataUrodzeniaOsobyPodOp" Type="DateTime" Precision="3" />
+          <Property Name="Kod" Type="String" MaxLength="6" Unicode="true" FixedLength="false" />
+          <Property Name="Miejscowosc" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Adres" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="NrDomu" Type="String" MaxLength="8" Unicode="true" FixedLength="false" />
+          <Property Name="NrLokalu" Type="String" MaxLength="8" Unicode="true" FixedLength="false" />
+          <Property Name="Telefon" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="NIP" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Pesel" Type="String" MaxLength="11" Unicode="true" FixedLength="false" />
+          <Property Name="Dowod" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="Paszport" Type="String" MaxLength="30" Unicode="true" FixedLength="false" />
+          <Property Name="SymbolKasy" Type="String" MaxLength="3" Unicode="true" FixedLength="false" />
+          <Property Name="NrUbezpieczonyW" Type="Int32" />
+          <Property Name="GrKrwi" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Rh" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="NIPzakladu" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="NazwaZakladuPracy" Type="String" MaxLength="43" Unicode="true" FixedLength="false" />
+          <Property Name="KodZakladuPracy" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="MiastoZakladuPracy" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="AdresZakladuPracy" Type="String" MaxLength="35" Unicode="true" FixedLength="false" />
+          <Property Name="Zawod" Type="String" MaxLength="30" Unicode="true" FixedLength="false" />
+          <Property Name="UBEZP" Type="String" MaxLength="35" Unicode="true" FixedLength="false" />
+          <Property Name="UWAGI" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="DataWprowadzenia" Type="DateTime" Precision="3" />
+          <Property Name="PoczatekZwoln180" Type="DateTime" Precision="3" />
+          <Property Name="Kiedy180dni" Type="DateTime" Precision="3" />
+          <Property Name="NrZakladuPac" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Pacjenci">
+          <Key>
+            <PropertyRef Name="Nrp" />
+          </Key>
+          <Property Name="Nrp" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="Nazwisko" Type="String" MaxLength="40" Unicode="false" FixedLength="false" />
+          <Property Name="Nazwisko2" Type="String" MaxLength="40" Unicode="false" FixedLength="false" />
+          <Property Name="Imie" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="Imie2" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="Plec" Type="String" MaxLength="1" Unicode="false" FixedLength="false" />
+          <Property Name="rodzina" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="DataUrodzenia" Type="DateTime" Precision="3" />
+          <Property Name="DataUrodzeniaOsobyPodOp" Type="DateTime" Precision="3" />
+          <Property Name="Kod" Type="String" MaxLength="6" Unicode="false" FixedLength="false" />
+          <Property Name="Miejscowosc" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Adres" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="NrDomu" Type="String" MaxLength="8" Unicode="false" FixedLength="false" />
+          <Property Name="NrLokalu" Type="String" MaxLength="8" Unicode="false" FixedLength="false" />
+          <Property Name="Telefon" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="NIP" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Pesel" Type="String" MaxLength="11" Unicode="false" FixedLength="false" />
+          <Property Name="Dowod" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="Paszport" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="SymbolKasy" Type="String" MaxLength="3" Unicode="false" FixedLength="false" />
+          <Property Name="NrUbezpieczonyW" Type="Int32" />
+          <Property Name="GrKrwi" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Rh" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="NIPzakladu" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="NazwaZakladuPracy" Type="String" MaxLength="43" Unicode="false" FixedLength="false" />
+          <Property Name="KodZakladuPracy" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="MiastoZakladuPracy" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="AdresZakladuPracy" Type="String" MaxLength="35" Unicode="false" FixedLength="false" />
+          <Property Name="Zawod" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="UBEZP" Type="String" MaxLength="35" Unicode="false" FixedLength="false" />
+          <Property Name="UWAGI" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="DataWprowadzenia" Type="DateTime" Precision="3" />
+          <Property Name="PoczatekZwoln180" Type="DateTime" Precision="3" />
+          <Property Name="Kiedy180dni" Type="DateTime" Precision="3" />
+          <Property Name="NrZakladuPac" Type="Int32" />
+          <NavigationProperty Name="UbezpieczonyW" Relationship="medisonModel.FK_Pacjenci_UbezpieczonyW" FromRole="Pacjenci" ToRole="UbezpieczonyW" />
+          <NavigationProperty Name="Zaklady" Relationship="medisonModel.FK_Pacjenci_Zaklady" FromRole="Pacjenci" ToRole="Zaklady" />
+          <NavigationProperty Name="Skierowania" Relationship="medisonModel.FK_Skierowania_Pacjenci" FromRole="Pacjenci" ToRole="Skierowania" />
+          <NavigationProperty Name="Wizyty" Relationship="medisonModel.FK_Wizyty_Pacjenci" FromRole="Pacjenci" ToRole="Wizyty" />
+          <NavigationProperty Name="Zaswiadczenia" Relationship="medisonModel.FK_Zaswiadczenia_Pacjenci" FromRole="Pacjenci" ToRole="Zaswiadczenia" />
+          <Property Type="String" Name="KasaChorych" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ReceptaUprawnienia" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ReceptaChorobyPrzewlekle" MaxLength="5" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Rachunki" Relationship="medisonModel.FK_Rachunki_Pacjenci" FromRole="Pacjenci" ToRole="Rachunki" />
+        </EntityType>
+        <EntityType Name="Plcie">
+          <Key>
+            <PropertyRef Name="nrplec" />
+          </Key>
+          <Property Name="nrplec" Type="Int32" Nullable="false" />
+          <Property Name="Plec" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Pokrewienstwo">
+          <Key>
+            <PropertyRef Name="KodPokrew" />
+          </Key>
+          <Property Name="KodPokrew" Type="Int32" Nullable="false" />
+          <Property Name="OpisPokrewienstwa" Type="String" MaxLength="60" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Wizyty" Relationship="medisonModel.FK_Wizyty_Pokrewienstwo" FromRole="Pokrewienstwo" ToRole="Wizyty" />
+        </EntityType>
+        <EntityType Name="Recepty">
+          <Key>
+            <PropertyRef Name="NrRecepty" />
+          </Key>
+          <Property Name="NrRecepty" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="NrWizyty" Type="Int64" />
+          <Property Name="NrLeku" Type="Int32" />
+          <Property Name="Ilosc" Type="String" MaxLength="150" Unicode="true" FixedLength="false" />
+          <Property Name="Postac" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Dawkowanie" Type="String" MaxLength="150" Unicode="true" FixedLength="false" />
+          <Property Name="Odplatnosc" Type="String" MaxLength="15" Unicode="true" FixedLength="false" />
+          <Property Name="Uwagi" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Leki" Relationship="medisonModel.FK_Recepty_Leki" FromRole="Recepty" ToRole="Leki" />
+          <NavigationProperty Name="Wizyty" Relationship="medisonModel.FK_Recepty_Wizyty" FromRole="Recepty" ToRole="Wizyty" />
+          <Property Type="String" Name="Dawka" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="indywidualna" />
+          <Property Type="String" Name="ReceptaChorobyPrzewlekle" MaxLength="1" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Skierowania">
+          <Key>
+            <PropertyRef Name="NrSkierow" />
+          </Key>
+          <Property Name="NrSkierow" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="Nrp" Type="Int64" />
+          <Property Name="DataSkierow" Type="DateTime" Precision="3" />
+          <Property Name="Rozpoznanie" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Cel" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="DoKogo" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Pacjenci" Relationship="medisonModel.FK_Skierowania_Pacjenci" FromRole="Skierowania" ToRole="Pacjenci" />
+          <Property Type="String" Name="xml" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="StatystycznaKlasyfikacjaChorob">
+          <Key>
+            <PropertyRef Name="NrStatystyczny" />
+          </Key>
+          <Property Name="NrStatystyczny" Type="String" Nullable="false" MaxLength="6" Unicode="true" FixedLength="false" />
+          <Property Name="Rozpoznanie" Type="String" MaxLength="85" Unicode="false" FixedLength="false" />
+          <Property Name="kod" Type="Int32" />
+          <Property Name="kod_grupy" Type="Int32" />
+          <NavigationProperty Name="Wizyty" Relationship="medisonModel.FK_Wizyty_StatystycznaKlasyfikacjaChorob" FromRole="StatystycznaKlasyfikacjaChorob" ToRole="Wizyty" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="SzabGrupy">
+          <Key>
+            <PropertyRef Name="NrGrSzablon" />
+          </Key>
+          <Property Name="NrGrSzablon" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="GrupaSz" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Szablony" Relationship="medisonModel.FK_Szablony_SzabGrupy" FromRole="SzabGrupy" ToRole="Szablony" />
+        </EntityType>
+        <EntityType Name="Szablony">
+          <Key>
+            <PropertyRef Name="NrSzablonu" />
+          </Key>
+          <Property Name="NrSzablonu" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="NrGabinetu" Type="Int32" />
+          <Property Name="NrRodzSzab" Type="Int32" />
+          <Property Name="Kolejnosc" Type="Int32" />
+          <Property Name="Skrot" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="OpisSz" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="NrGrSzablon" Type="Int64" />
+          <NavigationProperty Name="SzabGrupy" Relationship="medisonModel.FK_Szablony_SzabGrupy" FromRole="Szablony" ToRole="SzabGrupy" />
+        </EntityType>
+        <EntityType Name="Towary">
+          <Key>
+            <PropertyRef Name="NrTowaru" />
+          </Key>
+          <Property Name="NrTowaru" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="IndeksT" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="SWWKWiU" Type="String" MaxLength="15" Unicode="true" FixedLength="false" />
+          <Property Name="Kategoria" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Nazwa" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+          <Property Name="Wymiary" Type="String" MaxLength="12" Unicode="true" FixedLength="false" />
+          <Property Name="JedMiary" Type="String" MaxLength="5" Unicode="true" FixedLength="false" />
+          <Property Name="CenaNettoZakup" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="CenaNettoSugerowana" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="StawkaVAT" Type="Double" />
+          <Property Name="ZwolnienieVAT" Type="Boolean" />
+          <NavigationProperty Name="OpisyRachunku" Relationship="medisonModel.FK_OpisyRachunku_Towary" FromRole="Towary" ToRole="OpisyRachunku" />
+        </EntityType>
+        <EntityType Name="TypyDokumentow">
+          <Key>
+            <PropertyRef Name="NrTypuDokumentu" />
+          </Key>
+          <Property Name="NrTypuDokumentu" Type="Int32" Nullable="false" />
+          <Property Name="NazwaDokumentu" Type="String" MaxLength="10" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Wizyty" Relationship="medisonModel.FK_Wizyty_TypyDokumentow" FromRole="TypyDokumentow" ToRole="Wizyty" />
+        </EntityType>
+        <EntityType Name="UbezpieczonyW">
+          <Key>
+            <PropertyRef Name="NrUbezpieczonyW" />
+          </Key>
+          <Property Name="NrUbezpieczonyW" Type="Int32" Nullable="false" />
+          <Property Name="OpisUbezpieczonyW" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Pacjenci" Relationship="medisonModel.FK_Pacjenci_UbezpieczonyW" FromRole="UbezpieczonyW" ToRole="Pacjenci" />
+        </EntityType>
+        <EntityType Name="Usg">
+          <Key>
+            <PropertyRef Name="NrUsg" />
+          </Key>
+          <Property Name="NrUsg" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="CzyjeUsgSkrot" Type="String" MaxLength="2" Unicode="true" FixedLength="false" />
+          <Property Name="CzyjeUsg" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="KwotaUsg" Type="Decimal" Precision="19" Scale="4" />
+          <NavigationProperty Name="Wizyty" Relationship="medisonModel.FK_Wizyty_Usg" FromRole="Usg" ToRole="Wizyty" />
+        </EntityType>
+        <EntityType Name="Wizyty">
+          <Key>
+            <PropertyRef Name="NrWizyty" />
+          </Key>
+          <Property Name="NrWizyty" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="Nrp" Type="Int64" />
+          <Property Name="DataWizyty" Type="DateTime" Precision="3" />
+          <Property Name="GodzWizyty" Type="DateTime" Precision="3" />
+          <Property Name="wszedl" Type="DateTime" Precision="3" />
+          <Property Name="wyszedl" Type="DateTime" Precision="3" />
+          <Property Name="Wplata" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="NrUsg" Type="Int32" />
+          <Property Name="L4" Type="Boolean" />
+          <Property Name="WystawionoDnia" Type="DateTime" Precision="3" />
+          <Property Name="ZwolnienieOd" Type="DateTime" Precision="3" />
+          <Property Name="ZwolnienieDo" Type="DateTime" Precision="3" />
+          <Property Name="ZwolnienieDni" Type="Int32" />
+          <Property Name="NrStatystycznyChoroby" Type="String" MaxLength="6" Unicode="true" FixedLength="false" />
+          <Property Name="KodABC1" Type="String" MaxLength="1" Unicode="true" FixedLength="false" />
+          <Property Name="KodABC2" Type="String" MaxLength="1" Unicode="true" FixedLength="false" />
+          <Property Name="KodABC3" Type="String" MaxLength="1" Unicode="true" FixedLength="false" />
+          <Property Name="KodABC4" Type="String" MaxLength="1" Unicode="true" FixedLength="false" />
+          <Property Name="NrChodziLezy" Type="Int32" />
+          <Property Name="NrTypuDokumentu" Type="Int32" />
+          <Property Name="KodPokrewienstwa" Type="Int32" />
+          <Property Name="NrGabinetu" Type="Int32" />
+          <Property Name="ImieLekarza" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="NazwiskoLekarza" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="NrLekarza" Type="Int32" />
+          <Property Name="NIPLekarza" Type="String" MaxLength="13" Unicode="true" FixedLength="false" />
+          <Property Name="Id" Type="Int16" />
+          <Property Name="NIPzakladu" Type="String" MaxLength="13" Unicode="true" FixedLength="false" />
+          <Property Name="NazwaZakladuPracy" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="KodZakladuPracy" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="MiastoZakladuPracy" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="AdresZakladuPracy" Type="String" MaxLength="35" Unicode="true" FixedLength="false" />
+          <Property Name="Wywiad" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Badania" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="usg" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Rozpoznanie" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Zalecenia" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Uwagi" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="TerazTen" Type="Boolean" />
+          <Property Name="CzyDrukowac" Type="Boolean" />
+          <Property Name="NrZakladuWiz" Type="Int32" />
+          <NavigationProperty Name="ChodziLezy" Relationship="medisonModel.FK_Wizyty_ChodziLezy" FromRole="Wizyty" ToRole="ChodziLezy" />
+          <NavigationProperty Name="Pacjenci" Relationship="medisonModel.FK_Wizyty_Pacjenci" FromRole="Wizyty" ToRole="Pacjenci" />
+          <NavigationProperty Name="Pokrewienstwo" Relationship="medisonModel.FK_Wizyty_Pokrewienstwo" FromRole="Wizyty" ToRole="Pokrewienstwo" />
+          <NavigationProperty Name="Recepty" Relationship="medisonModel.FK_Recepty_Wizyty" FromRole="Wizyty" ToRole="Recepty" />
+          <NavigationProperty Name="StatystycznaKlasyfikacjaChorob" Relationship="medisonModel.FK_Wizyty_StatystycznaKlasyfikacjaChorob" FromRole="Wizyty" ToRole="StatystycznaKlasyfikacjaChorob" />
+          <NavigationProperty Name="TypyDokumentow" Relationship="medisonModel.FK_Wizyty_TypyDokumentow" FromRole="Wizyty" ToRole="TypyDokumentow" />
+          <NavigationProperty Name="Usg1" Relationship="medisonModel.FK_Wizyty_Usg" FromRole="Wizyty" ToRole="Usg" />
+          <NavigationProperty Name="Zdjecia" Relationship="medisonModel.FK_Zdjecia_Wizyty" FromRole="Wizyty" ToRole="Zdjecia" />
+          <Property Type="Boolean" Name="potwierdzona" />
+          <Property Name="karta" Type="Boolean" />
+          <Property Name="WplataKarta" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="DensityGel" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="DensityGelOpis" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="WizytyPacBezNazwisk">
+          <Key>
+            <PropertyRef Name="NrWizyty" />
+          </Key>
+          <Property Name="NrWizyty" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="Nrp" Type="Int32" />
+          <Property Name="DataWizyty" Type="DateTime" Precision="3" />
+          <Property Name="GodzWizyty" Type="DateTime" Precision="3" />
+          <Property Name="wszedl" Type="DateTime" Precision="3" />
+          <Property Name="wyszedl" Type="DateTime" Precision="3" />
+          <Property Name="Wplata" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="L4" Type="Boolean" />
+          <Property Name="WystawionoDnia" Type="DateTime" Precision="3" />
+          <Property Name="ZwolnienieOd" Type="DateTime" Precision="3" />
+          <Property Name="ZwolnienieDo" Type="DateTime" Precision="3" />
+          <Property Name="ZwolnienieDni" Type="Int32" />
+          <Property Name="NrStatystycznyChoroby" Type="String" MaxLength="6" Unicode="true" FixedLength="false" />
+          <Property Name="KodABC1" Type="String" MaxLength="1" Unicode="true" FixedLength="false" />
+          <Property Name="KodABC2" Type="String" MaxLength="1" Unicode="true" FixedLength="false" />
+          <Property Name="KodABC3" Type="String" MaxLength="1" Unicode="true" FixedLength="false" />
+          <Property Name="KodABC4" Type="String" MaxLength="1" Unicode="true" FixedLength="false" />
+          <Property Name="NrChodziLezy" Type="Int32" />
+          <Property Name="NrTypuDokumentu" Type="Int32" />
+          <Property Name="KodPokrewienstwa" Type="String" MaxLength="3" Unicode="true" FixedLength="false" />
+          <Property Name="NrGabinetu" Type="Int32" />
+          <Property Name="ImieLekarza" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="NazwiskoLekarza" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="NrLekarza" Type="Int32" />
+          <Property Name="NIPLekarza" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Id" Type="Int16" />
+          <Property Name="NIPzakladu" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="NazwaZakladuPracy" Type="String" MaxLength="43" Unicode="true" FixedLength="false" />
+          <Property Name="KodZakladuPracy" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="MiastoZakladuPracy" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="AdresZakladuPracy" Type="String" MaxLength="35" Unicode="true" FixedLength="false" />
+          <Property Name="Wywiad" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Badania" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="usg" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Rozpoznanie" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Zalecenia" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Uwagi" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="TerazTen" Type="Boolean" />
+          <Property Name="CzyDrukowac" Type="Boolean" />
+          <Property Name="NrZakladuWiz" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Zaklady">
+          <Key>
+            <PropertyRef Name="NrZakladu" />
+          </Key>
+          <Property Name="NrZakladu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="NazwaZakladuPracy" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="KodZakladuPracy" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="MiastoZakladuPracy" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="AdresZakladuPracy" Type="String" MaxLength="35" Unicode="true" FixedLength="false" />
+          <Property Name="bledny" Type="Boolean" />
+          <Property Name="NIPzakladu" Type="String" MaxLength="13" Unicode="true" FixedLength="false" />
+          <Property Name="NIPzakladu_old" Type="String" MaxLength="13" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Pacjenci" Relationship="medisonModel.FK_Pacjenci_Zaklady" FromRole="Zaklady" ToRole="Pacjenci" />
+        </EntityType>
+        <EntityType Name="Zaklady_Kopia">
+          <Key>
+            <PropertyRef Name="NrZakladu" />
+          </Key>
+          <Property Name="NrZakladu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="NIPzakladu" Type="String" MaxLength="13" Unicode="true" FixedLength="false" />
+          <Property Name="NazwaZakladuPracy" Type="String" MaxLength="43" Unicode="true" FixedLength="false" />
+          <Property Name="KodZakladuPracy" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="MiastoZakladuPracy" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="AdresZakladuPracy" Type="String" MaxLength="35" Unicode="true" FixedLength="false" />
+          <Property Name="bledny" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Zaswiadczenia">
+          <Key>
+            <PropertyRef Name="NrZaswiad" />
+          </Key>
+          <Property Name="NrZaswiad" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="Nrp" Type="Int64" />
+          <Property Name="DataZaswiad" Type="DateTime" Precision="3" />
+          <Property Name="Rozpoznanie" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="Cel" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Pacjenci" Relationship="medisonModel.FK_Zaswiadczenia_Pacjenci" FromRole="Zaswiadczenia" ToRole="Pacjenci" />
+        </EntityType>
+        <EntityType Name="Zdjecia">
+          <Key>
+            <PropertyRef Name="NrZdj" />
+          </Key>
+          <Property Name="NrZdj" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="wybor" Type="Boolean" />
+          <Property Name="plikzdj" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="opiszdj" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="NrWizyty" Type="Int64" />
+          <NavigationProperty Name="Wizyty" Relationship="medisonModel.FK_Zdjecia_Wizyty" FromRole="Zdjecia" ToRole="Wizyty" />
+        </EntityType>
+        <EntityType Name="Zdjecia_ar">
+          <Key>
+            <PropertyRef Name="NrZdj" />
+          </Key>
+          <Property Name="NrZdj" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="wybor" Type="Boolean" />
+          <Property Name="plikzdj" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="opiszdj" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="NrWizyty" Type="Int32" />
+          <Property Name="Data_ar" Type="DateTime" Precision="3" />
+          <Property Name="Typ_ar" Type="String" MaxLength="1" Unicode="true" FixedLength="false" />
+          <Property Name="Kto" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Gdzie" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <Association Name="FK_Wizyty_ChodziLezy">
+          <End Role="ChodziLezy" Type="medisonModel.ChodziLezy" Multiplicity="0..1" />
+          <End Role="Wizyty" Type="medisonModel.Wizyty" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ChodziLezy">
+              <PropertyRef Name="NrChodziLezy" />
+            </Principal>
+            <Dependent Role="Wizyty">
+              <PropertyRef Name="NrChodziLezy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Recepty_Leki">
+          <End Role="Leki" Type="medisonModel.Leki" Multiplicity="0..1" />
+          <End Role="Recepty" Type="medisonModel.Recepty" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Leki">
+              <PropertyRef Name="NrLeku" />
+            </Principal>
+            <Dependent Role="Recepty">
+              <PropertyRef Name="NrLeku" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OpisyRachunku_Towary">
+          <End Role="Towary" Type="medisonModel.Towary" Multiplicity="0..1" />
+          <End Role="OpisyRachunku" Type="medisonModel.OpisyRachunku" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Towary">
+              <PropertyRef Name="NrTowaru" />
+            </Principal>
+            <Dependent Role="OpisyRachunku">
+              <PropertyRef Name="NrTowaru" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pacjenci_UbezpieczonyW">
+          <End Role="UbezpieczonyW" Type="medisonModel.UbezpieczonyW" Multiplicity="0..1" />
+          <End Role="Pacjenci" Type="medisonModel.Pacjenci" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UbezpieczonyW">
+              <PropertyRef Name="NrUbezpieczonyW" />
+            </Principal>
+            <Dependent Role="Pacjenci">
+              <PropertyRef Name="NrUbezpieczonyW" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pacjenci_Zaklady">
+          <End Role="Zaklady" Type="medisonModel.Zaklady" Multiplicity="0..1" />
+          <End Role="Pacjenci" Type="medisonModel.Pacjenci" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zaklady">
+              <PropertyRef Name="NrZakladu" />
+            </Principal>
+            <Dependent Role="Pacjenci">
+              <PropertyRef Name="NrZakladuPac" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Skierowania_Pacjenci">
+          <End Role="Pacjenci" Type="medisonModel.Pacjenci" Multiplicity="0..1" />
+          <End Role="Skierowania" Type="medisonModel.Skierowania" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pacjenci">
+              <PropertyRef Name="Nrp" />
+            </Principal>
+            <Dependent Role="Skierowania">
+              <PropertyRef Name="Nrp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Wizyty_Pacjenci">
+          <End Role="Pacjenci" Type="medisonModel.Pacjenci" Multiplicity="0..1" />
+          <End Role="Wizyty" Type="medisonModel.Wizyty" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pacjenci">
+              <PropertyRef Name="Nrp" />
+            </Principal>
+            <Dependent Role="Wizyty">
+              <PropertyRef Name="Nrp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Zaswiadczenia_Pacjenci">
+          <End Role="Pacjenci" Type="medisonModel.Pacjenci" Multiplicity="0..1" />
+          <End Role="Zaswiadczenia" Type="medisonModel.Zaswiadczenia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pacjenci">
+              <PropertyRef Name="Nrp" />
+            </Principal>
+            <Dependent Role="Zaswiadczenia">
+              <PropertyRef Name="Nrp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Wizyty_Pokrewienstwo">
+          <End Role="Pokrewienstwo" Type="medisonModel.Pokrewienstwo" Multiplicity="0..1" />
+          <End Role="Wizyty" Type="medisonModel.Wizyty" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pokrewienstwo">
+              <PropertyRef Name="KodPokrew" />
+            </Principal>
+            <Dependent Role="Wizyty">
+              <PropertyRef Name="KodPokrewienstwa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Recepty_Wizyty">
+          <End Role="Wizyty" Type="medisonModel.Wizyty" Multiplicity="0..1" />
+          <End Role="Recepty" Type="medisonModel.Recepty" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Wizyty">
+              <PropertyRef Name="NrWizyty" />
+            </Principal>
+            <Dependent Role="Recepty">
+              <PropertyRef Name="NrWizyty" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Wizyty_StatystycznaKlasyfikacjaChorob">
+          <End Role="StatystycznaKlasyfikacjaChorob" Type="medisonModel.StatystycznaKlasyfikacjaChorob" Multiplicity="0..1" />
+          <End Role="Wizyty" Type="medisonModel.Wizyty" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StatystycznaKlasyfikacjaChorob">
+              <PropertyRef Name="NrStatystyczny" />
+            </Principal>
+            <Dependent Role="Wizyty">
+              <PropertyRef Name="NrStatystycznyChoroby" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Szablony_SzabGrupy">
+          <End Role="SzabGrupy" Type="medisonModel.SzabGrupy" Multiplicity="0..1" />
+          <End Role="Szablony" Type="medisonModel.Szablony" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SzabGrupy">
+              <PropertyRef Name="NrGrSzablon" />
+            </Principal>
+            <Dependent Role="Szablony">
+              <PropertyRef Name="NrGrSzablon" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Wizyty_TypyDokumentow">
+          <End Role="TypyDokumentow" Type="medisonModel.TypyDokumentow" Multiplicity="0..1" />
+          <End Role="Wizyty" Type="medisonModel.Wizyty" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypyDokumentow">
+              <PropertyRef Name="NrTypuDokumentu" />
+            </Principal>
+            <Dependent Role="Wizyty">
+              <PropertyRef Name="NrTypuDokumentu" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Wizyty_Usg">
+          <End Role="Usg" Type="medisonModel.Usg" Multiplicity="0..1" />
+          <End Role="Wizyty" Type="medisonModel.Wizyty" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usg">
+              <PropertyRef Name="NrUsg" />
+            </Principal>
+            <Dependent Role="Wizyty">
+              <PropertyRef Name="NrUsg" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Zdjecia_Wizyty">
+          <End Role="Wizyty" Type="medisonModel.Wizyty" Multiplicity="0..1" />
+          <End Role="Zdjecia" Type="medisonModel.Zdjecia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Wizyty">
+              <PropertyRef Name="NrWizyty" />
+            </Principal>
+            <Dependent Role="Zdjecia">
+              <PropertyRef Name="NrWizyty" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="SkierowaniaCele">
+          <Key>
+            <PropertyRef Name="idCelu" />
+          </Key>
+          <Property Type="Int64" Name="idCelu" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="Int64" Name="poradnia" />
+          <Property Type="String" Name="cel" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="SkierowaniaPoradnie" Relationship="medisonModel.FK_Table2_SkierowaniaPoradnie" FromRole="SkierowaniaCele" ToRole="SkierowaniaPoradnie" />
+        </EntityType>
+        <EntityType Name="SkierowaniaPoradnie">
+          <Key>
+            <PropertyRef Name="idPoradni" />
+          </Key>
+          <Property Type="Int64" Name="idPoradni" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="String" Name="NazwaPoradni" MaxLength="150" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="SkierowaniaCele" Relationship="medisonModel.FK_Table2_SkierowaniaPoradnie" FromRole="SkierowaniaPoradnie" ToRole="SkierowaniaCele" />
+        </EntityType>
+        <Association Name="FK_Table2_SkierowaniaPoradnie">
+          <End Type="medisonModel.SkierowaniaPoradnie" Role="SkierowaniaPoradnie" Multiplicity="0..1" />
+          <End Type="medisonModel.SkierowaniaCele" Role="SkierowaniaCele" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SkierowaniaPoradnie">
+              <PropertyRef Name="idPoradni" />
+            </Principal>
+            <Dependent Role="SkierowaniaCele">
+              <PropertyRef Name="poradnia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="CelSzablony">
+          <Key>
+            <PropertyRef Name="idCelSzablon" />
+          </Key>
+          <Property Type="Int64" Name="idCelSzablon" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="String" Name="cel" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Rachunki">
+          <Key>
+            <PropertyRef Name="IDrachunku" />
+          </Key>
+          <Property Type="Int64" Name="IDrachunku" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="Int64" Name="Nrp" />
+          <Property Type="Int32" Name="NrGabinetu" />
+          <Property Type="Int32" Name="Numerrachunku" />
+          <Property Type="String" Name="EndFixNrRachunku" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="DataWystawienia" Precision="3" />
+          <Property Type="String" Name="NaKogo" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="NaKogoAdres" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="NaKogoKod" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="NaKogoNIP" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="TypRachunku" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="Decimal" Name="VAT" Precision="19" Scale="4" />
+          <Property Type="Decimal" Name="Netto" Precision="19" Scale="4" />
+          <Property Type="Decimal" Name="Brutto" Precision="19" Scale="4" />
+          <Property Type="String" Name="Wystawil" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="NazwaFV" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="KodFV" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="MiastoFV" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="AdresFV" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="TelefonFV" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="KomorkaFV" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="NIPFV" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="BankFV" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="NrKontaFV" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="SposobZap" MaxLength="8" FixedLength="false" Unicode="true" />
+          <Property Type="Decimal" Name="Wplaty" Precision="19" Scale="4" />
+          <NavigationProperty Name="OpisyRachunku" Relationship="medisonModel.FK_OpisyRachunku_Rachunki" FromRole="Rachunki" ToRole="OpisyRachunku" />
+          <NavigationProperty Name="Pacjenci" Relationship="medisonModel.FK_Rachunki_Pacjenci" FromRole="Rachunki" ToRole="Pacjenci" />
+        </EntityType>
+        <Association Name="FK_OpisyRachunku_Rachunki">
+          <End Type="medisonModel.Rachunki" Role="Rachunki" Multiplicity="0..1" />
+          <End Type="medisonModel.OpisyRachunku" Role="OpisyRachunku" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rachunki">
+              <PropertyRef Name="IDrachunku" />
+            </Principal>
+            <Dependent Role="OpisyRachunku">
+              <PropertyRef Name="IDrachunku" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rachunki_Pacjenci">
+          <End Type="medisonModel.Pacjenci" Role="Pacjenci" Multiplicity="0..1" />
+          <End Type="medisonModel.Rachunki" Role="Rachunki" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pacjenci">
+              <PropertyRef Name="Nrp" />
+            </Principal>
+            <Dependent Role="Rachunki">
+              <PropertyRef Name="Nrp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="medisonModelStoreContainer" CdmEntityContainer="medisonEntities">
+          <EntitySetMapping Name="ChodziLezy"><EntityTypeMapping TypeName="medisonModel.ChodziLezy"><MappingFragment StoreEntitySet="ChodziLezy">
+            <ScalarProperty Name="NrChodziLezy" ColumnName="NrChodziLezy" />
+            <ScalarProperty Name="OpisChodziLezy" ColumnName="OpisChodziLezy" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="DaneLekarza"><EntityTypeMapping TypeName="medisonModel.DaneLekarza"><MappingFragment StoreEntitySet="DaneLekarza">
+            <ScalarProperty Name="NrGabinetu" ColumnName="NrGabinetu" />
+            <ScalarProperty Name="Imie" ColumnName="Imie" />
+            <ScalarProperty Name="Nazwisko" ColumnName="Nazwisko" />
+            <ScalarProperty Name="NrLekarza" ColumnName="NrLekarza" />
+            <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+            <ScalarProperty Name="Kod" ColumnName="Kod" />
+            <ScalarProperty Name="Miasto" ColumnName="Miasto" />
+            <ScalarProperty Name="Adres" ColumnName="Adres" />
+            <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+            <ScalarProperty Name="Komorka" ColumnName="Komorka" />
+            <ScalarProperty Name="NIP" ColumnName="NIP" />
+            <ScalarProperty Name="Bank" ColumnName="Bank" />
+            <ScalarProperty Name="NrKonta" ColumnName="NrKonta" />
+            <ScalarProperty Name="ZakonczonoDane" ColumnName="ZakonczonoDane" />
+            <ScalarProperty Name="NIPlekarza" ColumnName="NIPlekarza" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="dtproperties"><EntityTypeMapping TypeName="medisonModel.dtproperties"><MappingFragment StoreEntitySet="dtproperties">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="objectid" ColumnName="objectid" />
+            <ScalarProperty Name="property" ColumnName="property" />
+            <ScalarProperty Name="value" ColumnName="value" />
+            <ScalarProperty Name="uvalue" ColumnName="uvalue" />
+            <ScalarProperty Name="lvalue" ColumnName="lvalue" />
+            <ScalarProperty Name="version" ColumnName="version" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Leki"><EntityTypeMapping TypeName="medisonModel.Leki"><MappingFragment StoreEntitySet="Leki">
+            <ScalarProperty Name="refundacja" ColumnName="refundacja" />
+                <ScalarProperty Name="NrLeku" ColumnName="NrLeku" />
+            <ScalarProperty Name="NazwaLeku" ColumnName="NazwaLeku" />
+            <ScalarProperty Name="PostacLeku" ColumnName="PostacLeku" />
+            <ScalarProperty Name="Opis" ColumnName="Opis" />
+            <ScalarProperty Name="Opakowanie" ColumnName="Opakowanie" />
+            <ScalarProperty Name="Dawkowanie" ColumnName="Dawkowanie" />
+            <ScalarProperty Name="Odplatnosc" ColumnName="Odplatnosc" />
+            <ScalarProperty Name="Wycofany" ColumnName="Wycofany" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="OpisyRachunku"><EntityTypeMapping TypeName="medisonModel.OpisyRachunku"><MappingFragment StoreEntitySet="OpisyRachunku">
+            <ScalarProperty Name="NrOpisuRach" ColumnName="NrOpisuRach" />
+            <ScalarProperty Name="IDrachunku" ColumnName="IDrachunku" />
+            <ScalarProperty Name="NrTowaru" ColumnName="NrTowaru" />
+            <ScalarProperty Name="NazwaTowaru" ColumnName="NazwaTowaru" />
+            <ScalarProperty Name="ZwolnienieVAT" ColumnName="ZwolnienieVAT" />
+            <ScalarProperty Name="StawkaVAT" ColumnName="StawkaVAT" />
+            <ScalarProperty Name="SWWKWiU" ColumnName="SWWKWiU" />
+            <ScalarProperty Name="JedMiary" ColumnName="JedMiary" />
+            <ScalarProperty Name="CenaNetto" ColumnName="CenaNetto" />
+            <ScalarProperty Name="Ilosc" ColumnName="Ilosc" />
+            <ScalarProperty Name="WartoscNetto" ColumnName="WartoscNetto" />
+            <ScalarProperty Name="WartoscVAT" ColumnName="WartoscVAT" />
+            <ScalarProperty Name="WartoscBrutto" ColumnName="WartoscBrutto" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="PacBezNazwisk"><EntityTypeMapping TypeName="medisonModel.PacBezNazwisk"><MappingFragment StoreEntitySet="PacBezNazwisk">
+            <ScalarProperty Name="Nrp" ColumnName="Nrp" />
+            <ScalarProperty Name="Nazwisko" ColumnName="Nazwisko" />
+            <ScalarProperty Name="Nazwisko2" ColumnName="Nazwisko2" />
+            <ScalarProperty Name="Imie" ColumnName="Imie" />
+            <ScalarProperty Name="Imie2" ColumnName="Imie2" />
+            <ScalarProperty Name="Plec" ColumnName="Plec" />
+            <ScalarProperty Name="rodzina" ColumnName="rodzina" />
+            <ScalarProperty Name="DataUrodzenia" ColumnName="DataUrodzenia" />
+            <ScalarProperty Name="DataUrodzeniaOsobyPodOp" ColumnName="DataUrodzeniaOsobyPodOp" />
+            <ScalarProperty Name="Kod" ColumnName="Kod" />
+            <ScalarProperty Name="Miejscowosc" ColumnName="Miejscowosc" />
+            <ScalarProperty Name="Adres" ColumnName="Adres" />
+            <ScalarProperty Name="NrDomu" ColumnName="NrDomu" />
+            <ScalarProperty Name="NrLokalu" ColumnName="NrLokalu" />
+            <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+            <ScalarProperty Name="NIP" ColumnName="NIP" />
+            <ScalarProperty Name="Pesel" ColumnName="Pesel" />
+            <ScalarProperty Name="Dowod" ColumnName="Dowod" />
+            <ScalarProperty Name="Paszport" ColumnName="Paszport" />
+            <ScalarProperty Name="SymbolKasy" ColumnName="SymbolKasy" />
+            <ScalarProperty Name="NrUbezpieczonyW" ColumnName="NrUbezpieczonyW" />
+            <ScalarProperty Name="GrKrwi" ColumnName="GrKrwi" />
+            <ScalarProperty Name="Rh" ColumnName="Rh" />
+            <ScalarProperty Name="NIPzakladu" ColumnName="NIPzakladu" />
+            <ScalarProperty Name="NazwaZakladuPracy" ColumnName="NazwaZakladuPracy" />
+            <ScalarProperty Name="KodZakladuPracy" ColumnName="KodZakladuPracy" />
+            <ScalarProperty Name="MiastoZakladuPracy" ColumnName="MiastoZakladuPracy" />
+            <ScalarProperty Name="AdresZakladuPracy" ColumnName="AdresZakladuPracy" />
+            <ScalarProperty Name="Zawod" ColumnName="Zawod" />
+            <ScalarProperty Name="UBEZP" ColumnName="UBEZP" />
+            <ScalarProperty Name="UWAGI" ColumnName="UWAGI" />
+            <ScalarProperty Name="DataWprowadzenia" ColumnName="DataWprowadzenia" />
+            <ScalarProperty Name="PoczatekZwoln180" ColumnName="PoczatekZwoln180" />
+            <ScalarProperty Name="Kiedy180dni" ColumnName="Kiedy180dni" />
+            <ScalarProperty Name="NrZakladuPac" ColumnName="NrZakladuPac" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Pacjenci"><EntityTypeMapping TypeName="medisonModel.Pacjenci"><MappingFragment StoreEntitySet="Pacjenci">
+            <ScalarProperty Name="ReceptaChorobyPrzewlekle" ColumnName="ReceptaChorobyPrzewlekle" />
+                <ScalarProperty Name="ReceptaUprawnienia" ColumnName="ReceptaUprawnienia" />
+                <ScalarProperty Name="KasaChorych" ColumnName="KasaChorych" />
+                <ScalarProperty Name="Nrp" ColumnName="Nrp" />
+            <ScalarProperty Name="Nazwisko" ColumnName="Nazwisko" />
+            <ScalarProperty Name="Nazwisko2" ColumnName="Nazwisko2" />
+            <ScalarProperty Name="Imie" ColumnName="Imie" />
+            <ScalarProperty Name="Imie2" ColumnName="Imie2" />
+            <ScalarProperty Name="Plec" ColumnName="Plec" />
+            <ScalarProperty Name="rodzina" ColumnName="rodzina" />
+            <ScalarProperty Name="DataUrodzenia" ColumnName="DataUrodzenia" />
+            <ScalarProperty Name="DataUrodzeniaOsobyPodOp" ColumnName="DataUrodzeniaOsobyPodOp" />
+            <ScalarProperty Name="Kod" ColumnName="Kod" />
+            <ScalarProperty Name="Miejscowosc" ColumnName="Miejscowosc" />
+            <ScalarProperty Name="Adres" ColumnName="Adres" />
+            <ScalarProperty Name="NrDomu" ColumnName="NrDomu" />
+            <ScalarProperty Name="NrLokalu" ColumnName="NrLokalu" />
+            <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+            <ScalarProperty Name="NIP" ColumnName="NIP" />
+            <ScalarProperty Name="Pesel" ColumnName="Pesel" />
+            <ScalarProperty Name="Dowod" ColumnName="Dowod" />
+            <ScalarProperty Name="Paszport" ColumnName="Paszport" />
+            <ScalarProperty Name="SymbolKasy" ColumnName="SymbolKasy" />
+            <ScalarProperty Name="NrUbezpieczonyW" ColumnName="NrUbezpieczonyW" />
+            <ScalarProperty Name="GrKrwi" ColumnName="GrKrwi" />
+            <ScalarProperty Name="Rh" ColumnName="Rh" />
+            <ScalarProperty Name="NIPzakladu" ColumnName="NIPzakladu" />
+            <ScalarProperty Name="NazwaZakladuPracy" ColumnName="NazwaZakladuPracy" />
+            <ScalarProperty Name="KodZakladuPracy" ColumnName="KodZakladuPracy" />
+            <ScalarProperty Name="MiastoZakladuPracy" ColumnName="MiastoZakladuPracy" />
+            <ScalarProperty Name="AdresZakladuPracy" ColumnName="AdresZakladuPracy" />
+            <ScalarProperty Name="Zawod" ColumnName="Zawod" />
+            <ScalarProperty Name="UBEZP" ColumnName="UBEZP" />
+            <ScalarProperty Name="UWAGI" ColumnName="UWAGI" />
+            <ScalarProperty Name="DataWprowadzenia" ColumnName="DataWprowadzenia" />
+            <ScalarProperty Name="PoczatekZwoln180" ColumnName="PoczatekZwoln180" />
+            <ScalarProperty Name="Kiedy180dni" ColumnName="Kiedy180dni" />
+            <ScalarProperty Name="NrZakladuPac" ColumnName="NrZakladuPac" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Plcie"><EntityTypeMapping TypeName="medisonModel.Plcie"><MappingFragment StoreEntitySet="Plcie">
+            <ScalarProperty Name="nrplec" ColumnName="nrplec" />
+            <ScalarProperty Name="Plec" ColumnName="Plec" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Pokrewienstwo"><EntityTypeMapping TypeName="medisonModel.Pokrewienstwo"><MappingFragment StoreEntitySet="Pokrewienstwo">
+            <ScalarProperty Name="KodPokrew" ColumnName="KodPokrew" />
+            <ScalarProperty Name="OpisPokrewienstwa" ColumnName="OpisPokrewienstwa" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Recepty"><EntityTypeMapping TypeName="medisonModel.Recepty"><MappingFragment StoreEntitySet="Recepty">
+            <ScalarProperty Name="ReceptaChorobyPrzewlekle" ColumnName="ReceptaChorobyPrzewlekle" />
+                <ScalarProperty Name="indywidualna" ColumnName="indywidualna" />
+                <ScalarProperty Name="Dawka" ColumnName="Dawka" />
+                <ScalarProperty Name="NrRecepty" ColumnName="NrRecepty" />
+            <ScalarProperty Name="NrWizyty" ColumnName="NrWizyty" />
+            <ScalarProperty Name="NrLeku" ColumnName="NrLeku" />
+            <ScalarProperty Name="Ilosc" ColumnName="Ilosc" />
+            <ScalarProperty Name="Postac" ColumnName="Postac" />
+            <ScalarProperty Name="Dawkowanie" ColumnName="Dawkowanie" />
+            <ScalarProperty Name="Odplatnosc" ColumnName="Odplatnosc" />
+            <ScalarProperty Name="Uwagi" ColumnName="Uwagi" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Skierowania"><EntityTypeMapping TypeName="medisonModel.Skierowania"><MappingFragment StoreEntitySet="Skierowania">
+            <ScalarProperty Name="xml" ColumnName="xml" />
+                <ScalarProperty Name="NrSkierow" ColumnName="NrSkierow" />
+            <ScalarProperty Name="Nrp" ColumnName="Nrp" />
+            <ScalarProperty Name="DataSkierow" ColumnName="DataSkierow" />
+            <ScalarProperty Name="Rozpoznanie" ColumnName="Rozpoznanie" />
+            <ScalarProperty Name="Cel" ColumnName="Cel" />
+            <ScalarProperty Name="DoKogo" ColumnName="DoKogo" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="StatystycznaKlasyfikacjaChorob"><EntityTypeMapping TypeName="medisonModel.StatystycznaKlasyfikacjaChorob"><MappingFragment StoreEntitySet="StatystycznaKlasyfikacjaChorob">
+            <ScalarProperty Name="NrStatystyczny" ColumnName="NrStatystyczny" />
+            <ScalarProperty Name="Rozpoznanie" ColumnName="Rozpoznanie" />
+            <ScalarProperty Name="kod" ColumnName="kod" />
+            <ScalarProperty Name="kod_grupy" ColumnName="kod_grupy" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams"><EntityTypeMapping TypeName="medisonModel.sysdiagrams"><MappingFragment StoreEntitySet="sysdiagrams">
+            <ScalarProperty Name="name" ColumnName="name" />
+            <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+            <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+            <ScalarProperty Name="version" ColumnName="version" />
+            <ScalarProperty Name="definition" ColumnName="definition" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="SzabGrupy"><EntityTypeMapping TypeName="medisonModel.SzabGrupy"><MappingFragment StoreEntitySet="SzabGrupy">
+            <ScalarProperty Name="NrGrSzablon" ColumnName="NrGrSzablon" />
+            <ScalarProperty Name="GrupaSz" ColumnName="GrupaSz" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Szablony"><EntityTypeMapping TypeName="medisonModel.Szablony"><MappingFragment StoreEntitySet="Szablony">
+            <ScalarProperty Name="NrSzablonu" ColumnName="NrSzablonu" />
+            <ScalarProperty Name="NrGabinetu" ColumnName="NrGabinetu" />
+            <ScalarProperty Name="NrRodzSzab" ColumnName="NrRodzSzab" />
+            <ScalarProperty Name="Kolejnosc" ColumnName="Kolejnosc" />
+            <ScalarProperty Name="Skrot" ColumnName="Skrot" />
+            <ScalarProperty Name="OpisSz" ColumnName="OpisSz" />
+            <ScalarProperty Name="NrGrSzablon" ColumnName="NrGrSzablon" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Towary"><EntityTypeMapping TypeName="medisonModel.Towary"><MappingFragment StoreEntitySet="Towary">
+            <ScalarProperty Name="NrTowaru" ColumnName="NrTowaru" />
+            <ScalarProperty Name="IndeksT" ColumnName="IndeksT" />
+            <ScalarProperty Name="SWWKWiU" ColumnName="SWWKWiU" />
+            <ScalarProperty Name="Kategoria" ColumnName="Kategoria" />
+            <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+            <ScalarProperty Name="Wymiary" ColumnName="Wymiary" />
+            <ScalarProperty Name="JedMiary" ColumnName="JedMiary" />
+            <ScalarProperty Name="CenaNettoZakup" ColumnName="CenaNettoZakup" />
+            <ScalarProperty Name="CenaNettoSugerowana" ColumnName="CenaNettoSugerowana" />
+            <ScalarProperty Name="StawkaVAT" ColumnName="StawkaVAT" />
+            <ScalarProperty Name="ZwolnienieVAT" ColumnName="ZwolnienieVAT" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="TypyDokumentow"><EntityTypeMapping TypeName="medisonModel.TypyDokumentow"><MappingFragment StoreEntitySet="TypyDokumentow">
+            <ScalarProperty Name="NrTypuDokumentu" ColumnName="NrTypuDokumentu" />
+            <ScalarProperty Name="NazwaDokumentu" ColumnName="NazwaDokumentu" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="UbezpieczonyW"><EntityTypeMapping TypeName="medisonModel.UbezpieczonyW"><MappingFragment StoreEntitySet="UbezpieczonyW">
+            <ScalarProperty Name="NrUbezpieczonyW" ColumnName="NrUbezpieczonyW" />
+            <ScalarProperty Name="OpisUbezpieczonyW" ColumnName="OpisUbezpieczonyW" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Usg"><EntityTypeMapping TypeName="medisonModel.Usg"><MappingFragment StoreEntitySet="Usg">
+            <ScalarProperty Name="NrUsg" ColumnName="NrUsg" />
+            <ScalarProperty Name="CzyjeUsgSkrot" ColumnName="CzyjeUsgSkrot" />
+            <ScalarProperty Name="CzyjeUsg" ColumnName="CzyjeUsg" />
+            <ScalarProperty Name="KwotaUsg" ColumnName="KwotaUsg" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Wizyty"><EntityTypeMapping TypeName="medisonModel.Wizyty"><MappingFragment StoreEntitySet="Wizyty">
+            <ScalarProperty Name="DensityGelOpis" ColumnName="DensityGelOpis" />
+                <ScalarProperty Name="DensityGel" ColumnName="DensityGel" />
+                <ScalarProperty Name="WplataKarta" ColumnName="WplataKarta" />
+                <ScalarProperty Name="karta" ColumnName="karta" />
+                <ScalarProperty Name="potwierdzona" ColumnName="potwierdzona" />
+                <ScalarProperty Name="NrWizyty" ColumnName="NrWizyty" />
+            <ScalarProperty Name="Nrp" ColumnName="Nrp" />
+            <ScalarProperty Name="DataWizyty" ColumnName="DataWizyty" />
+            <ScalarProperty Name="GodzWizyty" ColumnName="GodzWizyty" />
+            <ScalarProperty Name="wszedl" ColumnName="wszedl" />
+            <ScalarProperty Name="wyszedl" ColumnName="wyszedl" />
+            <ScalarProperty Name="Wplata" ColumnName="Wplata" />
+            <ScalarProperty Name="NrUsg" ColumnName="NrUsg" />
+            <ScalarProperty Name="L4" ColumnName="L4" />
+            <ScalarProperty Name="WystawionoDnia" ColumnName="WystawionoDnia" />
+            <ScalarProperty Name="ZwolnienieOd" ColumnName="ZwolnienieOd" />
+            <ScalarProperty Name="ZwolnienieDo" ColumnName="ZwolnienieDo" />
+            <ScalarProperty Name="ZwolnienieDni" ColumnName="ZwolnienieDni" />
+            <ScalarProperty Name="NrStatystycznyChoroby" ColumnName="NrStatystycznyChoroby" />
+            <ScalarProperty Name="KodABC1" ColumnName="KodABC1" />
+            <ScalarProperty Name="KodABC2" ColumnName="KodABC2" />
+            <ScalarProperty Name="KodABC3" ColumnName="KodABC3" />
+            <ScalarProperty Name="KodABC4" ColumnName="KodABC4" />
+            <ScalarProperty Name="NrChodziLezy" ColumnName="NrChodziLezy" />
+            <ScalarProperty Name="NrTypuDokumentu" ColumnName="NrTypuDokumentu" />
+            <ScalarProperty Name="KodPokrewienstwa" ColumnName="KodPokrewienstwa" />
+            <ScalarProperty Name="NrGabinetu" ColumnName="NrGabinetu" />
+            <ScalarProperty Name="ImieLekarza" ColumnName="ImieLekarza" />
+            <ScalarProperty Name="NazwiskoLekarza" ColumnName="NazwiskoLekarza" />
+            <ScalarProperty Name="NrLekarza" ColumnName="NrLekarza" />
+            <ScalarProperty Name="NIPLekarza" ColumnName="NIPLekarza" />
+            <ScalarProperty Name="Id" ColumnName="Id" />
+            <ScalarProperty Name="NIPzakladu" ColumnName="NIPzakladu" />
+            <ScalarProperty Name="NazwaZakladuPracy" ColumnName="NazwaZakladuPracy" />
+            <ScalarProperty Name="KodZakladuPracy" ColumnName="KodZakladuPracy" />
+            <ScalarProperty Name="MiastoZakladuPracy" ColumnName="MiastoZakladuPracy" />
+            <ScalarProperty Name="AdresZakladuPracy" ColumnName="AdresZakladuPracy" />
+            <ScalarProperty Name="Wywiad" ColumnName="Wywiad" />
+            <ScalarProperty Name="Badania" ColumnName="Badania" />
+            <ScalarProperty Name="usg" ColumnName="usg" />
+            <ScalarProperty Name="Rozpoznanie" ColumnName="Rozpoznanie" />
+            <ScalarProperty Name="Zalecenia" ColumnName="Zalecenia" />
+            <ScalarProperty Name="Uwagi" ColumnName="Uwagi" />
+            <ScalarProperty Name="TerazTen" ColumnName="TerazTen" />
+            <ScalarProperty Name="CzyDrukowac" ColumnName="CzyDrukowac" />
+            <ScalarProperty Name="NrZakladuWiz" ColumnName="NrZakladuWiz" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="WizytyPacBezNazwisk"><EntityTypeMapping TypeName="medisonModel.WizytyPacBezNazwisk"><MappingFragment StoreEntitySet="WizytyPacBezNazwisk">
+            <ScalarProperty Name="NrWizyty" ColumnName="NrWizyty" />
+            <ScalarProperty Name="Nrp" ColumnName="Nrp" />
+            <ScalarProperty Name="DataWizyty" ColumnName="DataWizyty" />
+            <ScalarProperty Name="GodzWizyty" ColumnName="GodzWizyty" />
+            <ScalarProperty Name="wszedl" ColumnName="wszedl" />
+            <ScalarProperty Name="wyszedl" ColumnName="wyszedl" />
+            <ScalarProperty Name="Wplata" ColumnName="Wplata" />
+            <ScalarProperty Name="L4" ColumnName="L4" />
+            <ScalarProperty Name="WystawionoDnia" ColumnName="WystawionoDnia" />
+            <ScalarProperty Name="ZwolnienieOd" ColumnName="ZwolnienieOd" />
+            <ScalarProperty Name="ZwolnienieDo" ColumnName="ZwolnienieDo" />
+            <ScalarProperty Name="ZwolnienieDni" ColumnName="ZwolnienieDni" />
+            <ScalarProperty Name="NrStatystycznyChoroby" ColumnName="NrStatystycznyChoroby" />
+            <ScalarProperty Name="KodABC1" ColumnName="KodABC1" />
+            <ScalarProperty Name="KodABC2" ColumnName="KodABC2" />
+            <ScalarProperty Name="KodABC3" ColumnName="KodABC3" />
+            <ScalarProperty Name="KodABC4" ColumnName="KodABC4" />
+            <ScalarProperty Name="NrChodziLezy" ColumnName="NrChodziLezy" />
+            <ScalarProperty Name="NrTypuDokumentu" ColumnName="NrTypuDokumentu" />
+            <ScalarProperty Name="KodPokrewienstwa" ColumnName="KodPokrewienstwa" />
+            <ScalarProperty Name="NrGabinetu" ColumnName="NrGabinetu" />
+            <ScalarProperty Name="ImieLekarza" ColumnName="ImieLekarza" />
+            <ScalarProperty Name="NazwiskoLekarza" ColumnName="NazwiskoLekarza" />
+            <ScalarProperty Name="NrLekarza" ColumnName="NrLekarza" />
+            <ScalarProperty Name="NIPLekarza" ColumnName="NIPLekarza" />
+            <ScalarProperty Name="Id" ColumnName="Id" />
+            <ScalarProperty Name="NIPzakladu" ColumnName="NIPzakladu" />
+            <ScalarProperty Name="NazwaZakladuPracy" ColumnName="NazwaZakladuPracy" />
+            <ScalarProperty Name="KodZakladuPracy" ColumnName="KodZakladuPracy" />
+            <ScalarProperty Name="MiastoZakladuPracy" ColumnName="MiastoZakladuPracy" />
+            <ScalarProperty Name="AdresZakladuPracy" ColumnName="AdresZakladuPracy" />
+            <ScalarProperty Name="Wywiad" ColumnName="Wywiad" />
+            <ScalarProperty Name="Badania" ColumnName="Badania" />
+            <ScalarProperty Name="usg" ColumnName="usg" />
+            <ScalarProperty Name="Rozpoznanie" ColumnName="Rozpoznanie" />
+            <ScalarProperty Name="Zalecenia" ColumnName="Zalecenia" />
+            <ScalarProperty Name="Uwagi" ColumnName="Uwagi" />
+            <ScalarProperty Name="TerazTen" ColumnName="TerazTen" />
+            <ScalarProperty Name="CzyDrukowac" ColumnName="CzyDrukowac" />
+            <ScalarProperty Name="NrZakladuWiz" ColumnName="NrZakladuWiz" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Zaklady"><EntityTypeMapping TypeName="medisonModel.Zaklady"><MappingFragment StoreEntitySet="Zaklady">
+            <ScalarProperty Name="NrZakladu" ColumnName="NrZakladu" />
+            <ScalarProperty Name="NazwaZakladuPracy" ColumnName="NazwaZakladuPracy" />
+            <ScalarProperty Name="KodZakladuPracy" ColumnName="KodZakladuPracy" />
+            <ScalarProperty Name="MiastoZakladuPracy" ColumnName="MiastoZakladuPracy" />
+            <ScalarProperty Name="AdresZakladuPracy" ColumnName="AdresZakladuPracy" />
+            <ScalarProperty Name="bledny" ColumnName="bledny" />
+            <ScalarProperty Name="NIPzakladu" ColumnName="NIPzakladu" />
+            <ScalarProperty Name="NIPzakladu_old" ColumnName="NIPzakladu_old" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Zaklady_Kopia"><EntityTypeMapping TypeName="medisonModel.Zaklady_Kopia"><MappingFragment StoreEntitySet="Zaklady_Kopia">
+            <ScalarProperty Name="NrZakladu" ColumnName="NrZakladu" />
+            <ScalarProperty Name="NIPzakladu" ColumnName="NIPzakladu" />
+            <ScalarProperty Name="NazwaZakladuPracy" ColumnName="NazwaZakladuPracy" />
+            <ScalarProperty Name="KodZakladuPracy" ColumnName="KodZakladuPracy" />
+            <ScalarProperty Name="MiastoZakladuPracy" ColumnName="MiastoZakladuPracy" />
+            <ScalarProperty Name="AdresZakladuPracy" ColumnName="AdresZakladuPracy" />
+            <ScalarProperty Name="bledny" ColumnName="bledny" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Zaswiadczenia"><EntityTypeMapping TypeName="medisonModel.Zaswiadczenia"><MappingFragment StoreEntitySet="Zaswiadczenia">
+            <ScalarProperty Name="NrZaswiad" ColumnName="NrZaswiad" />
+            <ScalarProperty Name="Nrp" ColumnName="Nrp" />
+            <ScalarProperty Name="DataZaswiad" ColumnName="DataZaswiad" />
+            <ScalarProperty Name="Rozpoznanie" ColumnName="Rozpoznanie" />
+            <ScalarProperty Name="Cel" ColumnName="Cel" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Zdjecia"><EntityTypeMapping TypeName="medisonModel.Zdjecia"><MappingFragment StoreEntitySet="Zdjecia">
+            <ScalarProperty Name="NrZdj" ColumnName="NrZdj" />
+            <ScalarProperty Name="wybor" ColumnName="wybor" />
+            <ScalarProperty Name="plikzdj" ColumnName="plikzdj" />
+            <ScalarProperty Name="opiszdj" ColumnName="opiszdj" />
+            <ScalarProperty Name="NrWizyty" ColumnName="NrWizyty" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Zdjecia_ar"><EntityTypeMapping TypeName="medisonModel.Zdjecia_ar"><MappingFragment StoreEntitySet="Zdjecia_ar">
+            <ScalarProperty Name="NrZdj" ColumnName="NrZdj" />
+            <ScalarProperty Name="wybor" ColumnName="wybor" />
+            <ScalarProperty Name="plikzdj" ColumnName="plikzdj" />
+            <ScalarProperty Name="opiszdj" ColumnName="opiszdj" />
+            <ScalarProperty Name="NrWizyty" ColumnName="NrWizyty" />
+            <ScalarProperty Name="Data_ar" ColumnName="Data_ar" />
+            <ScalarProperty Name="Typ_ar" ColumnName="Typ_ar" />
+            <ScalarProperty Name="Kto" ColumnName="Kto" />
+            <ScalarProperty Name="Gdzie" ColumnName="Gdzie" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="SkierowaniaCele">
+            <EntityTypeMapping TypeName="medisonModel.SkierowaniaCele">
+              <MappingFragment StoreEntitySet="SkierowaniaCele">
+                <ScalarProperty Name="cel" ColumnName="cel" />
+                <ScalarProperty Name="poradnia" ColumnName="poradnia" />
+                <ScalarProperty Name="idCelu" ColumnName="idCelu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SkierowaniaPoradnie">
+            <EntityTypeMapping TypeName="medisonModel.SkierowaniaPoradnie">
+              <MappingFragment StoreEntitySet="SkierowaniaPoradnie">
+                <ScalarProperty Name="NazwaPoradni" ColumnName="NazwaPoradni" />
+                <ScalarProperty Name="idPoradni" ColumnName="idPoradni" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CelSzablony">
+            <EntityTypeMapping TypeName="medisonModel.CelSzablony">
+              <MappingFragment StoreEntitySet="CelSzablony">
+                <ScalarProperty Name="cel" ColumnName="cel" />
+                <ScalarProperty Name="idCelSzablon" ColumnName="idCelSzablon" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rachunki">
+            <EntityTypeMapping TypeName="medisonModel.Rachunki">
+              <MappingFragment StoreEntitySet="Rachunki">
+                <ScalarProperty Name="Wplaty" ColumnName="Wplaty" />
+                <ScalarProperty Name="SposobZap" ColumnName="SposobZap" />
+                <ScalarProperty Name="NrKontaFV" ColumnName="NrKontaFV" />
+                <ScalarProperty Name="BankFV" ColumnName="BankFV" />
+                <ScalarProperty Name="NIPFV" ColumnName="NIPFV" />
+                <ScalarProperty Name="KomorkaFV" ColumnName="KomorkaFV" />
+                <ScalarProperty Name="TelefonFV" ColumnName="TelefonFV" />
+                <ScalarProperty Name="AdresFV" ColumnName="AdresFV" />
+                <ScalarProperty Name="MiastoFV" ColumnName="MiastoFV" />
+                <ScalarProperty Name="KodFV" ColumnName="KodFV" />
+                <ScalarProperty Name="NazwaFV" ColumnName="NazwaFV" />
+                <ScalarProperty Name="Wystawil" ColumnName="Wystawil" />
+                <ScalarProperty Name="Brutto" ColumnName="Brutto" />
+                <ScalarProperty Name="Netto" ColumnName="Netto" />
+                <ScalarProperty Name="VAT" ColumnName="VAT" />
+                <ScalarProperty Name="TypRachunku" ColumnName="TypRachunku" />
+                <ScalarProperty Name="NaKogoNIP" ColumnName="NaKogoNIP" />
+                <ScalarProperty Name="NaKogoKod" ColumnName="NaKogoKod" />
+                <ScalarProperty Name="NaKogoAdres" ColumnName="NaKogoAdres" />
+                <ScalarProperty Name="NaKogo" ColumnName="NaKogo" />
+                <ScalarProperty Name="DataWystawienia" ColumnName="DataWystawienia" />
+                <ScalarProperty Name="EndFixNrRachunku" ColumnName="EndFixNrRachunku" />
+                <ScalarProperty Name="Numerrachunku" ColumnName="Numerrachunku" />
+                <ScalarProperty Name="NrGabinetu" ColumnName="NrGabinetu" />
+                <ScalarProperty Name="Nrp" ColumnName="Nrp" />
+                <ScalarProperty Name="IDrachunku" ColumnName="IDrachunku" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer>
+    <edmx:Connection>
+      <edmx:DesignerInfoPropertySet>
+        <edmx:DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </edmx:DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <edmx:DesignerInfoPropertySet>
+        <edmx:DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <edmx:DesignerProperty Name="EnablePluralization" Value="False" />
+        <edmx:DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <edmx:DesignerProperty Name="UseLegacyProvider" Value="True" />
+        <edmx:DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </edmx:DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <edmx:Diagram Name="ModelMedison" ZoomLevel="74">
+        <edmx:EntityTypeShape EntityType="medisonModel.ChodziLezy" Width="1.5" PointX="8" PointY="6" Height="1.5956835937499996" IsExpanded="true" />
+        <edmx:EntityTypeShape EntityType="medisonModel.DaneLekarza" Width="1.5" PointX="0.75" PointY="0.75" Height="3.9033007812499996" IsExpanded="true" />
+        <edmx:EntityTypeShape EntityType="medisonModel.dtproperties" Width="1.5" PointX="0.75" PointY="5.75" Height="2.3648893229166656" IsExpanded="true" />
+        <edmx:EntityTypeShape EntityType="medisonModel.Leki" Width="1.5" PointX="10.25" PointY="4.5" Height="2.7494921874999996" IsExpanded="true" />
+        <edmx:EntityTypeShape EntityType="medisonModel.OpisyRachunku" Width="1.5" PointX="7.5" PointY="8.875" Height="3.9033007812499996" IsExpanded="true" />
+        <edmx:EntityTypeShape EntityType="medisonModel.PacBezNazwisk" Width="1.5" PointX="14.75" PointY="4.75" Height="7.7493294270833317" IsExpanded="true" />
+        <edmx:EntityTypeShape EntityType="medisonModel.Pacjenci" Width="1.5" PointX="3" PointY="9.375" Height="8.9031380208333335" IsExpanded="true" />
+        <edmx:EntityTypeShape EntityType="medisonModel.Plcie" Width="1.5" PointX="2.75" PointY="0.75" Height="1.4033821614583317" IsExpanded="true" />
+        <edmx:EntityTypeShape EntityType="medisonModel.Pokrewienstwo" Width="1.5" PointX="8" PointY="14.25" Height="1.5956835937499996" IsExpanded="true" />
+        <edmx:EntityTypeShape EntityType="medisonModel.Recepty" Width="1.875" PointX="12.5" PointY="12.375" Height="3.0714322916666674" IsExpanded="true" />
+        <edmx:EntityTypeShape EntityType="medisonModel.Skierowania" Width="1.5" PointX="5.25" PointY="14.75" Height="2.3648893229166745" IsExpanded="true" />
+        <edmx:EntityTypeShape EntityType="medisonModel.StatystycznaKlasyfikacjaChorob" Width="1.5" PointX="8" PointY="16.625" Height="1.9802864583333388" IsExpanded="true" />
+        <edmx:EntityTypeShape EntityType="medisonModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="0.75" Height="1.9802864583333388" IsExpanded="true" />
+        <edmx:EntityTypeShape EntityType="medisonModel.SzabGrupy" Width="1.5" PointX="12.75" PointY="1.375" Height="1.5956835937500031" IsExpanded="true" />
+        <edmx:EntityTypeShape EntityType="medisonModel.Szablony" Width="1.5" PointX="15" PointY="1" Height="2.5571907552083388" IsExpanded="true" />
+        <edmx:EntityTypeShape EntityType="medisonModel.Towary" Width="1.5" PointX="5.25" PointY="3.125" Height="3.3263964843750031" IsExpanded="true" />
+        <edmx:EntityTypeShape EntityType="medisonModel.TypyDokumentow" Width="1.5" PointX="8" PointY="19.375" Height="1.5956835937500031" IsExpanded="true" />
+        <edmx:EntityTypeShape EntityType="medisonModel.UbezpieczonyW" Width="1.5" PointX="0.75" PointY="13" Height="1.5956835937500031" IsExpanded="true" />
+        <edmx:EntityTypeShape EntityType="medisonModel.Usg" Width="1.5" PointX="8" PointY="21.75" Height="1.9802864583333388" IsExpanded="true" />
+        <edmx:EntityTypeShape EntityType="medisonModel.Wizyty" Width="1.5" PointX="10.25" PointY="8.625" Height="10.441549479166667" IsExpanded="true" />
+        <edmx:EntityTypeShape EntityType="medisonModel.WizytyPacBezNazwisk" Width="1.5" PointX="14.75" PointY="13.75" Height="8.7108365885416674" IsExpanded="true" />
+        <edmx:EntityTypeShape EntityType="medisonModel.Zaklady" Width="1.5" PointX="0.75" PointY="9.5" Height="2.749492187499996" IsExpanded="true" />
+        <edmx:EntityTypeShape EntityType="medisonModel.Zaklady_Kopia" Width="1.5" PointX="9.75" PointY="0.75" Height="2.3648893229166674" IsExpanded="true" />
+        <edmx:EntityTypeShape EntityType="medisonModel.Zaswiadczenia" Width="1.5" PointX="5.25" PointY="29" Height="2.172587890624996" IsExpanded="true" />
+        <edmx:EntityTypeShape EntityType="medisonModel.Zdjecia" Width="1.5" PointX="12.5" PointY="16.375" Height="2.172587890624996" IsExpanded="true" />
+        <edmx:EntityTypeShape EntityType="medisonModel.Zdjecia_ar" Width="1.5" PointX="16.75" PointY="4.75" Height="2.7494921875000102" IsExpanded="true" />
+        <edmx:AssociationConnector Association="medisonModel.FK_Wizyty_ChodziLezy" ManuallyRouted="false">
+          <edmx:ConnectorPoint PointX="9.5" PointY="7.5945287475961534" />
+          <edmx:ConnectorPoint PointX="9.875" PointY="7.9695287475961534" />
+          <edmx:ConnectorPoint PointX="9.875" PointY="13.845774739583334" />
+          <edmx:ConnectorPoint PointX="10.25" PointY="13.845774739583334" />
+        </edmx:AssociationConnector>
+        <edmx:AssociationConnector Association="medisonModel.FK_Recepty_Leki" ManuallyRouted="false">
+          <edmx:ConnectorPoint PointX="11.75" PointY="5.707021484375" />
+          <edmx:ConnectorPoint PointX="13.4375" PointY="5.707021484375" />
+          <edmx:ConnectorPoint PointX="13.4375" PointY="12.375" />
+        </edmx:AssociationConnector>
+        <edmx:AssociationConnector Association="medisonModel.FK_OpisyRachunku_Towary" ManuallyRouted="false">
+          <edmx:ConnectorPoint PointX="6" PointY="6.4513964843750031" />
+          <edmx:ConnectorPoint PointX="6" PointY="10.826650390625" />
+          <edmx:ConnectorPoint PointX="7.5" PointY="10.826650390625" />
+        </edmx:AssociationConnector>
+        <edmx:AssociationConnector Association="medisonModel.FK_Pacjenci_UbezpieczonyW" ManuallyRouted="false">
+          <edmx:ConnectorPoint PointX="2.25" PointY="13.797841796875002" />
+          <edmx:ConnectorPoint PointX="3" PointY="13.797841796875002" />
+        </edmx:AssociationConnector>
+        <edmx:AssociationConnector Association="medisonModel.FK_Pacjenci_Zaklady" ManuallyRouted="false">
+          <edmx:ConnectorPoint PointX="2.25" PointY="10.874746093749998" />
+          <edmx:ConnectorPoint PointX="3" PointY="10.874746093749998" />
+        </edmx:AssociationConnector>
+        <edmx:AssociationConnector Association="medisonModel.FK_Skierowania_Pacjenci" ManuallyRouted="false">
+          <edmx:ConnectorPoint PointX="4.5" PointY="16.028595377604169" />
+          <edmx:ConnectorPoint PointX="5.25" PointY="16.028595377604169" />
+        </edmx:AssociationConnector>
+        <edmx:AssociationConnector Association="medisonModel.FK_Wizyty_Pacjenci" ManuallyRouted="false">
+          <edmx:ConnectorPoint PointX="4.5" PointY="13.514150390625" />
+          <edmx:ConnectorPoint PointX="7.635416666666667" PointY="13.514150390625" />
+          <edmx:ConnectorPoint PointX="7.802083333333333" PointY="13.514150390625" />
+          <edmx:ConnectorPoint PointX="10.25" PointY="13.514150390625" />
+        </edmx:AssociationConnector>
+        <edmx:AssociationConnector Association="medisonModel.FK_Zaswiadczenia_Pacjenci" ManuallyRouted="false">
+          <edmx:ConnectorPoint PointX="3.75" PointY="18.855042317708335" />
+          <edmx:ConnectorPoint PointX="3.75" PointY="30.086293945312498" />
+          <edmx:ConnectorPoint PointX="5.25" PointY="30.086293945312498" />
+        </edmx:AssociationConnector>
+        <edmx:AssociationConnector Association="medisonModel.FK_Wizyty_Pokrewienstwo" ManuallyRouted="false">
+          <edmx:ConnectorPoint PointX="9.5" PointY="15.047841796875" />
+          <edmx:ConnectorPoint PointX="10.25" PointY="15.047841796875" />
+        </edmx:AssociationConnector>
+        <edmx:AssociationConnector Association="medisonModel.FK_Recepty_Wizyty" ManuallyRouted="false">
+          <edmx:ConnectorPoint PointX="11.75" PointY="13.910716145833334" />
+          <edmx:ConnectorPoint PointX="12.5" PointY="13.910716145833334" />
+        </edmx:AssociationConnector>
+        <edmx:AssociationConnector Association="medisonModel.FK_Wizyty_StatystycznaKlasyfikacjaChorob" ManuallyRouted="false">
+          <edmx:ConnectorPoint PointX="9.5" PointY="17.615143229166669" />
+          <edmx:ConnectorPoint PointX="10.25" PointY="17.615143229166669" />
+        </edmx:AssociationConnector>
+        <edmx:AssociationConnector Association="medisonModel.FK_Szablony_SzabGrupy" ManuallyRouted="false">
+          <edmx:ConnectorPoint PointX="14.25" PointY="2.1728417968750016" />
+          <edmx:ConnectorPoint PointX="15" PointY="2.1728417968750016" />
+        </edmx:AssociationConnector>
+        <edmx:AssociationConnector Association="medisonModel.FK_Wizyty_TypyDokumentow" ManuallyRouted="false">
+          <edmx:ConnectorPoint PointX="9.5" PointY="20.172841796875" />
+          <edmx:ConnectorPoint PointX="10.510414166666665" PointY="20.172841796875" />
+          <edmx:ConnectorPoint PointX="10.677080833333333" PointY="20.172841796875" />
+          <edmx:ConnectorPoint PointX="11" PointY="20.172841796875" />
+          <edmx:ConnectorPoint PointX="11" PointY="19.066549479166667" />
+        </edmx:AssociationConnector>
+        <edmx:AssociationConnector Association="medisonModel.FK_Wizyty_Usg" ManuallyRouted="false">
+          <edmx:ConnectorPoint PointX="9.5" PointY="22.740143229166669" />
+          <edmx:ConnectorPoint PointX="10.5937475" PointY="22.740143229166669" />
+          <edmx:ConnectorPoint PointX="10.5937475" PointY="19.066549479166667" />
+        </edmx:AssociationConnector>
+        <edmx:AssociationConnector Association="medisonModel.FK_Zdjecia_Wizyty" ManuallyRouted="false">
+          <edmx:ConnectorPoint PointX="11.75" PointY="17.461293945312498" />
+          <edmx:ConnectorPoint PointX="12.5" PointY="17.461293945312498" />
+        </edmx:AssociationConnector>
+        <edmx:EntityTypeShape EntityType="medisonModel.SkierowaniaCele" Width="1.5" PointX="19.625" PointY="0.875" Height="1.5923063151041674" />
+        <edmx:EntityTypeShape EntityType="medisonModel.SkierowaniaPoradnie" Width="1.5" PointX="17.375" PointY="1" Height="1.427958984374996" />
+        <edmx:AssociationConnector Association="medisonModel.FK_Table2_SkierowaniaPoradnie">
+          <edmx:ConnectorPoint PointX="18.875" PointY="1.713979492187498" />
+          <edmx:ConnectorPoint PointX="19.625" PointY="1.713979492187498" />
+        </edmx:AssociationConnector>
+        <edmx:EntityTypeShape EntityType="medisonModel.CelSzablony" Width="1.5" PointX="7.375" PointY="3.75" Height="1.2636116536458246" />
+        <edmx:EntityTypeShape EntityType="medisonModel.Rachunki" Width="1.5" PointX="5.25" PointY="18.875" Height="6.4032194010416674" />
+        <edmx:AssociationConnector Association="medisonModel.FK_OpisyRachunku_Rachunki">
+          <edmx:ConnectorPoint PointX="6.75" PointY="24.535502929687503" />
+          <edmx:ConnectorPoint PointX="7.71875" PointY="24.535502929687503" />
+          <edmx:ConnectorPoint PointX="7.71875" PointY="12.77830078125" />
+        </edmx:AssociationConnector>
+        <edmx:AssociationConnector Association="medisonModel.FK_Rachunki_Pacjenci">
+          <edmx:ConnectorPoint PointX="4.1562525" PointY="18.855042317708335" />
+          <edmx:ConnectorPoint PointX="4.1562525" PointY="22.076609700520834" />
+          <edmx:ConnectorPoint PointX="5.25" PointY="22.076609700520834" />
+        </edmx:AssociationConnector>
+      </edmx:Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

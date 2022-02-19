@@ -1,0 +1,90 @@
+﻿<Window x:Class="WindowL4"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xml:lang="pl-PL"
+    Title="L4" Height="556" Width="882" Background="Transparent" WindowStyle="None" AllowsTransparency="True" WindowStartupLocation="CenterScreen"  xmlns:my="clr-namespace:Medison" Icon="/Medison;component/Images/zwolnienie-lekarskie-l4_15305_w633.jpg">
+    <Grid  Background="WhiteSmoke"  Opacity="1">
+        <Label Content="{Binding Path=Pacjenci}" Height="28" HorizontalAlignment="Left" Name="Label1" VerticalAlignment="Top" Width="255" FontWeight="Bold" FontSize="14" />
+        <Button Background="Transparent" Height="30" HorizontalAlignment="Right" Margin="0,3,4,0" Name="Button1" VerticalAlignment="Top" Width="110">
+            <StackPanel Orientation="Horizontal">
+                <Image Margin="-10" Source="/Medison;component/Images/back.png" Width="40" />
+                <Label Content="Wróć" FontWeight="Bold" Margin="10,0" />
+            </StackPanel>
+        </Button>
+        <Label Content="Kod" Height="28" HorizontalAlignment="Left" Margin="15,33,0,0"  VerticalAlignment="Top" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="90,34,0,0"  VerticalAlignment="Top" Width="120" Text="{Binding Path=Pacjenci.Kod}" />
+        <Label Content="Miejscowość" Height="28" HorizontalAlignment="Left" Margin="12,58,0,0" VerticalAlignment="Top" Width="87" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="90,59,0,0" Text="{Binding Path=Pacjenci.Miejscowosc}" VerticalAlignment="Top" Width="120" />
+        <Label Content="Adres" Height="28" HorizontalAlignment="Left" Margin="12,83,0,0" VerticalAlignment="Top" Width="87" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="90,84,0,0" Text="{Binding Path=Pacjenci.Adres}" VerticalAlignment="Top" Width="120" />
+        <Label Content="Nr domu" Height="28" HorizontalAlignment="Left" Margin="12,108,0,0" VerticalAlignment="Top" Width="87" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="90,109,0,0" Text="{Binding Path=Pacjenci.NrDomu}" VerticalAlignment="Top" Width="120" />
+        <Label Content="Nr lokalu" Height="28" HorizontalAlignment="Left" Margin="12,134,0,0" VerticalAlignment="Top" Width="87" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="90,135,0,0" Text="{Binding Path=Pacjenci.NrLokalu}" VerticalAlignment="Top" Width="120" />
+        <Label Content="PESEL" Height="28" HorizontalAlignment="Left" Margin="217,32,0,0" VerticalAlignment="Top" Width="87" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="261,33,0,0" Text="{Binding Path=Pacjenci.Pesel}" VerticalAlignment="Top" Width="120" FontWeight="Bold" MaxLength="11" Name="TextBox4" />
+        <Label Content="Zwolnienie od" Height="28" HorizontalAlignment="Left" Margin="216,78,0,0" VerticalAlignment="Top" Width="87" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="309,79,0,0" Text="{Binding Path=ZwolnienieOdToString}" VerticalAlignment="Top" Width="109" Name="TextBox1" />
+        <Label Content="dni" Height="28" HorizontalAlignment="Left" Margin="423,76,0,0" VerticalAlignment="Top" Width="87" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="455,78,0,0" Text="{Binding Path=ZwolnienieDni}" VerticalAlignment="Top" Width="42" Name="TextBox3" />
+        <Label Content="do" Height="28" HorizontalAlignment="Left" Margin="509,77,0,0" VerticalAlignment="Top" Width="87" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="537,78,0,0" Text="{Binding Path=ZwolnienieDoToString}" VerticalAlignment="Top" Width="120" />
+        <ListBox Height="58" HorizontalAlignment="Left" Margin="496,12,0,0" Name="ListBoxUbezpieczonyW" VerticalAlignment="Top" Width="92" SelectedItem="{Binding Path=Pacjenci.UbezpieczonyW}" DisplayMemberPath="opis"/>
+        <Label Content="Ubezpieczony w" Height="28" HorizontalAlignment="Left" Margin="394,32,0,0" Name="Label2" VerticalAlignment="Top" />
+        <ListBox DisplayMemberPath="opis" Height="68" HorizontalAlignment="Left" Margin="15,163,0,0" Name="ListBoxChodziLezy" SelectedItem="{Binding Path=ChodziLezy}" VerticalAlignment="Top" Width="240" />
+        <ListBox DisplayMemberPath="opis" Height="68" HorizontalAlignment="Left" Margin="261,163,0,0" Name="ListBoxTypDokumentu" SelectedItem="{Binding Path=TypyDokumentow}" VerticalAlignment="Top" Width="131" FontSize="14" />
+        <Label Content="Numer dokumentu" Height="28" HorizontalAlignment="Left" Margin="398,136,0,0" VerticalAlignment="Top" Width="130" />
+        <TextBox  Height="23" HorizontalAlignment="Left" Margin="398,163,0,0" Text="{Binding Path=Pacjenci.NIP}" VerticalAlignment="Top" Width="120" Name="TextBoxNIP" MaxLength="10" />
+        <TextBox  Height="23" HorizontalAlignment="Left" Margin="398,185,0,0" Text="{Binding Path=Pacjenci.Dowod}" VerticalAlignment="Top" Width="120" Name="TextBoxDowod" />
+        <TextBox  Height="23" HorizontalAlignment="Left" Margin="398,208,0,0" Text="{Binding Path=Pacjenci.Paszport}" VerticalAlignment="Top" Width="120" Name="TextBoxPaszport" />
+        <Label Content="Kod statystyczny choroby" Height="28" HorizontalAlignment="Left" Margin="234,109,0,0" Name="Label3" VerticalAlignment="Top" />
+        <TextBox Text="{Binding Path=NrStatystycznyChoroby}" HorizontalAlignment="left" VerticalAlignment="top" Width="60" Margin="385,111,0,0" Name="TextBoxNrStatystycznyChoroby" LostFocus="OdswierzChorobe"/>
+        <Button Content="..." Width="40" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="451,110,0,0" Name="Button3" />
+
+        <Label Content="Kod ABC" Height="28" HorizontalAlignment="Left" Margin="511,140,0,0" Name="Label4" VerticalAlignment="Top" />
+        <ComboBox  Height="23" HorizontalAlignment="Left" Margin="576,140,0,0" Name="ComboBoxA" SelectedValue="{Binding Path=KodABC1}" VerticalAlignment="Top" Width="41" />
+        <ComboBox Height="23" HorizontalAlignment="Left" Margin="623,140,0,0" Name="ComboBoxB" SelectedValue="{Binding Path=KodABC2}" VerticalAlignment="Top" Width="41" />
+        <ComboBox Height="23" HorizontalAlignment="Left" Margin="670,140,0,0" Name="ComboBoxC" SelectedValue="{Binding Path=KodABC3}" VerticalAlignment="Top" Width="41" />
+        <ComboBox Height="23" HorizontalAlignment="Left" Margin="717,140,0,0" Name="ComboBoxD" SelectedValue="{Binding Path=KodABC4}" VerticalAlignment="Top" Width="41" />
+        <ListBox DisplayMemberPath="opis" Height="68" HorizontalAlignment="Left" Margin="15,237,0,0" Name="ListBoxPokrewienstwo" SelectedItem="{Binding Path=Pokrewienstwo}" VerticalAlignment="Top" Width="346" />
+        <Label Content="Data urodzenia " Height="28" HorizontalAlignment="Left" Margin="364,247,0,0" VerticalAlignment="Top" Width="109" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="364,272,0,0" Text="{Binding Path=Pacjenci.DataUrodzeniaOsobyPodOpToString, StringFormat=\{0:d\}}" VerticalAlignment="Top" Width="109" />
+        <GroupBox Header="Dane lekarza" Height="94" HorizontalAlignment="Left" Margin="550,220,0,0" Name="GroupBox1" VerticalAlignment="Top" Width="207">
+            <StackPanel>
+                <Label Content="{Binding Path=ImieLekarza}"  />
+                <Label Content="{Binding Path=NazwiskoLekarza}"  />
+                <Label Content="{Binding Path=NrLekarza}"  />
+            </StackPanel>
+        </GroupBox>
+        <Label Content="Data wizyty" Height="28" HorizontalAlignment="Left" Margin="15,308,0,0" VerticalAlignment="Top" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="122,310,0,0" Text="{Binding Path=DataWizytyToString}" VerticalAlignment="Top" Width="109" IsReadOnly="True" />
+        <Label Content="Wystawiono dnia" Height="28" HorizontalAlignment="Left" Margin="15,337,0,0" VerticalAlignment="Top" />
+        <TextBox Height="23" HorizontalAlignment="Left"  Margin="122,339,0,0" Text="{Binding Path=WystawionoDniaToString}" VerticalAlignment="Top" Width="109" Name="TextBox2" />
+        <Label Content="NIP" Height="28" HorizontalAlignment="Left" Margin="241,310,0,0" VerticalAlignment="Top" Width="130" />
+        <TextBox FontWeight="Bold" Height="23" HorizontalAlignment="Left" Margin="241,337,0,0" Text="{Binding Path=NIPzakladu}" VerticalAlignment="Top" Width="120" IsReadOnly="False"  KeyDown="SzukajFirmy" Name="TextBoxNIPFirmy" MaxLength="13" />
+        <Label Content="Nazwa zakładu" Height="28" HorizontalAlignment="Left" Margin="364,310,0,0" VerticalAlignment="Top" Width="130" />
+        <TextBox FontWeight="Bold" Height="23" HorizontalAlignment="Left" IsReadOnly="False"  Margin="364,337,0,0" Text="{Binding Path=NazwaZakladuPracy}" VerticalAlignment="Top" Width="305"  KeyDown="DodajNowaFirme" Name="TextBoxNazwaFirmy" MaxLength="43" />
+
+        <my:UserControlKalkulator182 HorizontalAlignment="Left" Margin="634,170,0,0" x:Name="UserControlKalkulator1821" VerticalAlignment="Top" Width="214" />
+        <DataGrid AutoGenerateColumns="False" Height="131" HorizontalAlignment="Left" Margin="23,379,0,0" Name="DataGrid1" VerticalAlignment="Top" Width="808" ItemsSource="{Binding Path=poprzednieL4}" IsReadOnly="True" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Zwolnienie od" Binding="{Binding Path=ZwolnienieOd,StringFormat=\{0:d\}}"/>
+                <DataGridTextColumn Header="Zwolnienie do" Binding="{Binding Path=ZwolnienieDo,StringFormat=\{0:d\}}" Foreground="Red" />
+                <DataGridTextColumn Header="Dni" Binding="{Binding Path=ZwolnienieDni}" Foreground="Red" />
+                <DataGridTextColumn Header="Nr choroby" Binding="{Binding Path=NrStatystycznyChoroby}"/>
+                <DataGridTextColumn Header="NIP zakładu" Binding="{Binding Path=NIPzakladu}"/>
+                <DataGridTextColumn Header="Nazwa" Binding="{Binding Path=NazwaZakladuPracy}"/>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="^^" Tag="{Binding }" Click="PrzepiszFirme"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Content="Podgląd L4 nowe" Height="29" HorizontalAlignment="Left" Margin="611,6,0,0" Name="Button2" VerticalAlignment="Top" Width="119" />
+        <Button Content="Usuń" Height="29" HorizontalAlignment="Right" Margin="0,72,13,0" Name="Button4" VerticalAlignment="Top" Width="96" />
+        <Button Content="Podgląd L4 stare" Height="29" HorizontalAlignment="Left" Margin="611,41,0,0" Name="Button5" VerticalAlignment="Top" Width="119" />
+    </Grid>
+</Window>

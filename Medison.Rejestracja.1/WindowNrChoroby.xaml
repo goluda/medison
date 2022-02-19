@@ -1,0 +1,36 @@
+﻿<Window x:Class="WindowNrChoroby"
+       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xml:lang="pl-PL"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Nowy szablon" Height="384" Width="506" Background="Transparent" WindowStyle="None" AllowsTransparency="True" WindowStartupLocation="CenterScreen" Icon="/Medison;component/Images/126_Edit_32x32_72.png">
+    <Grid>
+        <Grid Background="WhiteSmoke"  Opacity="0.95">
+            <Grid Margin="34,40,30,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="300" />
+                
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    
+                    
+                </Grid.ColumnDefinitions>
+
+
+                
+                <ListBox Name="ListBoxChoroby" DisplayMemberPath="opis" Grid.Row="0" Grid.Column="1"/>
+                
+                
+ 
+            </Grid>
+
+        </Grid>
+        <Button Background="Transparent" Height="30" HorizontalAlignment="Right" Margin="0,7,12,0" Name="Button1" VerticalAlignment="Top" Width="110">
+            <StackPanel Orientation="Horizontal">
+                <Image Margin="-10" Source="/Medison;component/Images/back.png" Width="40" />
+                <Label Content="Wróć" FontWeight="Bold" Margin="10,0" />
+            </StackPanel>
+        </Button>
+
+
+    </Grid>
+</Window>

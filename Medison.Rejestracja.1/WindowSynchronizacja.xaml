@@ -1,0 +1,10 @@
+﻿<Window x:Class="WindowSynchronizacja"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="WindowSynchronizacja" Height="354" Width="433" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <TextBlock  Text ="Synchronizacja danych" TextAlignment="Center" FontWeight="Light" FontSize="24" Margin="8,4,7,0" Name="Label1" VerticalAlignment="Top"  />
+        <Button Content="Uruchom synchronizację" Height="23" Margin="12,42,12,0" Name="Button1" VerticalAlignment="Top" />
+        <ListBox Margin="12,74,13,8" Name="ListBox1" />
+    </Grid>
+</Window>

@@ -1,0 +1,36 @@
+﻿<UserControl x:Class="UserControlWydrukL4_1"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="1190" d:DesignWidth="1347" xmlns:my="clr-namespace:Medison" FontFamily="Courier New" FontSize="15.5">
+    <Grid Margin="20,-15,0,0">
+        <!--<Image Name="tlo" Source="/Medison;component/Images/Zwolnienie.jpg" Height="605" VerticalAlignment="Top" HorizontalAlignment="Left" Width="1322" Margin="-110,-14,0,0"></Image>-->
+        <Label Content="{Binding Path=L4Pesel}" Height="25" HorizontalAlignment="Left" Margin="35,81,0,0"  VerticalAlignment="Top" Width="222" Background="White"></Label>
+        <Label Content="{Binding Path=L4Imie}" Height="25" HorizontalAlignment="Left" Margin="301,81,0,0"  VerticalAlignment="Top" Width="439" Background="White"></Label>
+        <Label Content="{Binding Path=L4Nazwisko}" Height="25" HorizontalAlignment="Left" Margin="34,113,0,0"  VerticalAlignment="Top" Width="611" Background="White"></Label>
+        <Label Content="{Binding Path=Pacjenci.UbezpieczonyW.NrUbezpieczonyW}" Height="25" HorizontalAlignment="Left" Margin="694,113,0,0" VerticalAlignment="Top" Width="30" Background="White"></Label>
+        <Label Content="{Binding Path=NrTypuDokumentu}" Height="25" HorizontalAlignment="Left" Margin="91,144,0,0" VerticalAlignment="Top" Width="30" Background="White"></Label>
+        <Label Content="{Binding Path=L4NumerDokumentu}" Height="25" HorizontalAlignment="Left" Margin="130,144,0,0" VerticalAlignment="Top" Width="611" Background="White"></Label>
+        <Label Content="{Binding Path=L4ZwolnienieOd}" Height="25" HorizontalAlignment="Left" Margin="35,294,0,0" VerticalAlignment="Top" Width="161" Background="White"></Label>
+        <Label Content="{Binding Path=L4ZwolnienieDo}" Height="25" HorizontalAlignment="Left" Margin="208,294,0,0" VerticalAlignment="Top" Width="161" Background="White"></Label>
+        <Label Content="{Binding Path=L4DataUrodzenia}" Height="25" HorizontalAlignment="Left" Margin="34,178,0,0" VerticalAlignment="Top" Width="169" Background="White"></Label>
+        <Label Content="{Binding Path=NrChodziLezy}" Height="25" HorizontalAlignment="Left" Margin="531,294,0,0" VerticalAlignment="Top" Width="30" Background="White"></Label>
+        <Label Content="{Binding Path=KodABC1}" Height="25" HorizontalAlignment="Left" Margin="579,294,0,0" VerticalAlignment="Top" Width="30" Background="White"></Label>
+        <Label Content="{Binding Path=KodABC2}" Height="25" HorizontalAlignment="Left" Margin="619,294,0,0" VerticalAlignment="Top" Width="30" Background="White"></Label>
+        <Label Content="{Binding Path=KodABC3}" Height="25" HorizontalAlignment="Left" Margin="655,294,0,0" VerticalAlignment="Top" Width="30" Background="White"></Label>
+        <Label Content="{Binding Path=KodABC4}" Height="25" HorizontalAlignment="Left" Margin="694,294,0,0" VerticalAlignment="Top" Width="30" Background="White"></Label>
+        <Label Content="{Binding Path=L4NrStatystycznyChoroby}" Height="25" HorizontalAlignment="Left" Margin="80,327,0,0" VerticalAlignment="Top" Width="67" Background="White"></Label>
+        <Label Content="{Binding Path=L4KodPokrewienstwa}" Height="25" HorizontalAlignment="Left" Margin="211,327,0,0" VerticalAlignment="Top" Width="30" Background="White"></Label>
+        <Label Content="{Binding Path=L4KodPokrewienstwaData}" Height="25" HorizontalAlignment="Left" Margin="255,327,0,0" VerticalAlignment="Top" Width="169" Background="White"></Label>
+        <Label Content="{Binding Path=L4NrLekarza}" Height="25" HorizontalAlignment="Left" Margin="35,401,0,0" VerticalAlignment="Top" Width="202" Background="White"></Label>
+        <Label Content="{Binding Path=L4WystawionoDnia}" Height="25" HorizontalAlignment="Left" Margin="243,401,0,0" VerticalAlignment="Top" Width="169" Background="White"></Label>
+        <Label Content="{Binding Path=L4NIPZakladu}" Height="25" HorizontalAlignment="Left" Margin="35,366,0,0" VerticalAlignment="Top" Width="202" Background="White"></Label>
+        <Label Content="{Binding Path=L4PacjentKodPocztowy}" Height="30" HorizontalAlignment="Left" Margin="35,222,0,0" VerticalAlignment="Top" Width="103" FontFamily="Courier New" Background="White"></Label>
+        <Label Content="{Binding Path=L4PacjentMiejscowosc}" Height="30" HorizontalAlignment="Left" Margin="155,222,0,0" VerticalAlignment="Top" Width="497" FontFamily="Courier New" Background="White"></Label>
+        <Label Content="{Binding Path=L4PacjentAdres}" Height="30" HorizontalAlignment="Left" Margin="35,259,0,0" VerticalAlignment="Top" Width="368" FontFamily="Courier New" Background="White"></Label>
+        <Label Content="{Binding Path=L4PacjentNrDomu}" Height="30" HorizontalAlignment="Left" Margin="415,259,0,0" VerticalAlignment="Top" Width="102" FontFamily="Courier New" Background="White"></Label>
+        <Label Content="{Binding Path=Pacjenci.NrLokalu}" Height="30" HorizontalAlignment="Left" Margin="543,259,0,0" VerticalAlignment="Top" Width="102" FontFamily="Courier New" Background="White"></Label>
+    </Grid>
+</UserControl>

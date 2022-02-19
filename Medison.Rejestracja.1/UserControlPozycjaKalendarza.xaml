@@ -1,0 +1,81 @@
+﻿<UserControl x:Class="UserControlPozycjaKalendarza"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Medison.Rejestracja._1"
+             mc:Ignorable="d" 
+             d:DesignHeight="100" d:DesignWidth="320">
+    <Grid  >
+        <Grid Grid.Column="1" Margin="0,15,0,0"  >
+            <Border  Width="300" BorderBrush="Black" BorderThickness="1" Margin="1" MinHeight="30">
+                <Grid >
+
+                    <Grid Visibility="{Binding Path=pokazZajeta}" Background="{Binding Path=kolor}"  MouseLeftButtonDown="SwipeStart" MouseLeftButtonUp="SwipeEnd">
+
+                        <StackPanel  HorizontalAlignment="Left" Margin="5">
+
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Margin="0,0,2,0" Text="{Binding Path=aNazwisko}" FontWeight="Bold" />
+                                <TextBlock Margin="2,0,2,0" Text="{Binding Path=aImie}"/>
+                                <TextBlock Margin="2,0,2,0" Text="{Binding Path=aImie2}"/>
+
+                            </StackPanel>
+                            <TextBlock Margin="2,0,2,0" Text="{Binding Path=aTelefon}" FontSize="10"/>
+
+                            <StackPanel Orientation="Horizontal" Visibility="{Binding Path=szczegoly}">
+                                <TextBlock Margin="0,0,2,0" Text="{Binding Path=aPesel}" FontWeight="Bold" FontSize="10" />
+                                <TextBlock Margin="2,0,2,0" Text="{Binding Path=aDataUrodzenia}" FontSize="10"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal"  Visibility="{Binding Path=szczegoly}">
+                                <TextBlock Margin="0,0,2,0" Text="{Binding Path=aMiejscowosc}" FontSize="10"/>
+                                <TextBlock Margin="2,0,2,0" Text="{Binding Path=aAdres}" FontSize="10"/>
+                                <!--<TextBlock Margin="2,0,2,0" Text="{Binding Path=aTelefon}" FontSize="10"/>-->
+                            </StackPanel>
+                            <TextBlock  Text="{Binding Path=aUwagi}" FontSize="10" Foreground="Blue"   />
+
+                        </StackPanel >
+                    </Grid>
+                    <Grid Visibility="{Binding Path=pokazWolna}" Background="#FFF0F0F0" MouseLeftButtonDown="SwipeStart" MouseLeftButtonUp="SwipeEnd">
+                        
+                    </Grid>
+                </Grid>
+            </Border>
+
+        </Grid>
+
+        <TextBlock Text="{Binding Path=godzina}" Margin="2,0,0,0" HorizontalAlignment="Left" Foreground="{Binding Path=godzinaBrush}" VerticalAlignment="Top"  FontWeight="Bold" FontSize="12" />
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="top" Visibility="{Binding Path=pokazWolna}" MouseLeftButtonDown="SwipeStart" MouseLeftButtonUp="SwipeEnd">
+            <Button HorizontalAlignment="Right" Width="20" Margin="5" Tag="{Binding }" Click="Wklej">
+                <Image Source="/Medison.Rejestracja.1;component/Images/paste.ico" />
+            </Button>
+            <Button HorizontalAlignment="Right" Width="20" Margin="5" Tag="{Binding }" Click="DodajPacjenta">
+                <Image Source="/Medison.Rejestracja.1;component/Images/add.png" />
+            </Button>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="top" Visibility="{Binding Path=pokazZajeta}" MouseLeftButtonDown="SwipeStart" MouseLeftButtonUp="SwipeEnd">
+            <Button HorizontalAlignment="Right" Width="20" Margin="5" Tag="{Binding }" Click="ZmienPacjenta">
+                <Image Source="/Medison.Rejestracja.1;component/Images/user.png" />
+            </Button>
+            <Button HorizontalAlignment="Right" Width="20" Margin="5" Tag="{Binding }" Click="Pokaz">
+                <Image Source="/Medison.Rejestracja.1;component/Images/Webcontrol_Detailsview.bmp" />
+            </Button>
+            <Button HorizontalAlignment="Right" Width="20" Margin="5" Tag="{Binding }" Click="Wytnij">
+                <Image Source="/Medison.Rejestracja.1;component/Images/cut.ico" />
+            </Button>
+            <Button HorizontalAlignment="Right" Width="20" Margin="5" Tag="{Binding }" Click="Zadzwonione">
+                <Image Source="/Medison.Rejestracja.1;component/Images/mobile_phone.png" />
+            </Button>
+            <Button HorizontalAlignment="Right" Width="20" Margin="5" Tag="{Binding }" Click="UstawInfo">
+                <Image Source="/Medison.Rejestracja.1;component/Images/info.png" />
+            </Button>
+            <Button HorizontalAlignment="Right" Width="20" Margin="5" Tag="{Binding }" Click="UsunPacjenta">
+                <Image Source="/Medison.Rejestracja.1;component/Images/delete.png" />
+            </Button>
+        </StackPanel>
+
+
+    </Grid>
+</UserControl>

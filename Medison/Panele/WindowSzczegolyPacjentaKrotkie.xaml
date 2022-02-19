@@ -1,0 +1,71 @@
+﻿<Window x:Class="WindowSzczegolyPacjentaKrotkie"
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xml:lang="pl-PL"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Szczegoly pacjenta" Height="433" Width="584" Background="Transparent" WindowStyle="None" AllowsTransparency="True" WindowStartupLocation="CenterScreen" Icon="/Medison;component/Images/Users.png" xmlns:my="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.Toolkit">
+    <Grid>
+        <Grid Background="WhiteSmoke"  Opacity="0.95">
+            <Grid Margin="34,32,0,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="200" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Column="0" Grid.Row="0" Content="Nazwisko" />
+                <Label Grid.Column="0" Grid.Row="1" Content="Imie" />
+                <Label Grid.Column="0" Grid.Row="2" Content="Pesel" />
+                <Label Grid.Column="0" Grid.Row="3" Content="Plec" />
+                <Label Grid.Column="0" Grid.Row="4" Content="Data urodzenia" />
+                <Label Grid.Column="0" Grid.Row="6" Content="Kod" />
+                <Label Grid.Column="0" Grid.Row="7" Content="Miejscowosc" />
+                <Label Grid.Column="0" Grid.Row="8" Content="Adres" />
+                <Label Grid.Column="0" Grid.Row="9" Content="Nr Domu" />
+                <Label Grid.Column="0" Grid.Row="10" Content="Nr Lokalu" />
+                <Label Grid.Column="0" Grid.Row="11" Content="Telefon" />
+                <Label Grid.Column="0" Grid.Row="12" Content="NIP" />
+
+
+                <TextBox Grid.Column="1" Grid.Row="0" Text="{Binding Path=Nazwisko, Mode=TwoWay, UpdateSourceTrigger=LostFocus, NotifyOnValidationError=True, ValidatesOnDataErrors=True, ValidatesOnExceptions=True}" Width="150" HorizontalAlignment="Left" VerticalAlignment="Top" Name="TextBox1" />
+                <TextBox Grid.Column="1" Grid.Row="1" Text="{Binding Path=Imie, Mode=TwoWay, UpdateSourceTrigger=LostFocus, NotifyOnValidationError=True, ValidatesOnDataErrors=True, ValidatesOnExceptions=True}" Width="150" HorizontalAlignment="Left" VerticalAlignment="Top" Name="TextBox2" />
+                <TextBox Grid.Column="1" Grid.Row="2" Text="{Binding Path=Pesel, Mode=TwoWay, UpdateSourceTrigger=LostFocus, NotifyOnValidationError=True, ValidatesOnDataErrors=True, ValidatesOnExceptions=True}" Width="150" HorizontalAlignment="Left" VerticalAlignment="Top" Name="TextBox5" />
+                <ComboBox Grid.Column="1" Grid.Row="3" SelectedValue="{Binding Path=Plec, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnDataErrors=True, ValidatesOnExceptions=True}" IsSynchronizedWithCurrentItem="True" Name="ComboBoxPlec" Margin="0,0,107,0" Width="43" />
+                <TextBox Grid.Column="1" Grid.Row="4" Text="{Binding Path=DataUrodzeniaToString, Mode=TwoWay, UpdateSourceTrigger=LostFocus, NotifyOnValidationError=True, ValidatesOnDataErrors=True, ValidatesOnExceptions=True, StringFormat=\{0:d\}}" Width="115" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                <TextBox Name="TextBoxSzukajMiejscowosci" Grid.Column="2" Grid.Row="6" Background="Silver" TextChanged="szukajMiejsowosci"/>
+                <ComboBox Grid.Row="7" Grid.Column="2" Width="150" DisplayMemberPath="widok" SelectedValuePath="id" SelectedValue="{Binding Path=miejscowoscID}" Name="ComboBoxMiejscowosci" />
+                <my:AutoCompleteBox  Grid.Column="1" Grid.Row="8" Text="{Binding Path=Adres, Mode=TwoWay, UpdateSourceTrigger=LostFocus, NotifyOnValidationError=True, ValidatesOnDataErrors=True, ValidatesOnExceptions=True}" Width="150" HorizontalAlignment="Left" VerticalAlignment="Top" Name="TextBoxAdres" />
+                <TextBox Grid.Column="1" Grid.Row="9" Text="{Binding Path=NrDomu, Mode=TwoWay, UpdateSourceTrigger=LostFocus, NotifyOnValidationError=True, ValidatesOnDataErrors=True, ValidatesOnExceptions=True}" Width="100" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                <TextBox Grid.Column="1" Grid.Row="10" Text="{Binding Path=NrLokalu, Mode=TwoWay, UpdateSourceTrigger=LostFocus, NotifyOnValidationError=True, ValidatesOnDataErrors=True, ValidatesOnExceptions=True}" Width="100" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                <TextBox Grid.Column="1" Grid.Row="11" Text="{Binding Path=Telefon, Mode=TwoWay, UpdateSourceTrigger=LostFocus, NotifyOnValidationError=True, ValidatesOnDataErrors=True, ValidatesOnExceptions=True}" Width="150" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                <TextBox Grid.Column="1" Grid.Row="12" Text="{Binding Path=NIP, Mode=TwoWay, UpdateSourceTrigger=LostFocus, NotifyOnValidationError=True, ValidatesOnDataErrors=True, ValidatesOnExceptions=True}" Width="150" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                
+                <TextBox Grid.Column="1" Grid.Row="6" Text="{Binding Path=Kod, Mode=TwoWay, UpdateSourceTrigger=LostFocus, NotifyOnValidationError=True, ValidatesOnDataErrors=True, ValidatesOnExceptions=True}" Width="60" HorizontalAlignment="Left" VerticalAlignment="Top" Name="TextBox3" />
+                <TextBox Grid.Column="1" Grid.Row="7" Text="{Binding Path=Miejscowosc, Mode=TwoWay, UpdateSourceTrigger=LostFocus, NotifyOnValidationError=True, ValidatesOnDataErrors=True, ValidatesOnExceptions=True}" Width="150" HorizontalAlignment="Left" VerticalAlignment="Top" Name="TextBox4" />
+            </Grid>
+
+        </Grid>
+        <Button Background="Transparent" Height="30" HorizontalAlignment="Right" Margin="0,7,12,0" Name="Button1" VerticalAlignment="Top" Width="110">
+            <StackPanel Orientation="Horizontal">
+                <Image Margin="-10" Source="/Medison;component/Images/back.png" Width="40" />
+                <Label Content="Wróć" FontWeight="Bold" Margin="10,0" />
+            </StackPanel>
+        </Button>
+        
+
+    </Grid>
+</Window>

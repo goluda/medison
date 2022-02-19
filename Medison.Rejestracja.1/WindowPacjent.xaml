@@ -1,0 +1,31 @@
+﻿<Window x:Class="WindowPacjent"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="WindowPacjent" Height="500" Width="1000" WindowStartupLocation="CenterScreen"
+        xml:lang="pl-PL">
+    <Grid>
+        <Label Content="Szukaj" Height="28" HorizontalAlignment="Left" Margin="11,10,0,0" Name="Label1" VerticalAlignment="Top" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="59,10,0,0" Name="TextBox1" VerticalAlignment="Top" Width="362" />
+        <DataGrid AutoGenerateColumns="False" Margin="9,42,9,9" Name="DataGrid1" ItemsSource="{Binding }" IsReadOnly="False"  >
+            <DataGrid.Columns>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Button Tag="{Binding }" Content="Wybierz" Width="60" Click="Wybierz"/>
+                                <Button Tag="{Binding }" Content="Edytuj" Width="60" Click="Edytuj"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Header="Nazwisko" Binding="{Binding Path=Nazwisko}"/>
+                <DataGridTextColumn Header="Imie" Binding="{Binding Path=Imie}"/>
+
+                <DataGridTextColumn Header="Pesel" Binding="{Binding Path=Pesel}"/>
+                <DataGridTextColumn Header="dataUrodzenia" Binding="{Binding Path=aDataUrodzenia}"/>
+                <DataGridTextColumn Header="Nr telefonu" Binding="{Binding Path=Telefon}"/>
+                
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

@@ -1,0 +1,38 @@
+﻿<Window x:Class="WindowNowySzablon"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xml:lang="pl-PL"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Nowy szablon" Height="308" Width="499" Background="Transparent" WindowStyle="None" AllowsTransparency="True" WindowStartupLocation="CenterScreen" Icon="/Medison;component/Images/126_Edit_32x32_72.png">
+    <Grid>
+        <Grid Background="WhiteSmoke"  Opacity="0.95">
+            <Grid Margin="34,32,0,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Column="0" Grid.Row="0" Content="Skrót" />
+                <Label Grid.Column="0" Grid.Row="1" Content="Opis" />
+                <Label Grid.Column="0" Grid.Row="2" Content="Kolejność" />
+                <TextBox Grid.Column="1" Grid.Row="0" Text="{Binding Path=Skrot, Mode=TwoWay, UpdateSourceTrigger=LostFocus, NotifyOnValidationError=True, ValidatesOnDataErrors=True, ValidatesOnExceptions=True}" Width="150" HorizontalAlignment="Left" VerticalAlignment="Top" Name="TextBox1" />
+                <TextBox Grid.Column="1" Grid.Row="1" Text="{Binding Path=OpisSz, Mode=TwoWay, UpdateSourceTrigger=LostFocus, NotifyOnValidationError=True, ValidatesOnDataErrors=True, ValidatesOnExceptions=True}" Width="321" HorizontalAlignment="Left" VerticalAlignment="Top" Name="TextBox2" AcceptsTab="True" AcceptsReturn="True" Height="172"  />
+                <TextBox Grid.Column="1" Grid.Row="2" Text="{Binding Path=Kolejnosc, Mode=TwoWay, UpdateSourceTrigger=LostFocus, NotifyOnValidationError=True, ValidatesOnDataErrors=True, ValidatesOnExceptions=True}" Width="150" HorizontalAlignment="Left" VerticalAlignment="Top" Name="TextBox3" />
+            </Grid>
+
+        </Grid>
+        <Button Background="Transparent" Height="30" HorizontalAlignment="Right" Margin="0,7,12,0" Name="Button1" VerticalAlignment="Top" Width="110">
+            <StackPanel Orientation="Horizontal">
+                <Image Margin="-10" Source="/Medison;component/Images/back.png" Width="40" />
+                <Label Content="Wróć" FontWeight="Bold" Margin="10,0" />
+            </StackPanel>
+        </Button>
+
+
+    </Grid>
+</Window>

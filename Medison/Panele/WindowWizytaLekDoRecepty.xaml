@@ -1,0 +1,22 @@
+﻿<Window x:Class="WindowWizytaLekDoRecepty"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Wybierz lek do recepty" Height="267" Width="429" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Label Content="Lek" Height="28" HorizontalAlignment="Left" Margin="14,18,0,0" Name="Label1" VerticalAlignment="Top" />
+        <ComboBox SelectedItem="{Binding Path=Leki}" DisplayMemberPath="NazwaLekuZRefundacja" Height="23" HorizontalAlignment="Left" Margin="89,18,0,0" Name="ComboBoxLek" VerticalAlignment="Top" Width="305" IsEditable="True" />
+        <Label Content="Postać" Height="28" HorizontalAlignment="Left" Margin="14,47,0,0" Name="Label2" VerticalAlignment="Top" />
+        <ComboBox  Height="23" HorizontalAlignment="Left" IsEditable="True" Margin="89,47,0,0" Name="ComboBoxPostac" SelectedItem  ="{Binding Path=Postac}" VerticalAlignment="Top" Width="305" />
+        <Label Content="Ilość" Height="28" HorizontalAlignment="Left" Margin="19,81,0,0" Name="Label3" VerticalAlignment="Top" />
+        <TextBox Height="23" Text="{Binding Path=Ilosc}" HorizontalAlignment="Left" Margin="89,81,0,0" Name="TextBox1" VerticalAlignment="Top" Width="120" />
+        <Label Content="D.S." Height="28" HorizontalAlignment="Left" Margin="19,110,0,0" Name="Label4" VerticalAlignment="Top" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="89,110,0,0" Name="TextBox2" Text="{Binding Path=Dawkowanie
+            }" VerticalAlignment="Top" Width="120" />
+        <Button Content="OK" Height="24" HorizontalAlignment="Left" Margin="225,186,0,0" Name="Button1" VerticalAlignment="Top" Width="159" />
+        <Label Content="Dawka" Height="28" HorizontalAlignment="Left" Margin="19,139,0,0" Name="Label5" VerticalAlignment="Top" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="89,139,0,0" Name="TextBox3" Text="{Binding Path=Dawka}" VerticalAlignment="Top" Width="120" />
+        <CheckBox Content="indywidualna" IsChecked="{Binding Path=indywidualna}" Height="16" HorizontalAlignment="Left" Margin="261,120,0,0" Name="CheckBox1" VerticalAlignment="Top" />
+        <Label Content="Chor. przewl." Height="28" HorizontalAlignment="Left" Margin="26,173,0,0" Name="Label6" VerticalAlignment="Top" />
+        <ComboBox Height="23" HorizontalAlignment="Left" Margin="106,173,0,0" Name="ComboBoxChorobyPrzewlekle" VerticalAlignment="Top" Width="56" SelectedValue="{Binding Path=ReceptaChorobyPrzewlekle}"/>
+    </Grid>
+</Window>

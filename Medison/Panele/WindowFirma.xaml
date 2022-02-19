@@ -1,0 +1,36 @@
+﻿<Window x:Class="WindowFirma"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="WindowFirma" Height="373" Width="543" Background="Transparent" WindowStyle="None" AllowsTransparency="True" WindowStartupLocation="CenterScreen" Icon="/Medison;component/Images/company.png">
+    <Grid>
+        <Grid Background="WhiteSmoke"  Opacity="0.95">
+            <DataGrid AutoGenerateColumns="False" Height="266" HorizontalAlignment="Left" Margin="7,58,0,0" Name="DataGrid1" VerticalAlignment="Top" Width="506" HorizontalGridLinesBrush="Gray" VerticalGridLinesBrush="Gray" AlternatingRowBackground="WhiteSmoke" AlternationCount="2" IsReadOnly="True" Background="Transparent" ItemsSource="{Binding }">
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Tag="{Binding }" Click="Wybierz"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTextColumn Header="NIP" Binding="{Binding Path=NIPzakladu}"/>
+                    <DataGridTextColumn Header="Nazwa" Binding="{Binding Path=NazwaZakladuPracy}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <Label Content="Szukaj" Height="28" HorizontalAlignment="Left" Margin="12,13,0,0" Name="Label1" VerticalAlignment="Top" />
+            <TextBox Height="23" HorizontalAlignment="Left" Margin="66,15,0,0" Name="TextBox1" VerticalAlignment="Top" Width="120" />
+            <Button Background="Transparent" Height="30" HorizontalAlignment="Left" Margin="223,10,0,0" Name="Button2" VerticalAlignment="Top" Width="110">
+                <StackPanel Orientation="Horizontal">
+                    <Image Margin="-10" Source="/Medison;component/Images/search.png" Width="40" />
+                    <Label Content="Szukaj" FontWeight="Bold" Margin="10,0" />
+                </StackPanel>
+            </Button>
+        </Grid>
+        <Button Background="Transparent" Height="30" HorizontalAlignment="Right" Margin="0,7,12,0" Name="Button1" VerticalAlignment="Top" Width="110">
+            <StackPanel Orientation="Horizontal">
+                <Image Margin="-10" Source="/Medison;component/Images/back.png" Width="40" />
+                <Label Content="Wróć" FontWeight="Bold" Margin="10,0" />
+            </StackPanel>
+        </Button>
+    </Grid>
+</Window>

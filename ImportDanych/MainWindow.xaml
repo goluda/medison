@@ -1,0 +1,8 @@
+﻿<Window x:Class="MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="MainWindow" Height="450" Width="765">
+    <Grid>
+        <Button Content="Import szablonów" Height="25" HorizontalAlignment="Left" Margin="30,14,0,0" Name="Button1" VerticalAlignment="Top" Width="345" />
+    </Grid>
+</Window>

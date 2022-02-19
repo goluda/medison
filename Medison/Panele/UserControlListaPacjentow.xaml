@@ -1,0 +1,76 @@
+﻿<UserControl x:Class="UserControlListaPacjentow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="367" d:DesignWidth="814">
+    <Grid>
+        <Label Content="Lista pacjentów" Height="37" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Century Gothic" FontSize="18" />
+
+        <Grid Name="ListaPacjentow" Margin="0,33,0,0">
+            <DataGrid Margin="6,52,6,6" ItemsSource="{Binding }" IsReadOnly="True">
+                
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Image MouseEnter="NajechaneMyszka" MouseLeave="OdjechaneMyszka" Opacity="0.5" Height="20" MouseDown="Usun" Tag="{Binding }" Source="/Medison;component/Images/delete.png" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTextColumn Header="Pesel" Binding="{Binding Path=Pesel}" />
+                    <DataGridTemplateColumn>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Click="SzczegolyPacjenta" Tag="{Binding }"></Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTextColumn Header="Nazwisko" Binding="{Binding Path=Nazwisko}" FontWeight="Bold" />
+                    <DataGridTextColumn Header="Imie" Binding="{Binding Path=Imie}" />
+                    <DataGridTextColumn Header="Kod" Binding="{Binding Path=Kod}" />
+                    <DataGridTextColumn Header="Miejscowosc" Binding="{Binding Path=Miejscowosc}" />
+                    <DataGridTextColumn Header="Adres" Binding="{Binding Path=Adres}" />
+                    <DataGridTextColumn Header="Nr domu" Binding="{Binding Path=NrDomu}" />
+                    <DataGridTextColumn Header="Nr lokalu" Binding="{Binding Path=NrLokalu}" />
+                    <DataGridTextColumn Header="Data urodzenia" Binding="{Binding Path=DataUrodzenia,StringFormat=\{0:d\}}" />
+                    <DataGridTemplateColumn>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="Karta" Tag="{Binding }" Click="DrukujKarte"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="Połącz" Tag="{Binding }" Click="PolaczPacjentow" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+            <Label Content="Nazwisko
+                   " Height="28" HorizontalAlignment="Left" Margin="6,14,0,0" VerticalAlignment="Top" />
+            <TextBox Height="23" HorizontalAlignment="Left" Margin="69,16,0,0" Name="TextBoxNazwisko" VerticalAlignment="Top" Width="120" />
+            <Label Content="Imię" Height="28" HorizontalAlignment="Left" Margin="193,14,0,0"  VerticalAlignment="Top" />
+            <TextBox Height="23" HorizontalAlignment="Left" Margin="232,16,0,0" Name="TextBoxImie" VerticalAlignment="Top" Width="120" />
+
+            <Button Background="Transparent" Height="30" Margin="398,9,0,0" HorizontalAlignment="Left" Width="123" VerticalAlignment="Top" Name="Button1">
+                <StackPanel Orientation="Horizontal">
+                    <Image Margin="-10" Source="/Medison;component/Images/search.png" Width="40" />
+                    <Label Content="Szukaj" FontWeight="Bold" Margin="10,0" />
+                </StackPanel>
+            </Button>
+            <Button Background="Transparent" Height="30" HorizontalAlignment="Left" Margin="527,9,0,0" Name="Button2" VerticalAlignment="Top" Width="168">
+                <StackPanel Orientation="Horizontal">
+                    <Image Margin="-10" Source="/Medison;component/Images/add.png" Width="40" />
+                    <Label Content="Nowy pacjent" FontWeight="Bold" Margin="10,0" />
+                </StackPanel>
+            </Button>
+        </Grid>
+
+
+    </Grid>
+</UserControl>

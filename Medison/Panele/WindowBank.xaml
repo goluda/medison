@@ -1,0 +1,25 @@
+﻿<Window x:Class="WindowBank"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Medison"
+        mc:Ignorable="d"
+        Title="WindowBank" Height="392.732" Width="691.765" Loaded="Window_Loaded">
+    <Grid>
+        <DatePicker HorizontalAlignment="Left" Margin="67,15,0,0" VerticalAlignment="Top" Name="dpOd"/>
+        <Label Content="Od" HorizontalAlignment="Left" Margin="10,15,0,0" VerticalAlignment="Top"/>
+        <DatePicker HorizontalAlignment="Left" Margin="269,15,0,0" VerticalAlignment="Top" Name="dpDo"/>
+        <Label Content="Do" HorizontalAlignment="Left" Margin="212,15,0,0" VerticalAlignment="Top"/>
+        <Button Content="Szukaj bank" HorizontalAlignment="Left" Margin="408,15,0,0" VerticalAlignment="Top" Width="95" Click="Button_Click" Height="26"/>
+        <DataGrid Margin="10,62,10,10" Name="dataGrid1" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Lekarz" Binding="{Binding Path=Lekarze}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Ilość" Binding="{Binding Path=ilosc}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Kwota" Binding="{Binding Path=suma}"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Content="Szukaj gotówka" HorizontalAlignment="Left" Margin="508,15,0,0" VerticalAlignment="Top" Width="95" Height="26" Click="Button_Click_1"/>
+
+    </Grid>
+</Window>

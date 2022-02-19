@@ -1,0 +1,41 @@
+﻿<UserControl x:Class="UserControlMagazyn"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="418" d:DesignWidth="895" xmlns:my="clr-namespace:Medison">
+    <Grid>
+        <Label Content="Magazyn" Height="37" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Century Gothic" FontSize="18" />
+        <Button Background="Transparent" Height="30" HorizontalAlignment="Right" Margin="0,7,17,0" Name="Button2" VerticalAlignment="Top" Width="123">
+            <StackPanel Orientation="Horizontal">
+                <Image Margin="-10" Source="/Medison;component/Images/Save.png" Width="40" />
+                <Label Content="Zapisz" FontWeight="Bold" Margin="10,0" />
+            </StackPanel>
+        </Button>
+        <Button Background="Transparent" Height="30" HorizontalAlignment="Right" Margin="0,7,147,0" Name="ButtonDodaj" VerticalAlignment="Top" Width="123">
+            <StackPanel Orientation="Horizontal">
+                <Image Margin="-10" Source="/Medison;component/Images/add.png" Width="40" />
+                <Label Content="Dodaj" FontWeight="Bold" Margin="10,0" />
+            </StackPanel>
+        </Button>
+        <DataGrid AutoGenerateColumns="False" Margin="10,63,15,11" ItemsSource="{Binding }" Name="DataGrid1" CanUserAddRows="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Indeks" Binding="{Binding Path=IndeksT}" Width="70"/>
+                <DataGridTextColumn Header="Kategoria" Binding="{Binding Path=Kategoria}" Width="30"/>
+                <DataGridTextColumn Header="Nazwa" Binding="{Binding Path=Nazwa}" Width="200"/>
+                <DataGridTextColumn Header="Wymiary" Binding="{Binding Path=Wymiary}" Width="50"/>
+                <DataGridTextColumn Header="JM" Binding="{Binding Path=JedMiary}" Width="20"/>
+                <DataGridTextColumn Header="SWW KWiU" Binding="{Binding Path=SWWKWiU}" Width="50"/>
+                <DataGridCheckBoxColumn Header="Zwolnienie VAT" Binding="{Binding Path=ZwolnienieVAT}" Width="30"/>
+                <DataGridTextColumn Header="Stawka VAT" Binding="{Binding Path=StawkaVAT, StringFormat=\{0:P\}}" Width="50"/>
+                <DataGridTextColumn Header="Cena netto zakupu" Binding="{Binding Path=CenaNettoZakup,StringFormat=\{0:c\}}" Width="90"/>
+                <DataGridTextColumn Header="Cena netto sprzedaż" Binding="{Binding Path=CenaNettoSugerowana,StringFormat=\{0:c\}}" Width="90"/>
+                <DataGridTextColumn Header="Cena brutto sprzedaż" Binding="{Binding Path=CenaSprzedazy,StringFormat=\{0:c\}}" IsReadOnly="True"  Width="90"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <my:UserControlPrzeliczanieCeny HorizontalAlignment="Left" Margin="207,7,0,0" x:Name="UserControlPrzeliczanieCeny1" VerticalAlignment="Top" Height="50" />
+        
+    </Grid>
+    
+</UserControl>

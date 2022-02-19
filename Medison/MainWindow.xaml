@@ -1,0 +1,148 @@
+﻿<Window x:Class="MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xml:lang="pl-PL" WindowState="Maximized"   
+    Title="Medison" Height="768" Width="1027" Icon="/Medison;component/Images/surgeon.png" WindowStartupLocation="CenterScreen">
+    <Window.Background>
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#FFF8CA63" Offset="0" />
+            <GradientStop Color="#FF8D8D8D" Offset="1" />
+        </LinearGradientBrush>
+    </Window.Background>
+    <Grid>
+        <!--<Image Source="/Medison;component/Images/surgeon.png" Opacity="1" Stretch="Fill" StretchDirection="Both" HorizontalAlignment="Right" Width="110" Height="98" VerticalAlignment="Top" />
+        <Label Content="Baza danych Medison" Height="83" Name="Label1" VerticalAlignment="Top" FontSize="40" HorizontalAlignment="Right" Width="452" Margin="0,0,67,0" FontFamily="Century Gothic">
+            <Label.Effect>
+                <DropShadowEffect Color="gray" ShadowDepth="2"/>
+            </Label.Effect>
+        </Label>-->
+        
+        <GroupBox  HorizontalAlignment="Left" Margin="8,12,0,12" Name="GroupBox1" Width="195">
+            <!--<GroupBox.Effect>
+                 <DropShadowEffect Color="gray" ShadowDepth="2"/>
+            </GroupBox.Effect>-->
+            <GroupBox.Header>
+                <StackPanel Orientation="Horizontal" >
+                    <Image Source="/Medison;component/Images/Home.png" Width="32"></Image>
+                    <Label Content="Menu glówne" FontWeight="Normal" FontSize="16" FontFamily="Century Gothic"></Label>
+                </StackPanel>
+            </GroupBox.Header>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Label Content="Wybrany lekarz:" Grid.Row="0"/>
+                <ListBox   Name="ComboBoxLekarze" SelectedItem ="{Binding Path=WybranyLekarz}" FontWeight="Bold"  Grid.Row="1" />                    
+                
+                <StackPanel Orientation="Horizontal" Grid.Row="2" >
+                    <Label Content="Wizyty z dnia: "/>
+                    <Label Content="{Binding Path=data,StringFormat=\{0:d\}}" FontWeight="bold"/>                    
+                </StackPanel>
+                
+                <Calendar SelectedDate="{Binding Path=data}" Grid.Row="3"/>
+             
+                
+                <ScrollViewer Grid.Row="4" VerticalScrollBarVisibility="Auto" >
+                    <StackPanel Name="panelPrzyciski">
+                <Button Background="Transparent" Margin="0,2,0,2" Name="Button2">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Medison;component/Images/Home.png" Width="40" Margin="-10"></Image>
+                        <Label Content="Wizyty" FontWeight="Bold" Margin="10,0" />
+                    </StackPanel>
+                </Button>
+                <Button Background="Transparent" Click="ListaPacjentow" Margin="0,2,0,2">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Source="/Medison;component/Images/Users.png" Width="40" Margin="-10"></Image>
+                        <Label Content="Pacjenci" FontWeight="Bold" Margin="10,0" />
+                    </StackPanel>
+                </Button>
+                <Button Background="Transparent" Click="Rejestracja" Margin="0,2,0,2">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Source="/Medison;component/Images/base_calendar_32.png" Width="40" Margin="-10"></Image>
+                        <Label Content="Rejestracja" FontWeight="Bold" Margin="10,0" />
+                    </StackPanel>
+                </Button>
+                <Button Background="Transparent" Click="ListaRachunkow" Margin="0,2,0,2">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Source="/Medison;component/Images/invoice.png" Width="40" Margin="-10"></Image>
+                        <Label Content="Lista rachunków" FontWeight="Bold" Margin="10,0" />
+                    </StackPanel>
+                </Button>
+                <Button Background="Transparent" Click="Lekarze" Margin="0,2,0,2">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Source="/Medison;component/Images/surgeon.png" Width="40" Margin="-10"></Image>
+                        <Label Content="Lekarze" FontWeight="Bold" Margin="10,0" />
+                    </StackPanel>
+                </Button>
+                <Button Background="Transparent" Click="Leki" Margin="0,2,0,2">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Source="/Medison;component/Images/Pills.png" Width="40" Margin="-10"></Image>
+                        <Label Content="Leki" FontWeight="Bold" Margin="10,0" />
+                    </StackPanel>
+                </Button>
+                <Button Background="Transparent" Click="Towary" Margin="0,2,0,2">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Source="/Medison;component/Images/box.ico" Width="40" Margin="-10"></Image>
+                        <Label Content="Magazyn" FontWeight="Bold" Margin="10,0" />
+                    </StackPanel>
+                </Button>
+                <Button Background="Transparent" Click="Firmy" Margin="0,2,0,2">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Source="/Medison;component/Images/company.png" Width="40" Margin="-10"></Image>
+                        <Label Content="Firmy do L4" FontWeight="Bold" Margin="10,0" />
+                    </StackPanel>
+                </Button>
+                <Button Background="Transparent" Margin="0,2,0,2" Name="Button1">
+                    <StackPanel Orientation="Horizontal" >
+                        <Image Source="/Medison;component/Images/application-vnd_oasis_opendocument_spreadsheet-template.png" Width="40" Margin="-10"></Image>
+                        <Label Content="Szablony" FontWeight="Bold" Margin="10,0" />
+                    </StackPanel>
+                </Button>
+                        <Button Background="Transparent" Name="Button3">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Margin="-10" Source="/Medison;component/Images/application-vnd_oasis_opendocument_spreadsheet-template.png" Width="40" />
+                                <Label Content="Podsumowanie USG" FontWeight="Bold" Margin="10,0" />
+                            </StackPanel>
+                        </Button>
+                        <Button Background="Transparent" Name="ButtonPoprawianie" Click="PoprawianieMiejscowosci">
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="Poprawianie miejscowości" FontWeight="Bold" Margin="10,0" />
+                            </StackPanel>
+                        </Button>
+                        
+                        <Button Background="Transparent" Name="ButtonCenyUSG" Click="CenyUSG">
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="Ceny USG" FontWeight="Bold" Margin="10,0" />
+                            </StackPanel>
+                        </Button>
+                        <Button Background="Transparent" Name="Bank" Click="BankRaport">
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="Raport Bank" FontWeight="Bold" Margin="10,0" />
+                            </StackPanel>
+                        </Button>
+                        
+                    </StackPanel>
+                </ScrollViewer>
+            </Grid>
+            
+        </GroupBox>
+        
+        <Border Margin="209,0,12,12" BorderBrush="White" BorderThickness="3" Height="31" VerticalAlignment="Bottom" CornerRadius="5">
+            <Border.Effect>
+                <DropShadowEffect Color="Gray" ShadowDepth="1"></DropShadowEffect>
+            </Border.Effect>
+            <Label Name="LabelInfo" Content="Info" FontWeight="Bold" Foreground="white"></Label>
+        </Border>
+        <Grid Margin="209,13,12,47" Background="Silver" Opacity="0.3"/>
+        <Border Margin="209,13,12,47" BorderBrush="White" BorderThickness="3" CornerRadius="5" Name="MainPanel">
+            <!--<Border.Effect>
+                <DropShadowEffect Color="Gray" ShadowDepth="1"></DropShadowEffect>
+            </Border.Effect>-->
+            
+        </Border>
+    </Grid>
+</Window>

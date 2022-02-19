@@ -1,0 +1,9 @@
+﻿<Window x:Class="WindowData"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="WindowData" Height="261" Width="221" WindowStartupLocation="CenterScreen" >
+    <Grid>
+        <Calendar Height="172" VerticalAlignment="Top" Name="Calendar1"></Calendar>
+        <Button Content="OK" Margin="9,172,7,7" Name="Button1" />
+    </Grid>
+</Window>

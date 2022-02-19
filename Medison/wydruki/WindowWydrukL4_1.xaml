@@ -1,0 +1,32 @@
+﻿<Window x:Class="WindowWydrukL4_1"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:my="clr-namespace:Medison" 
+    Title="Wydruk L4" Height="596" Width="818" WindowStartupLocation="CenterScreen" Icon="/Medison;component/Images/zwolnienie-lekarskie-l4_15305_w633.jpg">
+
+    <Grid>
+
+        <FlowDocumentReader Margin="0,39,0,0">
+            <FlowDocument FontFamily="Courier New" FontWeight="Bold" FontSize="16.5" Name="dokumentL4" FontStretch="Condensed" ColumnGap="0" ColumnWidth="1400">
+
+                <Paragraph>
+                    <my:UserControlWydrukL4_1 x:Name="Wizyta1" Width="1400" Height="1000" />
+                </Paragraph>
+
+            </FlowDocument>
+        </FlowDocumentReader>
+        <Button Background="Transparent" Height="30" HorizontalAlignment="Right" Margin="0,7,12,0" Name="Button1" VerticalAlignment="Top" Width="110">
+            <StackPanel Orientation="Horizontal">
+                <Image Margin="-10" Source="/Medison;component/Images/back.png" Width="40" />
+                <Label Content="Wróć" FontWeight="Bold" Margin="10,0" />
+            </StackPanel>
+        </Button>
+        <Button Background="Transparent" Height="30" HorizontalAlignment="Left" Margin="10,10,0,0" Name="Button2" VerticalAlignment="Top" Width="110">
+            <StackPanel Orientation="Horizontal">
+                <Image Margin="-10" Source="/Medison;component/Images/Print.png" Width="40" />
+                <Label Content="Drukuj" FontWeight="Bold" Margin="10,0" />
+            </StackPanel>
+        </Button>
+    </Grid>
+</Window>
+

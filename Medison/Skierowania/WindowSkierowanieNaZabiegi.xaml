@@ -1,0 +1,259 @@
+﻿<Window x:Class="WindowSkierowanieNaZabiegi"
+   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="WindowSkierowanieDoPracowniRezonansuMagnetycznego" Height="1718" Width="824" WindowState="Maximized">
+    <Grid>
+        <FlowDocumentScrollViewer Margin="0,31,0,0">
+            <FlowDocument Name="FlowDocument1" PagePadding="50,20,50,20">
+                <Paragraph FontSize="8" TextAlignment="Left">
+                    <LineBreak />
+                    <LineBreak />
+                    <LineBreak />
+                    <LineBreak />
+                    Nazwa podmiotu kierującego, adres, nr telefonu
+                    <LineBreak />
+                    Kod identyfikacyjny, nazwa jednostki organizacyjnej i kod resortowy (ZOZ-y)
+                    <LineBreak />
+                    nazwa komórki organizacyjnej i kod resortowy (Zoz-y)
+                    <LineBreak />
+                    nr wpisu do rejestru prowadzonego przez okręgową izbę lekarską
+                    <LineBreak />
+                    (indywidualne i grupowe praktyki lekarskie)
+                    <LineBreak />
+                    Pieczęć nagłówkowa z nr umowy z NFZ
+                </Paragraph>
+
+                <BlockUIContainer>
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,-30,0,0">
+                        <Label Content="Gorzw Wlkp., dnia" HorizontalAlignment="Right" FontSize="10"/>
+                        <Label Name="LabelData" Content="2012-02-01" FontSize="10"/>
+                    </StackPanel>
+                </BlockUIContainer>
+                
+                <Paragraph TextAlignment="Center" FontSize="18" x:Name="test">
+                    <Bold>Skierowanie na zabiegi fizjoterapeutyczne</Bold>
+
+                </Paragraph>
+                <Paragraph>
+                   Proszę o wykonanie zabiegów fizjoterapeutycznych u pacjenta:
+                </Paragraph>
+                <BlockUIContainer>
+                    <StackPanel>
+                        <StackPanel Orientation="Horizontal"  >
+                            <Label Content="Imię i Nazwisko"/>
+                            <Label Content="ddd" Name="LabelNazwiskoiImie" FontWeight="Bold" />
+                            <Label Content="NR PESEL"/>
+                            <Label Content="ddd" Name="LabelPESEL" FontWeight="Bold" />
+                        </StackPanel>
+                        <!--<StackPanel Orientation="Horizontal"  >
+                            <Label Content="Data urodzenia (dzień, miesiąc, rok)"/>
+                            <Label Content="ddd" Name="LabelDataUrodzenia" FontWeight="Bold" />
+                        </StackPanel>-->
+                        <StackPanel Orientation="Horizontal"  >
+                            <Label Content="Adres"/>
+                            <Label Content="ddd" Name="LabelAdres" FontWeight="Bold" />
+                            <Label Content="Data urodzenia (dzień, miesiąc, rok)"/>
+                            <Label Content="ddd" Name="LabelDataUrodzenia" FontWeight="Bold" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal"  >
+                            <Label  Content="Oznaczenie płci"/>
+                            <Label FontWeight="Bold" Name="LabelPlec" Content="ddd"/>
+                        </StackPanel>
+
+                    </StackPanel>
+                </BlockUIContainer>
+
+                <Paragraph>
+                    Rozpoznanie
+                </Paragraph>
+                <BlockUIContainer>
+                    <TextBox TextWrapping="Wrap" BorderBrush="White" Text="......." AcceptsReturn="True" Name="TextBoxRozpoznanie" KeyDown="WyborRozpoznania"  />
+                </BlockUIContainer>
+
+
+                <Paragraph>
+                    Cel zabegów (określenie dysfunkcji)
+                </Paragraph>
+                <BlockUIContainer>
+                    <TextBox  TextWrapping="Wrap" BorderBrush="White" Text="......." AcceptsReturn="True" Name="TextBoxCelZabiegow" />
+                </BlockUIContainer>
+
+                <Table BorderBrush="Black" BorderThickness="1" CellSpacing="0" FontSize="10">
+                    
+                    <TableRowGroup>
+                        <TableRow>
+                            <TableCell BorderBrush="Black" BorderThickness="1">
+                                <Paragraph>
+                                    <Bold>Rodzaj</Bold>
+                                    <LineBreak />
+                                    <Bold>zabiegów:</Bold>
+                                </Paragraph>
+                            </TableCell>
+                            <TableCell  BorderBrush="Black" BorderThickness="1">
+                                <Paragraph>
+                                    <Bold>1)</Bold>
+                                </Paragraph>
+                                <BlockUIContainer>
+                                    <TextBox BorderBrush="White" TextWrapping="Wrap" Text="..." AcceptsReturn="True" Name="TB11" />
+                                </BlockUIContainer>
+                            </TableCell>
+                            <TableCell  BorderBrush="Black" BorderThickness="1">
+                                <Paragraph>
+                                    <Bold>2)</Bold>
+                                </Paragraph>
+                                <BlockUIContainer>
+                                    <TextBox BorderBrush="White" TextWrapping="Wrap" Text="..." AcceptsReturn="True" Name="TB21" />
+                                </BlockUIContainer>
+                            </TableCell>
+                            <TableCell  BorderBrush="Black" BorderThickness="1">
+                                <Paragraph>
+                                    <Bold>3)</Bold>
+                                </Paragraph>
+                                <BlockUIContainer>
+                                    <TextBox BorderBrush="White" TextWrapping="Wrap" Text="..." AcceptsReturn="True" Name="TB31" />
+                                </BlockUIContainer>
+                            </TableCell>
+                            <TableCell  BorderBrush="Black" BorderThickness="1">
+                                <Paragraph>
+                                    <Bold>4)</Bold>
+                                </Paragraph>
+                                <BlockUIContainer>
+                                    <TextBox BorderBrush="White" TextWrapping="Wrap" Text="..." AcceptsReturn="True" Name="TB41" />
+                                </BlockUIContainer>
+                            </TableCell>
+                            <TableCell  BorderBrush="Black" BorderThickness="1">
+                                <Paragraph>
+                                    <Bold>5)</Bold>
+                                </Paragraph>
+                                <BlockUIContainer>
+                                    <TextBox BorderBrush="White" TextWrapping="Wrap" Text="..." AcceptsReturn="True" Name="TB51" />
+                                </BlockUIContainer>
+                            </TableCell>
+                        </TableRow>
+                        <TableRow>
+                            <TableCell BorderBrush="Black" BorderThickness="1">
+                                <Paragraph>
+                                    <Bold>Ilość </Bold>
+                                    <LineBreak />
+                                    <Bold>powtórzeń /</Bold>
+                                    <LineBreak />
+                                    <Bold>czas</Bold>
+                                    <LineBreak />
+                                    <Bold>zabiegu:</Bold>
+                                </Paragraph>
+                            </TableCell>
+                            <TableCell  BorderBrush="Black" BorderThickness="1">
+                                <BlockUIContainer>
+                                    <TextBox BorderBrush="White" TextWrapping="Wrap" Text="..." AcceptsReturn="True" Name="TB112" />
+                                </BlockUIContainer>
+                            </TableCell>
+                            <TableCell  BorderBrush="Black" BorderThickness="1">
+                                <BlockUIContainer>
+                                    <TextBox BorderBrush="White" TextWrapping="Wrap" Text="..." AcceptsReturn="True" Name="TB22" />
+                                </BlockUIContainer>
+                            </TableCell>
+                            <TableCell  BorderBrush="Black" BorderThickness="1">
+                                <BlockUIContainer>
+                                    <TextBox BorderBrush="White" TextWrapping="Wrap" Text="..." AcceptsReturn="True" Name="TB32" />
+                                </BlockUIContainer>
+                            </TableCell>
+                            <TableCell  BorderBrush="Black" BorderThickness="1">
+                                <BlockUIContainer>
+                                    <TextBox BorderBrush="White" TextWrapping="Wrap" Text="..." AcceptsReturn="True" Name="TB42" />
+                                </BlockUIContainer>
+                            </TableCell>
+                            <TableCell  BorderBrush="Black" BorderThickness="1">
+                               
+                                <BlockUIContainer>
+                                    <TextBox BorderBrush="White" TextWrapping="Wrap" Text="..." AcceptsReturn="True" Name="TB52" />
+                                </BlockUIContainer>
+                            </TableCell>
+                        </TableRow>
+                        <TableRow>
+                            <TableCell BorderBrush="Black" BorderThickness="1">
+                                <Paragraph>
+                                    <Bold>Parametry:</Bold>                                 
+                                </Paragraph>
+                            </TableCell>
+                            <TableCell  BorderBrush="Black" BorderThickness="1">
+                                <BlockUIContainer>
+                                    <TextBox BorderBrush="White" TextWrapping="Wrap" Text="..." AcceptsReturn="True" Name="TB13" />
+                                </BlockUIContainer>
+                            </TableCell>
+                            <TableCell  BorderBrush="Black" BorderThickness="1">
+                                <BlockUIContainer>
+                                    <TextBox BorderBrush="White" TextWrapping="Wrap" Text="..." AcceptsReturn="True" Name="TB23" />
+                                </BlockUIContainer>
+                            </TableCell>
+                            <TableCell  BorderBrush="Black" BorderThickness="1">
+                                <BlockUIContainer>
+                                    <TextBox BorderBrush="White" TextWrapping="Wrap" Text="..." AcceptsReturn="True" Name="TB33" />
+                                </BlockUIContainer>
+                            </TableCell>
+                            <TableCell  BorderBrush="Black" BorderThickness="1">
+                                <BlockUIContainer>
+                                    <TextBox BorderBrush="White" TextWrapping="Wrap" Text="..." AcceptsReturn="True" Name="TB43" />
+                                </BlockUIContainer>
+                            </TableCell>
+                            <TableCell  BorderBrush="Black" BorderThickness="1">
+
+                                <BlockUIContainer>
+                                    <TextBox BorderBrush="White" TextWrapping="Wrap" Text="..." AcceptsReturn="True" Name="TB53" />
+                                </BlockUIContainer>
+                            </TableCell>
+                        </TableRow>
+                        <TableRow>
+                            <TableCell BorderBrush="Black" BorderThickness="1">
+                                <Paragraph>
+                                    <Bold>Okolica</Bold>
+                                    <LineBreak />
+                                    <Bold>ciała:</Bold>
+                                </Paragraph>
+                            </TableCell>
+                            <TableCell  BorderBrush="Black" BorderThickness="1">
+                                <BlockUIContainer>
+                                    <TextBox BorderBrush="White" TextWrapping="Wrap" Text="..." AcceptsReturn="True" Name="TB14" />
+                                </BlockUIContainer>
+                            </TableCell>
+                            <TableCell  BorderBrush="Black" BorderThickness="1">
+                                <BlockUIContainer>
+                                    <TextBox BorderBrush="White" TextWrapping="Wrap" Text="..." AcceptsReturn="True" Name="TB24" />
+                                </BlockUIContainer>
+                            </TableCell>
+                            <TableCell  BorderBrush="Black" BorderThickness="1">
+                                <BlockUIContainer>
+                                    <TextBox BorderBrush="White" TextWrapping="Wrap" Text="..." AcceptsReturn="True" Name="TB34" />
+                                </BlockUIContainer>
+                            </TableCell>
+                            <TableCell  BorderBrush="Black" BorderThickness="1">
+                                <BlockUIContainer>
+                                    <TextBox BorderBrush="White" TextWrapping="Wrap" Text="..." AcceptsReturn="True" Name="TB44" />
+                                </BlockUIContainer>
+                            </TableCell>
+                            <TableCell  BorderBrush="Black" BorderThickness="1">
+
+                                <BlockUIContainer>
+                                    <TextBox BorderBrush="White" TextWrapping="Wrap" Text="..." AcceptsReturn="True" Name="TB54" />
+                                </BlockUIContainer>
+                            </TableCell>
+                        </TableRow>
+                    </TableRowGroup>
+                </Table>
+                
+
+                <BlockUIContainer>
+                    <Grid VerticalAlignment="Top" HorizontalAlignment="Right" >
+                        <StackPanel HorizontalAlignment="Left" Width="300">
+                            <Label HorizontalAlignment="Left"  Content="Dane kierującego: Nazwiskok imię i tytuł zawodowy," FontSize="10"/>
+                            <Label HorizontalAlignment="Left"  Content="uzyskane specjalizacje, nr prawa wykonywania zawodu" FontSize="10"/>
+                            <Label HorizontalAlignment="Left"  Content="podpis i pieczątka" FontSize="10"/>
+                        </StackPanel>
+                       
+                    </Grid>
+                </BlockUIContainer>
+
+            </FlowDocument>
+        </FlowDocumentScrollViewer>
+        <Button Content="Drukuj" Height="25" HorizontalAlignment="Left" Margin="9,2,0,0" Name="Button1" VerticalAlignment="Top" Width="128" />
+    </Grid>
+</Window>

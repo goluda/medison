@@ -1,0 +1,65 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.10
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Medison", "Medison\Medison.vbproj", "{FF6555FA-7138-45DB-9CEA-F48DBB090305}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "ImportDanych", "ImportDanych\ImportDanych.vbproj", "{2C480AD5-DBDE-43A7-994C-9B878739BEBC}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Medison.Rejestracja", "Medison.Rejestracja\Medison.Rejestracja.vbproj", "{22FCB254-AFDA-444A-A9EE-43DF7C68DB97}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Medison.Rejestracja.1", "Medison.Rejestracja.1\Medison.Rejestracja.1.vbproj", "{E12BE23E-0F38-4B6C-B9D2-0E6EEBACA16A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FF6555FA-7138-45DB-9CEA-F48DBB090305}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF6555FA-7138-45DB-9CEA-F48DBB090305}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF6555FA-7138-45DB-9CEA-F48DBB090305}.Debug|x86.ActiveCfg = Debug|x86
+		{FF6555FA-7138-45DB-9CEA-F48DBB090305}.Debug|x86.Build.0 = Debug|x86
+		{FF6555FA-7138-45DB-9CEA-F48DBB090305}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF6555FA-7138-45DB-9CEA-F48DBB090305}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF6555FA-7138-45DB-9CEA-F48DBB090305}.Release|x86.ActiveCfg = Release|x86
+		{FF6555FA-7138-45DB-9CEA-F48DBB090305}.Release|x86.Build.0 = Release|x86
+		{2C480AD5-DBDE-43A7-994C-9B878739BEBC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C480AD5-DBDE-43A7-994C-9B878739BEBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C480AD5-DBDE-43A7-994C-9B878739BEBC}.Debug|x86.ActiveCfg = Debug|x86
+		{2C480AD5-DBDE-43A7-994C-9B878739BEBC}.Debug|x86.Build.0 = Debug|x86
+		{2C480AD5-DBDE-43A7-994C-9B878739BEBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C480AD5-DBDE-43A7-994C-9B878739BEBC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C480AD5-DBDE-43A7-994C-9B878739BEBC}.Release|x86.ActiveCfg = Release|x86
+		{2C480AD5-DBDE-43A7-994C-9B878739BEBC}.Release|x86.Build.0 = Release|x86
+		{22FCB254-AFDA-444A-A9EE-43DF7C68DB97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22FCB254-AFDA-444A-A9EE-43DF7C68DB97}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22FCB254-AFDA-444A-A9EE-43DF7C68DB97}.Debug|x86.ActiveCfg = Debug|x86
+		{22FCB254-AFDA-444A-A9EE-43DF7C68DB97}.Debug|x86.Build.0 = Debug|x86
+		{22FCB254-AFDA-444A-A9EE-43DF7C68DB97}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22FCB254-AFDA-444A-A9EE-43DF7C68DB97}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22FCB254-AFDA-444A-A9EE-43DF7C68DB97}.Release|x86.ActiveCfg = Release|x86
+		{22FCB254-AFDA-444A-A9EE-43DF7C68DB97}.Release|x86.Build.0 = Release|x86
+		{E12BE23E-0F38-4B6C-B9D2-0E6EEBACA16A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E12BE23E-0F38-4B6C-B9D2-0E6EEBACA16A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E12BE23E-0F38-4B6C-B9D2-0E6EEBACA16A}.Debug|x86.ActiveCfg = Debug|x86
+		{E12BE23E-0F38-4B6C-B9D2-0E6EEBACA16A}.Debug|x86.Build.0 = Debug|x86
+		{E12BE23E-0F38-4B6C-B9D2-0E6EEBACA16A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E12BE23E-0F38-4B6C-B9D2-0E6EEBACA16A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E12BE23E-0F38-4B6C-B9D2-0E6EEBACA16A}.Release|x86.ActiveCfg = Release|x86
+		{E12BE23E-0F38-4B6C-B9D2-0E6EEBACA16A}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7FC90BAE-EF2C-45A7-85D8-5952EBC6A996}
+	EndGlobalSection
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
+	EndGlobalSection
+EndGlobal

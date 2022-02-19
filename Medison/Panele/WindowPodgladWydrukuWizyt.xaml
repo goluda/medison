@@ -1,0 +1,18 @@
+﻿<Window x:Class="WindowPodgladWydrukuWizyt"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xml:lang="pl-PL"
+    Title="WindowPodgladWydrukuWizyt" Height="471" Width="895" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <DataGrid IsReadOnly="True" AutoGenerateColumns="False" Name="DataGridWizyty">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Data wizyty" Binding="{Binding Path=DataWizyty,StringFormat=\{0:d\}}"/>
+                <DataGridTextColumn Header="Wywiad" Binding="{Binding Path=Wywiad}"/>
+                <DataGridTextColumn Header="Nr statystyczny choroby" Binding="{Binding Path=NrStatystycznyChoroby}"/>
+                <DataGridTextColumn Header="Rozpoznanie" Binding="{Binding Path=Rozpoznanie}"/>
+                <DataGridTextColumn Header="Zwolnienie dni" Binding="{Binding Path=ZwolnienieDni}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        
+    </Grid>
+</Window>

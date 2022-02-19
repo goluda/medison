@@ -1,0 +1,78 @@
+﻿<Window x:Class="WindowDensityGel"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Medison"
+        mc:Ignorable="d"
+        Title="WindowDensityGel" Height="889.345" Width="800">
+    <Grid>
+
+        <FlowDocumentReader Margin="0,39,0,0">
+            <FlowDocument FontFamily="Arial" FontWeight="Normal" FontSize="12" Name="dokumentL4" FontStretch="Condensed"  ColumnGap="0" ColumnWidth="1400" PagePadding="40">
+
+                <Paragraph FontFamily="Arial"  FontWeight="Light" TextAlignment="Right" >
+                    <Run Text="Gorzów Wlkp.: "/>
+                    <Run Text="{Binding DataWizyty, Mode=OneWay, StringFormat=yyyy-MM-dd}"/>
+                </Paragraph>
+                <Paragraph FontFamily="Arial"  FontWeight="Light">
+                    Praktyka Ortopedyczna
+                </Paragraph>
+                <Paragraph FontFamily="Arial"  FontWeight="Light">
+                    <Run Text="{Binding ImieINazwiskoLekarza, BindsDirectlyToSource=True, Mode=OneWay}"/>
+                </Paragraph>
+                <Paragraph FontFamily="Arial"  FontWeight="Light">
+                    ul. Piłsudskiego 47
+                </Paragraph>
+                <Paragraph FontFamily="Arial" FontWeight="Light">
+                    66-400 Gorzów
+                </Paragraph>
+                <Paragraph></Paragraph>
+                <Paragraph FontFamily="Arial" FontWeight="Light">
+                    Pacjent
+                    <Run FontWeight="Bold" Text="{Binding Path=Pacjenci.Imie, Mode=OneWay }"></Run>
+                    <Run FontWeight="Bold" > </Run>
+                    <Run FontWeight="Bold" Text="{Binding Path=Pacjenci.Nazwisko , Mode=OneWay}"></Run>
+                </Paragraph>
+                <Paragraph FontFamily="Arial" FontWeight="Light">
+                    Zamieszkały
+                    <Run FontWeight="Bold" Text="{Binding Path=Pacjenci.PelnyAdresPacjenta, Mode=OneWay }"></Run>
+                </Paragraph>
+                <Paragraph FontFamily="Arial" FontWeight="Light">
+                    Z powodu schorzenie
+                    <Run Text="" FontWeight="Bold" Name="TextOpis1"/>
+                    <TextBox FontWeight="Bold" Padding="2" Margin="0,-4" BorderBrush="Transparent" Text="{Binding Path=DensityGelOpis}"></TextBox> w dniu
+                    <Run Text="{Binding Path=DataWizyty, Mode=OneWay, StringFormat=yyyy-MM-dd}"/>
+                </Paragraph>
+                <Paragraph>
+                    Podano osocze bogatopłytkowe - Density Plateled Gel do:
+                    <Run Text="" FontWeight="Bold" Name="TextOpis"/>
+                    <TextBox FontWeight="Bold" Padding="2" Margin="0,-4" BorderBrush="Transparent" Text="{Binding Path=DensityGel}"></TextBox>
+                </Paragraph>
+                <Paragraph>
+                    Przypadku problemów kontakt SMS 607288099
+                </Paragraph>
+                <Paragraph></Paragraph>
+               
+                <BlockUIContainer>
+                    <Image Source="/Medison;component/DensityPlateledGel.png" Width="300"></Image>
+                </BlockUIContainer>
+                
+    
+            </FlowDocument>
+        </FlowDocumentReader>
+        <Button Background="Transparent" Height="30" HorizontalAlignment="Right" Margin="0,7,12,0" Name="Button1" VerticalAlignment="Top" Width="110">
+            <StackPanel Orientation="Horizontal">
+                <Image Margin="-10" Source="/Medison;component/Images/back.png" Width="40" />
+                <Label Content="Wróć" FontWeight="Bold" Margin="10,0" />
+            </StackPanel>
+        </Button>
+        <Button Background="Transparent" Height="30" HorizontalAlignment="Left" Margin="10,10,0,0" Name="Button2" VerticalAlignment="Top" Width="110">
+            <StackPanel Orientation="Horizontal">
+                <Image Margin="-10" Source="/Medison;component/Images/Print.png" Width="40" />
+                <Label Content="Drukuj" FontWeight="Bold" Margin="10,0" />
+            </StackPanel>
+        </Button>
+        <Image HorizontalAlignment="Left" Height="29" Margin="222,10,0,0" VerticalAlignment="Top" Width="132" Source="/Medison;component/DensityPlateledGel.png"/>
+    </Grid>
+</Window>

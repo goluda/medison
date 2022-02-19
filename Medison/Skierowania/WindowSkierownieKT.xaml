@@ -1,0 +1,172 @@
+﻿<Window
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="WindowSkierownieKT"
+    Title="WindowSkierowanieDoPracowniRezonansuMagnetycznego" Height="1718" Width="824" WindowState="Maximized">
+    <Grid>
+        <FlowDocumentScrollViewer Margin="0,31,0,0">
+            <FlowDocument x:Name="FlowDocument1" PagePadding="50,20,50,20">
+                <Paragraph FontSize="10" TextAlignment="Left">
+                    <Run Text="Pieczątka jednostki kierującej, telefon"/>
+                </Paragraph>
+                <BlockUIContainer>
+                    <StackPanel HorizontalAlignment="Right" Margin="0,-30,0,0" Orientation="Horizontal" UseLayoutRounding="True" VerticalAlignment="Top" d:DesignUseLayoutRounding="True">
+                        <Label Content="Gorzw Wlkp., dnia" FontSize="10" HorizontalAlignment="Right" UseLayoutRounding="True" d:DesignUseLayoutRounding="True"/>
+                        <Label x:Name="LabelData" Content="2012-02-01" FontSize="10" UseLayoutRounding="True" d:DesignUseLayoutRounding="True"/>
+                    </StackPanel>
+                </BlockUIContainer>
+                <BlockUIContainer>
+                    <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Right" UseLayoutRounding="True" VerticalAlignment="Top" Width="300" d:DesignUseLayoutRounding="True">
+                        <StackPanel UseLayoutRounding="True" d:DesignUseLayoutRounding="True">
+                            <Label Content="Data przyjęcia skierowania" UseLayoutRounding="True" d:DesignUseLayoutRounding="True"/>
+                            <Label Content="Data badania....................................." Margin="0,30,0,0" UseLayoutRounding="True" d:DesignUseLayoutRounding="True"/>
+                        </StackPanel>
+                    </Border>
+                </BlockUIContainer>
+                <Paragraph x:Name="test" FontSize="18" TextAlignment="Center">
+                    <Bold>
+                        <Run Text="UWAGA - PRZECZYTAĆ PRZED WYPEŁNIENIEM"/>
+                    </Bold>
+                </Paragraph>
+                <Paragraph>
+                    <Run Text="Badanie KT winno być ostatnim badaniem nieinwazyjnym z wyjątkiem przypadków nagłych."/>
+                    <LineBreak/>
+                    <Run Text="Prawidłowe wypełnienie rubryk warunkuje wykonanie badania."/>
+                    <LineBreak/>
+                    <Run Text="Blankiet skierowania wypełnić pismem maszynowym, bądź drukiem."/>
+                    <LineBreak/>
+                    <Run Text="Chory winien być na czczo."/>
+                    <LineBreak/>
+                    <Run Text="Należy dostarczyć z chorym: 3 amp. Uropolinum 75% + strzykawki 20 ml jednorazowego użytku wraz z igłą do injekcji (maksymalnie grubą), dokumentację rtg. koniecznie."/>
+                    <LineBreak/>
+                    <Run Text="Publikacja wyników badań wymaga zgody kierownika zakładu"/>
+                </Paragraph>
+                <Paragraph FontSize="18" TextAlignment="Center">
+                    <Run FontWeight="Bold" Text="SKIEROWANIE DO BADAŃA KT "/>
+                </Paragraph>
+                <Paragraph>
+                    <Run Text="Pracownia Tomografii Komputerowej Zakładu Radiologii Samodzielnego Publicznego Szpitala Wojewódzkiego w Gorzowie Wlkp. ul. Dekerta 1, tel. 7331-500 (rejestr.), 7331-988 (sekret. prac. KT)"/>
+                </Paragraph>
+                <BlockUIContainer >
+                    <StackPanel UseLayoutRounding="True" d:DesignUseLayoutRounding="True">
+                        <StackPanel Orientation="Horizontal" UseLayoutRounding="True" d:DesignUseLayoutRounding="True" Margin="0,30,0,0">
+                            <Label Content="Kieruję Ob." UseLayoutRounding="True" d:DesignUseLayoutRounding="True"/>
+                            <Label x:Name="LabelNazwiskoiImie" Content="ddd" FontWeight="Bold" UseLayoutRounding="True" d:DesignUseLayoutRounding="True"/>
+                            <Label Content="lat" UseLayoutRounding="True" d:DesignUseLayoutRounding="True"/>
+                            <Label x:Name="LabelWiek" Content="ddd" FontWeight="Bold" UseLayoutRounding="True" d:DesignUseLayoutRounding="True"/>
+                            <Label Content="PESEL" UseLayoutRounding="True" d:DesignUseLayoutRounding="True"/>
+                            <Label x:Name="LabelPESEL" Content="ddd" FontWeight="Bold" UseLayoutRounding="True" d:DesignUseLayoutRounding="True"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" UseLayoutRounding="True" d:DesignUseLayoutRounding="True" Margin="0,20,0,30">
+                            <Label Content="Adres" UseLayoutRounding="True" d:DesignUseLayoutRounding="True"/>
+                            <Label x:Name="LabelAdres" Content="ddd" FontWeight="Bold" UseLayoutRounding="True" d:DesignUseLayoutRounding="True"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" UseLayoutRounding="True" d:DesignUseLayoutRounding="True">
+                            <Label Content="do badania TK" UseLayoutRounding="True" d:DesignUseLayoutRounding="True"/>
+                            <!--<TextBox x:Name="TextBoxDoBadaniaTK" TextWrapping="Wrap" BorderBrush="White" FontWeight="Bold" InputMethod.IsInputMethodEnabled="False" Padding="3" Text="...." UseLayoutRounding="True" d:DesignUseLayoutRounding="True"/>-->
+                        </StackPanel>
+                        
+                        
+                    </StackPanel>
+                </BlockUIContainer>
+                <BlockUIContainer>
+                    <TextBox x:Name="TextBoxDoBadaniaTK" BorderBrush="White" FontWeight="Bold" InputMethod.IsInputMethodEnabled="False" Padding="3" TextWrapping="Wrap" Text="...." UseLayoutRounding="True" d:DesignUseLayoutRounding="True"/>
+                </BlockUIContainer>
+                <Paragraph>
+                    <Run Text="Rozpoznanie"/>
+                </Paragraph>
+                <BlockUIContainer>
+                    <TextBox x:Name="TextBoxRozpoznanie" AcceptsReturn="True" BorderBrush="White" InputMethod.IsInputMethodEnabled="False" TextWrapping="Wrap" Text="......." UseLayoutRounding="True"  d:DesignUseLayoutRounding="True"/>
+                </BlockUIContainer>
+                <Paragraph>
+                    <Run Text="Badanie ma wyjaśnić?"/>
+                </Paragraph>
+                <BlockUIContainer>
+                    <TextBox x:Name="TextBoxBadanieMaWyjaśnić" AcceptsReturn="True" BorderBrush="White" InputMethod.IsInputMethodEnabled="False" TextWrapping="Wrap" Text="......." UseLayoutRounding="True" d:DesignUseLayoutRounding="True"/>
+                </BlockUIContainer>
+                <Paragraph>
+                    <Run Text="Stan podmiotowy, przedmiotowy, wyniki badań dodatkowych."/>
+                    <LineBreak/>
+                    <Run Text="Skargi, początek nagły, powolny, od kiedy choruje, przebieg ostry, przewlekły, nawracający"/>
+                </Paragraph>
+                <BlockUIContainer>
+                    <TextBox x:Name="TextBoxStanPodmiotowy" AcceptsReturn="True" BorderBrush="White" InputMethod.IsInputMethodEnabled="False" TextWrapping="Wrap" Text="......." UseLayoutRounding="True" d:DesignUseLayoutRounding="True"/>
+                </BlockUIContainer>
+                <!--
+                <Paragraph>
+                    <Run Text="Choroby przebyte; uraz napady drgawkowe, zatrucia, nadciśnienie tętnicze, cukrzyca i inne"/>
+                </Paragraph>
+                <BlockUIContainer>
+                    <TextBox x:Name="TextBoxChorobyPrzebyte" AcceptsReturn="True" BorderBrush="White" InputMethod.IsInputMethodEnabled="False" TextWrapping="Wrap" Text="......." UseLayoutRounding="True" Width="680" d:DesignUseLayoutRounding="True"/>
+                </BlockUIContainer>
+                <Paragraph>
+                    <Run Text="Stan świadomości, zaburzenia orientacji i pamięci, inne"/>
+                </Paragraph>
+                <BlockUIContainer>
+                    <TextBox x:Name="TextBoxStanSwiadomosci" AcceptsReturn="True" BorderBrush="White" InputMethod.IsInputMethodEnabled="False" TextWrapping="Wrap" Text="......." UseLayoutRounding="True" Width="680" d:DesignUseLayoutRounding="True"/>
+                </BlockUIContainer>
+                <Paragraph>
+                    <Run Text="Zmiany w powłokach czaszki"/>
+                </Paragraph>
+                <BlockUIContainer>
+                    <TextBox x:Name="TextBoxZmianyWPowlokachCzaszki" AcceptsReturn="True" BorderBrush="White" InputMethod.IsInputMethodEnabled="False" TextWrapping="Wrap" Text="......." UseLayoutRounding="True" Width="680" d:DesignUseLayoutRounding="True"/>
+                </BlockUIContainer>
+                <Paragraph>
+                    <Run Text="Objawy oponowe"/>
+                </Paragraph>
+                <BlockUIContainer>
+                    <TextBox x:Name="TextBoxObjawyOponowe" AcceptsReturn="True" BorderBrush="White" InputMethod.IsInputMethodEnabled="False" TextWrapping="Wrap" Text="......." UseLayoutRounding="True" Width="680" d:DesignUseLayoutRounding="True"/>
+                </BlockUIContainer>
+                <Paragraph>
+                    <Run Text="Odchylenia w zakresie nn. czaskowych i dna oka"/>
+                </Paragraph>
+                <BlockUIContainer>
+                    <TextBox x:Name="TextBoxOdchylenia" AcceptsReturn="True" BorderBrush="White" InputMethod.IsInputMethodEnabled="False" TextWrapping="Wrap" Text="......." UseLayoutRounding="True" Width="680" d:DesignUseLayoutRounding="True"/>
+                </BlockUIContainer>
+                <Paragraph>
+                    <Run Text="Kończyny; niedowłady; zaburzenia czucia, niezborność"/>
+                </Paragraph>
+                <BlockUIContainer>
+                    <TextBox x:Name="TextBoxKonczyny" AcceptsReturn="True" BorderBrush="White" InputMethod.IsInputMethodEnabled="False" TextWrapping="Wrap" Text="......." UseLayoutRounding="True" Width="680" d:DesignUseLayoutRounding="True"/>
+                </BlockUIContainer>
+                <BlockUIContainer>
+                    <StackPanel Orientation="Horizontal" UseLayoutRounding="True" d:DesignUseLayoutRounding="True">
+                        <Label Content="R" UseLayoutRounding="True" d:DesignUseLayoutRounding="True"/>
+                        <TextBox x:Name="TextBoxR" AcceptsReturn="True" BorderBrush="White" InputMethod.IsInputMethodEnabled="False" TextWrapping="Wrap" Text="......." UseLayoutRounding="True" d:DesignUseLayoutRounding="True"/>
+                        <Label Content="OB" UseLayoutRounding="True" d:DesignUseLayoutRounding="True"/>
+                        <TextBox x:Name="TextBoxOB" AcceptsReturn="True" BorderBrush="White" InputMethod.IsInputMethodEnabled="False" TextWrapping="Wrap" Text="......." UseLayoutRounding="True" d:DesignUseLayoutRounding="True"/>
+                        <Label Content="Płyn m. - rdz." UseLayoutRounding="True" d:DesignUseLayoutRounding="True"/>
+                        <TextBox x:Name="TextBoxPlynMrdz" AcceptsReturn="True" BorderBrush="White" InputMethod.IsInputMethodEnabled="False" TextWrapping="Wrap" Text="......." UseLayoutRounding="True" d:DesignUseLayoutRounding="True"/>
+                    </StackPanel>
+                </BlockUIContainer>
+                <Paragraph>
+                    <Run Text="Zmiany eeg; rozlane ogniskowe"/>
+                </Paragraph>
+                <BlockUIContainer>
+                    <TextBox x:Name="TextBoxZmianyeeg" AcceptsReturn="True" BorderBrush="White" InputMethod.IsInputMethodEnabled="False" TextWrapping="Wrap" Text="......." UseLayoutRounding="True" Width="680" d:DesignUseLayoutRounding="True"/>
+                </BlockUIContainer>
+                <Paragraph>
+                    <Run Text="Wyniki badań rtg: czaszki, klatki piersiowej, badań cieniujących i innych"/>
+                </Paragraph>
+                <BlockUIContainer>
+                    <TextBox x:Name="TextBoxWynikiRTG" AcceptsReturn="True" BorderBrush="White" InputMethod.IsInputMethodEnabled="False" TextWrapping="Wrap" Text="......." UseLayoutRounding="True" Width="680" d:DesignUseLayoutRounding="True"/>
+                </BlockUIContainer>
+                -->
+                <BlockUIContainer>
+                    <Grid UseLayoutRounding="True" VerticalAlignment="Top" d:DesignUseLayoutRounding="True">
+                        <StackPanel HorizontalAlignment="Left" UseLayoutRounding="True" Width="300" d:DesignUseLayoutRounding="True">
+                            <Label Content="......................................................." FontSize="10" HorizontalAlignment="Center" UseLayoutRounding="True" d:DesignUseLayoutRounding="True"/>
+                            <Label Content="(Ordynator/Kierownik)" FontSize="10" HorizontalAlignment="Center" UseLayoutRounding="True" d:DesignUseLayoutRounding="True"/>
+                        </StackPanel>
+                        <StackPanel HorizontalAlignment="Right" UseLayoutRounding="True" Width="300" d:DesignUseLayoutRounding="True">
+                            <Label Content="......................................................." FontSize="10" HorizontalAlignment="Center" UseLayoutRounding="True" d:DesignUseLayoutRounding="True"/>
+                            <Label Content="(Lekarz kierujący)" FontSize="10" HorizontalAlignment="Center" UseLayoutRounding="True" d:DesignUseLayoutRounding="True"/>
+                        </StackPanel>
+                    </Grid>
+                </BlockUIContainer>
+                
+            </FlowDocument>
+        </FlowDocumentScrollViewer>
+        <Button Content="Drukuj" Height="25" HorizontalAlignment="Left" Margin="9,2,0,0" x:Name="Button1" VerticalAlignment="Top" Width="128" />
+    </Grid>
+</Window>

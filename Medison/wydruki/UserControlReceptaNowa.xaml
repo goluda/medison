@@ -1,0 +1,62 @@
+﻿<UserControl x:Class="UserControlReceptaNowa"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xml:lang="pl-PL"
+             mc:Ignorable="d" 
+             d:DesignHeight="801" d:DesignWidth="863">
+    <Grid>
+        <!-- <Grid.RenderTransform>
+            <RotateTransform Angle="180"  CenterX="431" CenterY="400"/> 
+        </Grid.RenderTransform> -->
+        <Image HorizontalAlignment="Left" VerticalAlignment="Top" Source="/Medison;component/Images/Recepta.png" Margin="220,0" Width="363" Height="761" Name="ImageBackground"></Image>
+        <Grid Margin="220,0">
+            <Label Content="{Binding Path=Pacjenci.NazwiskoImie}" Height="28" HorizontalAlignment="Left" Margin="18,188,0,0"  VerticalAlignment="Top" Width="253" FontSize="14" />
+            <Label Content="{Binding Path=Pacjenci.Pesel}" Height="28" HorizontalAlignment="Left" Margin="123,284,0,0" VerticalAlignment="Top" Width="148" FontSize="14" />
+            <Label Content="{Binding Path=Pacjenci.KasaChorych}" FontSize="14" Height="28" HorizontalAlignment="Left" Margin="277,181,0,0" VerticalAlignment="Top" Width="84" />
+            <Label Content="{Binding Path=NrLekarza}" FontSize="12" Height="28" HorizontalAlignment="Left" Margin="204,681,0,0" VerticalAlignment="Top" Width="157" />
+            <Label Content="Refundacja do decyzji NFZ" Visibility="{Binding Path=Pacjenci.refundacjaVisible}" FontSize="14" Height="28" HorizontalAlignment="Left" Margin="21,580,0,0" VerticalAlignment="Top" Width="207" FontWeight="Bold" />
+            <Label Content="{Binding Path=DataWizyty,StringFormat=\{0:d\}}" FontSize="12" Height="28" HorizontalAlignment="Left" Margin="21,681,0,0" VerticalAlignment="Top" Width="146" />
+            <ListView Height="274" HorizontalAlignment="Left" Margin="18,338,0,0" Name="ListView1" VerticalAlignment="Top" Width="366" ItemsSource="{Binding Path=Recepty}"
+                      ScrollViewer.VerticalScrollBarVisibility="Disabled" 
+                      ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
+                      BorderBrush="Transparent"   
+                      Background="Transparent" FontSize="14">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Margin="0,0,0,10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid Width="260" Grid.Row="0">
+                                <TextBlock  Text="{Binding Path=Leki.NazwaLeku}" HorizontalAlignment="Left" />
+                                <TextBlock  Text="{Binding Path=Leki.refundacja1}" HorizontalAlignment="right" />
+                            </Grid>
+                            <StackPanel Orientation="Horizontal" Grid.Row="1">
+                                <!--<TextBlock Margin="0,0,0,0" Text="{Binding Path=Leki.NazwaLeku}" HorizontalAlignment="Left" />
+                                <TextBlock Margin="5,0,0,0" Text="{Binding Path=Dawka}" HorizontalAlignment="Left" />
+                                <TextBlock Margin="5,0,0,0" Text="{Binding Path=Postac}" HorizontalAlignment="Left" />
+                                <TextBlock Margin="5,0,0,0" Text="{Binding Path=Ilosc}" HorizontalAlignment="Left" />-->
+                                <!--<TextBlock Margin="5,0,0,0" Text="{Binding Path=Leki.NazwaLeku}" HorizontalAlignment="Left" />-->
+                                <TextBlock  Text="{Binding Path=doWydruku}" HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap" Width="260" />
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Grid.Row="2" >
+                                <TextBlock Margin="0,0,0,0" Text="D.s." HorizontalAlignment="Left" />
+                                <TextBlock Margin="5,0,0,0" Text="{Binding Path=Dawkowanie}" HorizontalAlignment="Left" Width="200" TextWrapping="Wrap" />
+
+                            </StackPanel>
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <TextBlock TextWrapping="Wrap"  Text="{Binding Path=Pacjenci.PelnyAdresPacjenta2}" FontSize="12" Height="56" HorizontalAlignment="Left" Margin="18,222,0,0" VerticalAlignment="Top" Width="253" />
+            <Label Content="{Binding Path=Pacjenci.ReceptaUprawnienia}" FontSize="14" Height="28" HorizontalAlignment="Left" Margin="277,228,0,0" VerticalAlignment="Top" Width="84" />
+            <Label Content="{Binding Path=ReceptaChorobyPrzewlekle}" FontSize="14" Height="28" HorizontalAlignment="Left" Margin="277,274,0,0" VerticalAlignment="Top" Width="84" Name="LabelChorobyPrzewlekle" />
+            <Label Content="X" Height="29" HorizontalAlignment="Left" Margin="66,724,0,0" Name="Label1" VerticalAlignment="Top" Width="45" FontSize="14" FontFamily="Arial" />
+            <!--<Label Content="{Binding Path=DataWizyty, StringFormat=\{0:d\}}" FontSize="12" Height="28" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="146" />-->
+        </Grid>
+    </Grid>
+</UserControl>

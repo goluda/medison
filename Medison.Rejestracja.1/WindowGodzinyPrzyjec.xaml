@@ -1,0 +1,33 @@
+﻿<Window x:Class="WindowGodzinyPrzyjec"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="WindowGodzinyPrzyjec" Height="300" Width="655" WindowState="Maximized">
+    <Grid>
+        <ListBox HorizontalAlignment="Left" Margin="7,6,0,12" Name="ListBox1" Width="159" ItemsSource="{Binding }" IsSynchronizedWithCurrentItem="True">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid Height="40" Width="130">
+                        <TextBlock Margin="2,2,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Text="{Binding Path=Nazwisko}" FontWeight="Bold" FontSize="14"/>
+                        <TextBlock Margin="2,22,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Text="{Binding Path=Imie}" FontWeight="Regular"  />
+                        <TextBlock Margin="2" HorizontalAlignment="Right" VerticalAlignment="Bottom"  Foreground="Gray" FontSize="20" Text="{Binding Path=NrGabinetu}"/>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Button Content="Zapisz" Height="23" HorizontalAlignment="Left" Margin="175,6,0,0" Name="Button1" VerticalAlignment="Top" Width="75" />
+        <DataGrid AutoGenerateColumns="False" Margin="175,33,15,13" Name="DataGrid1" ItemsSource="{Binding Path=DaneLekarza_GodzinyPrzyjec}" GridLinesVisibility="None" RowHeaderWidth="15" AlternatingRowBackground="AntiqueWhite" AlternationCount="2">
+            <DataGrid.Columns>
+                <DataGridComboBoxColumn Header="Dzień" SelectedValueBinding="{Binding Path=dzien}" DisplayMemberPath="NazwaDnia" SelectedValuePath="nrDnia" x:Name="ComboDni" />
+                <!--<DataGridTextColumn Header="Dzień" Binding="{Binding Path=dzien}"/>-->
+                <DataGridTextColumn Header="Godzina Od" Binding="{Binding Path=dodzinaOd}"/>
+                <DataGridTextColumn Header="Minuty od" Binding="{Binding Path=minutaOd}"/>
+                <DataGridTextColumn Header="Godzina Do" Binding="{Binding Path=godzinaDo}"/>
+                <DataGridTextColumn Header="Minuty Do" Binding="{Binding Path=minutaDo}"/>
+                <DataGridTextColumn Header="Skok" Binding="{Binding Path=skokMinut}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label Content="Przenieś schemat do" Height="28" HorizontalAlignment="Left" Margin="267,6,0,0" Name="Label1" VerticalAlignment="Top" />
+        <ComboBox Height="23" HorizontalAlignment="Left" Margin="383,6,0,0" Name="ComboBoxLekarz2" VerticalAlignment="Top" Width="120" DisplayMemberPath="Nazwisko" SelectedValuePath="NrGabinetu" />
+        <Button Content="Przenieś" Height="23" HorizontalAlignment="Left" Margin="509,6,0,0" Name="Button2" VerticalAlignment="Top" Width="75" />
+    </Grid>
+</Window>

@@ -1,0 +1,32 @@
+﻿<Window x:Name="window" x:Class="WindowRejestracja"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Medison - Rejestracja" Height="468.974" Width="1024" 
+        WindowStartupLocation="CenterScreen"  xmlns:my="clr-namespace:Medison.Rejestracja._1"
+        WindowState="Maximized" 
+    SizeChanged="Window_SizeChanged" Loaded="Window_Loaded">
+    <Window.Resources>
+        <my:converterDBNUll x:Key="converterDBNUll1" />
+    </Window.Resources>
+    <Grid>
+        <ListBox HorizontalAlignment="Left" IsSynchronizedWithCurrentItem="True" ItemsSource="{Binding}" Margin="4,195,0,12" Name="ListBoxLekarz" Width="176" ScrollViewer.CanContentScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid Height="40" Width="130">
+                        <TextBlock FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="2,2,0,0" Text="{Binding Path=Nazwisko}" VerticalAlignment="Top" />
+                        <TextBlock FontWeight="Regular" HorizontalAlignment="Left" Margin="2,22,0,0" Text="{Binding Path=Imie}" VerticalAlignment="Top" />
+                        <TextBlock FontSize="20" Foreground="Gray" HorizontalAlignment="Right" Margin="2" Text="{Binding Path=NrGabinetu}" VerticalAlignment="Bottom" />
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Calendar Height="162" HorizontalAlignment="Left" Margin="2,0,0,0" Name="Calendar1" VerticalAlignment="Top" Width="179" />
+        <Label Content="Label" Height="28" HorizontalAlignment="Left" Margin="184,6,0,0" Name="LabelData" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" />
+        <Button Content="Drukuj" Height="23" HorizontalAlignment="Left" Margin="4,168,0,0" Name="Button1" VerticalAlignment="Top" Width="177" />
+        <Button  Content="&lt;&lt;" HorizontalAlignment="Left" Margin="190,34,0,0" VerticalAlignment="Top" Width="100" Click="PoprzedniDzien" Height="25"/>
+        <Button  Content="&gt;&gt;" Margin="0,34,10,0" VerticalAlignment="Top" Click="NastepnyDzien" HorizontalAlignment="Right" Width="100" Height="25"/>
+        <WrapPanel Orientation="Vertical" Name="WrapPanelListaPacjentow" Margin="190,65,10,9.5" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto">
+
+        </WrapPanel>
+    </Grid>
+</Window>

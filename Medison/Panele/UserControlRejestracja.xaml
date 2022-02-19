@@ -1,0 +1,151 @@
+﻿<UserControl x:Class="UserControlRejestracja"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="379" d:DesignWidth="769">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Name="R1" Height="1"/>
+        </Grid.RowDefinitions>
+        <Label Content="Rejestracja pacjentów" Height="37" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Century Gothic" FontSize="18" />
+        <Grid Height="52" HorizontalAlignment="Left" Margin="225,0,0,0" Name="GridInfo" VerticalAlignment="Top" Width="281">
+            <Label Content="Rejestracja na:" Height="28" HorizontalAlignment="Left" Margin="1,0,0,0" Name="Label1" VerticalAlignment="Top" />
+            <Label Content="{Binding Path=data}" Height="28" HorizontalAlignment="Left" Margin="92,0,0,0" Name="Label2" VerticalAlignment="Top"  FontWeight="Bold" />
+            <Label Content="Rejestracja dla:" Height="28" HorizontalAlignment="Left" Margin="1,20,0,0" Name="Label3" VerticalAlignment="Top" />
+            <Label Content="{Binding Path=WybranyLekarz}" FontWeight="Bold" Height="28" HorizontalAlignment="Left" Margin="92,20,0,0" Name="Label4" VerticalAlignment="Top"  />
+        </Grid>
+        <DataGrid AutoGenerateColumns="False" Margin="17,65,19,0" Name="DataGrid1" ItemsSource="{Binding }"  HorizontalGridLinesBrush="Gray" VerticalGridLinesBrush="Gray" AlternatingRowBackground="WhiteSmoke" AlternationCount="2" Background="Transparent" CurrentCellChanged="zapisz"  CanUserAddRows="False" IsReadOnly="True" Height="298" VerticalAlignment="Top">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <!-- <Button Content="Usuń" Click="usun"/>-->
+                            <Image MouseEnter="NajechaneMyszka" MouseLeave="OdjechaneMyszka" Opacity="0.5" Height="16" MouseDown="Usun" Tag="{Binding }" Source="/Medison;component/Images/delete.png" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Header="PESEL" Binding="{Binding Path=Pacjenci.Pesel}"/>
+                <!-- -->
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate >
+                        <DataTemplate>
+                            <Button Content="..." Click="SzczegolyPacjenta" Tag="{Binding }"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate >
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Header="Nazwisko" Binding="{Binding Path=Pacjenci.Nazwisko}" Width="150"/>
+                <DataGridTextColumn Header="Imię" Binding="{Binding Path=Pacjenci.Imie}" Width="120"/>
+
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+
+                            <Image MouseEnter="NajechaneMyszka" MouseLeave="OdjechaneMyszka" Opacity="0.5" Height="16" MouseDown="Edytuj" Tag="{Binding }"  Source="/Medison;component/Images/126_Edit_32x32_72.png" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="{Binding Path=TerazTenString}" Width="30" Click="ZmienTerazTen" Foreground="red" FontWeight="Bold"   Tag="{Binding }"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <CheckBox IsChecked="{Binding Path=L4}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+
+                <DataGridTextColumn Header="Godzina" Binding="{Binding Path=GodzWizytyToString}" Width="40"/>
+                <DataGridTextColumn Header="Wszedl" Binding="{Binding Path=WszedlToString}" IsReadOnly="True" Foreground="Green" Width="40" />
+
+                <DataGridComboBoxColumn Header="USG" SelectedValueBinding="{Binding Path=NrUsg}" DisplayMemberPath="CzyjeUsgSkrot" SelectedValuePath="NrUsg"  x:Name="ComboUSG" Width="20" />
+                <DataGridTextColumn Header="Wpłata" Binding="{Binding Path=Wplata,StringFormat=\{0:c\}}" />
+                
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Click="DrukujKwit" Tag="{Binding}" Padding="0" Width="25">
+                                <Image  Height="16"  Source="/Medison;component/Images/Print1.png" />
+                            </Button>
+
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Header="Karta" Binding="{Binding Path=WplataKarta,StringFormat=\{0:c\}}" />
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="->" Click="SzczegolyWizyty" Tag="{Binding }" Width="40"/>
+
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTextColumn Header="L4" Binding="{Binding Path=ZwolnienieDni}"/>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="L4" Tag="{Binding}" Click="L4" Width="30" Padding="0"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="FV" Tag="{Binding }" Click="FV" Width="30" Padding="0"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="H" Tag="{Binding }" Click="PokazHistorie"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="P" Tag="{Binding }" Click="PrzeniesWizyte"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="B" Tag="{Binding }" Click="BankWizyta"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridCheckBoxColumn Binding="{Binding Path=karta}" IsReadOnly="True"/>
+                
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Background="Transparent" Height="30" HorizontalAlignment="Right" Margin="0,7,12,0" Name="Button2" VerticalAlignment="Top" Width="123">
+            <StackPanel Orientation="Horizontal">
+                <Image Margin="-10" Source="/Medison;component/Images/add.png" Width="40" />
+                <Label Content="Nowa" FontWeight="Bold" Margin="10,0" />
+            </StackPanel>
+        </Button>
+        <Button Background="Transparent" Height="30" HorizontalAlignment="Right" Margin="0,7,141,0" Name="Button1" VerticalAlignment="Top" Width="67" >
+            <StackPanel Orientation="Horizontal">
+                <Image Margin="-10" Source="/Medison;component/Images/Refresh.png" Width="40" />
+            </StackPanel>
+        </Button>
+        <Label Content="Kwota" Height="28" HorizontalAlignment="Left" Margin="19,34,0,0" Name="Label5" VerticalAlignment="Top" />
+        <Label  Height="28" HorizontalAlignment="Left" Margin="68,34,0,0" Name="LabelKwota" VerticalAlignment="Top" Width="131" FontWeight="Bold" />
+
+        <Grid Name="GridEdycja" Grid.Row="1"></Grid>
+        <Button Content="Zeruj płatności" Background="Transparent" Height="30" HorizontalAlignment="Right" Margin="0,8,214,0" Name="Button3" VerticalAlignment="Top" Width="84">
+            
+        </Button>
+    </Grid>
+</UserControl>

@@ -1,0 +1,287 @@
+﻿<UserControl x:Class="UserControlSzczegolyPacjenta"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="458" d:DesignWidth="762">
+    <Grid>
+        <Label Content="{Binding}" Height="44" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Century Gothic" FontSize="18" />
+        <Button Background="Transparent" Height="30" HorizontalAlignment="Right" Margin="0,7,12,0" Name="Button1" VerticalAlignment="Top" Width="110">
+            <StackPanel Orientation="Horizontal">
+                <Image Margin="-10" Source="/Medison;component/Images/back.png" Width="40" />
+                <Label Content="Wróć" FontWeight="Bold" Margin="10,0" />
+            </StackPanel>
+        </Button>
+        <Label Content="Wiek" Height="28" HorizontalAlignment="Left" Margin="336,5,0,0"  VerticalAlignment="Top" />
+        <Label Content="{Binding wiek}" Height="28" HorizontalAlignment="Left" Margin="378,5,0,0"  VerticalAlignment="Top" FontWeight="Bold" />
+        <ComboBox HorizontalAlignment="Left" Margin="410,8,0,0" VerticalAlignment="Top" Width="36" SelectedValue="{Binding GrKrwi}" Name="ComboBoxGrupaKrwi"/>
+        <Label Content="Rh" Height="28" HorizontalAlignment="Left" Margin="448,5,0,0" VerticalAlignment="Top" />
+        <ComboBox  HorizontalAlignment="Left" Margin="474,8,0,0" Name="ComboBoxRh" SelectedValue="{Binding Rh}" VerticalAlignment="Top" />
+        <TabControl Margin="8,59,8,11" Name="TabControl1"  Background="Transparent" >
+            <TabItem Header="Wizyty" Name="TabItem1">
+                <Grid>
+                    <ListView  Background="Transparent" Name="ListViewWizyty" FontSize="14">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition />
+                                        <RowDefinition Height="20"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="370" />
+                                        <ColumnDefinition Width="4"/>
+                                        <ColumnDefinition Width="330"/>
+                                    </Grid.ColumnDefinitions>
+                                    
+                                    <StackPanel Grid.Column="0">
+                                        <StackPanel Orientation="Horizontal" >
+                                            <Button Content=">>" Click="PokazWizyte" Tag="{Binding }"/>
+                                            <Label Content="{Binding Path=DataWizyty,StringFormat=\{0:d\},UpdateSourceTrigger=LostFocus}" FontWeight="Bold" FontSize="14"/>
+                                            <Label Content="{Binding ImieINazwiskoLekarza,UpdateSourceTrigger=LostFocus}" FontSize="14"/>
+                                            <CheckBox Content="Czy druk" FontSize="10" Foreground ="gray" IsChecked="{Binding Path=CzyDrukowac,UpdateSourceTrigger=LostFocus}"/>
+                                            <Label Content="{Binding Path=L4Info,UpdateSourceTrigger=LostFocus}" Foreground ="DarkRed" />                                            
+                                        </StackPanel>
+                                        <TextBox Text="{Binding Path=Wywiad,UpdateSourceTrigger=LostFocus}" Background="{Binding Path=BackgroundColor}" AcceptsReturn="True" AcceptsTab="True" Height="80" TextWrapping="Wrap" IsReadOnly="{Binding Path=isReadOnly}"/>
+                                        <Label Content="USG:"/>
+                                        <TextBox Text="{Binding Path=usg,UpdateSourceTrigger=LostFocus}" AcceptsReturn="True" AcceptsTab="True" Height="53" Background="Silver"  TextWrapping="Wrap" IsReadOnly="{Binding Path=isReadOnly}"/>
+                                    </StackPanel>
+                                    <StackPanel Grid.Column="2">
+                                        <StackPanel Orientation="Horizontal" >
+                                           <Label Content="Nr Stat."/>
+                                            <TextBox Text="{Binding Path=NrStatystycznyChoroby,UpdateSourceTrigger=LostFocus}" Width="50" IsReadOnly="{Binding Path=isReadOnly}"/>
+                                        </StackPanel>
+                                        
+                                        <StackPanel Orientation="Horizontal" >
+                                            <Label Content="Bad:"></Label>
+                                            <TextBox Text="{Binding Path=Badania,UpdateSourceTrigger=LostFocus}" AcceptsReturn="True" AcceptsTab="True" Height="80" TextWrapping="Wrap" Width="300" IsReadOnly="{Binding Path=isReadOnly}"/>
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal" >
+                                            <Label Content="Roz:"/>
+                                            <TextBox Text="{Binding Path=Rozpoznanie,UpdateSourceTrigger=LostFocus}" AcceptsReturn="True" AcceptsTab="True" Height="40"  TextWrapping="Wrap" Width="300" IsReadOnly="{Binding Path=isReadOnly}"/>
+
+                                        </StackPanel>
+
+                                        <TextBox Text="{Binding Path=Zalecenia,UpdateSourceTrigger=LostFocus}" AcceptsReturn="True" AcceptsTab="True" Height="40" Background="Silver"  TextWrapping="Wrap" IsReadOnly="{Binding Path=isReadOnly}"/>
+                                    </StackPanel>
+
+                                    <Grid Grid.Row="1" Grid.ColumnSpan="3">
+                                        <Grid VerticalAlignment="top" Background="Black"  Height="2" Margin="5"/>
+                                    </Grid>
+
+                                </Grid>
+                                
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListView>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Leki" >
+                <Grid>
+                    <DataGrid ItemsSource="{Binding Path=Recepty}" Background="Transparent" IsReadOnly="True" HorizontalGridLinesBrush="Gray" VerticalGridLinesBrush="Gray" AlternatingRowBackground="WhiteSmoke" AlternationCount="2" AutoGenerateColumns="False" >
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Data wizyty" Binding="{Binding Path=Wizyty.DataWizyty}"/>
+                            <DataGridTextColumn Header="Nazwa leku" Binding="{Binding Path=Leki.NazwaLeku}"/>
+                            <DataGridTextColumn Header="Postać leku" Binding="{Binding Path=Leki.PostacLeku}"/>
+                            <DataGridTextColumn Header="Ilość" Binding="{Binding Path=Ilosc}"/>
+                            <DataGridTextColumn Header="Dawkowanie" Binding="{Binding Path=Dawkowanie}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Skierowania" >
+                <Grid>
+                    <ListBox HorizontalAlignment="Left" Margin="17,19,0,15" Name="ListBoxSkierowania" Width="590"  ItemsSource ="{Binding Path=Skierowania}" Background="Transparent" >
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Grid >
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition />
+                                        <RowDefinition />
+                                        <RowDefinition />
+                                        <RowDefinition />
+                                        <RowDefinition Height="3"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="100" />
+                                        <ColumnDefinition Width="430"/>
+                                        <ColumnDefinition Width="50"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Grid.Row="0" Grid.Column="0" Content="Data"/>
+                                    <Label Grid.Row="1" Grid.Column="0" Content="Do kogo"/>
+                                    <Label Grid.Row="3" Grid.Column="0" Content="Cel"/>
+                                    <Label Grid.Row="2" Grid.Column="0" Content="Rozpoznanie"/>
+                                    <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="0">
+                                        <TextBox Grid.Column="1" Grid.Row="0" Text="{Binding Path=DataSkierow,StringFormat=\{0:d\}}" Margin="2" Width="150" HorizontalAlignment="Left" Background="{Binding Path=BackgroundColor}" FontWeight="Bold" />
+                                        <Button Background="Transparent" Height="30" HorizontalAlignment="Left"   VerticalAlignment="Top" Width="50" Grid.Row="3" Grid.Column="3"  Click="UsunSkierowanie" Tag="{Binding }">
+                                            <StackPanel Orientation="Horizontal">
+                                                <Image Margin="-10" Source="/Medison;component/Images/delete.png" Width="40" />
+                                            </StackPanel>
+                                        </Button>
+                                    </StackPanel>
+                                    
+                                    <TextBox Grid.Column="1" Grid.Row="1" Text="{Binding Path=DoKogo}" AcceptsTab="True" AcceptsReturn="True" Width="450" Margin="2" HorizontalAlignment="Left" MaxLength="100" />
+                                    <TextBox Grid.Column="1" Grid.Row="3" Text="{Binding Path=Cel}" AcceptsTab="True" AcceptsReturn="True" Width="450" Margin="2" HorizontalAlignment="Left" TextWrapping="Wrap" MaxLength="255"  />
+                                    <TextBox Grid.Column="1" Grid.Row="2" Text="{Binding Path=Rozpoznanie}" AcceptsTab="True" AcceptsReturn="True" Width="450" Margin="2" HorizontalAlignment="Left"  TextWrapping="Wrap" />
+                                    <Button Background="Transparent" Height="30" HorizontalAlignment="Left"  Name="Button6" VerticalAlignment="Top" Width="50" Grid.Row="0" Grid.Column="2" Grid.RowSpan="2" Click="DrukujSkierowanie" Tag="{Binding }">
+                                        <StackPanel Orientation="Horizontal">
+                                            <Image Margin="-10" Source="/Medison;component/Images/Print.png" Width="40" />
+                                        </StackPanel>
+                                    </Button>
+                                   
+
+                                    <Button Background="Transparent" Content="Szablon" Height="30" HorizontalAlignment="Left"   VerticalAlignment="Top" Width="50" Grid.Row="1" Grid.Column="3"  Click="SkierowanieSzablon" Tag="{Binding }">
+                                        
+                                    </Button>
+                                </Grid>
+
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                    <Button Background="Transparent" Height="30" HorizontalAlignment="Left" Margin="620,19,0,0" Name="ButtonNoweSkierowanie" VerticalAlignment="Top" Width="110">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Margin="-10" Source="/Medison;component/Images/add.png" Width="40" />
+                            <Label Content="Nowe" FontWeight="Bold" Margin="10,0" />
+                        </StackPanel>
+                    </Button>
+                    <Button Content="Skierowanie do pracowni rezonansu magnetycznego" Height="31" Margin="620,67,11,0" Name="Button8" VerticalAlignment="Top" />
+                    <Button Content="Skierowanie KT" Height="31" Margin="620,104,11,0" Name="Button9" VerticalAlignment="Top" />
+                    <Button Content="Skierowanie na zabiegi fizjoterapeutyczne" Height="31" Margin="620,141,11,0" Name="Button10" VerticalAlignment="Top" />
+                </Grid>
+                
+            </TabItem>
+            <TabItem Header="Zaświadczenia" >
+                <Grid>
+                    <ListBox Margin="17,19,0,15" Name="ListBoxZaswiadczenia" Width="590" ItemsSource="{Binding Path=Zaswiadczenia}"  AlternationCount="2" HorizontalAlignment="Left" Background="Transparent" >
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Grid >
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition />
+                                        <RowDefinition />
+                                        
+                                        <RowDefinition />
+                                        <RowDefinition Height="3"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="100" />
+                                        <ColumnDefinition Width="430"/>
+                                        <ColumnDefinition Width="50"/>
+                                    </Grid.ColumnDefinitions>
+                                    
+                                    <Label Content="Data" Grid.Row="0" Grid.Column="0"/>
+                                    <Label Grid.Row="1" Grid.Column="0" Content="Rozpoznanie"/>
+                                    <Label Grid.Row="2" Grid.Column="0" Content="Cel"/>
+                                    <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="1">
+                                        <TextBox Grid.Column="1" Grid.Row="0" Text="{Binding Path=DataZaswiad,StringFormat=\{0:d\}}" Margin="2" Width="150" HorizontalAlignment="Left"  Background="{Binding Path=BackgroundColor}" FontWeight="Bold" />
+                                        <Button Background="Transparent" Height="30"  Width="50"   Click="UsunZaswiadczenie" Tag="{Binding }">
+                                            <StackPanel Orientation="Horizontal">
+                                                <Image Margin="-10" Source="/Medison;component/Images/delete.png" Width="40" />
+                                            </StackPanel>
+                                        </Button>
+                                    </StackPanel>
+                                    
+                                    <TextBox Grid.Column="1" Grid.Row="1" Text="{Binding Path=Rozpoznanie}" AcceptsTab="True" AcceptsReturn="True" Width="450" Margin="2" HorizontalAlignment="Left" TextWrapping="Wrap" />
+                                    <TextBox Grid.Column="1" Grid.Row="2" Text="{Binding Path=Cel}" AcceptsTab="True" AcceptsReturn="True" Width="450" Margin="2" HorizontalAlignment="Left" TextWrapping="Wrap" MaxLength="255" />
+                                    <Button Background="Transparent" Height="30" HorizontalAlignment="Left"  Name="Button6" VerticalAlignment="Top" Width="50" Grid.Row="0" Grid.Column="2" Grid.RowSpan="2" Click="DrukujZaswiadczenie" Tag="{Binding }">
+                                        <StackPanel Orientation="Horizontal">
+                                            <Image Margin="-10" Source="/Medison;component/Images/Print.png" Width="40" />                                        
+                                        </StackPanel>
+                                    </Button>
+                                    
+                                    <Button Background="Transparent" Content="Szablon" Height="30" HorizontalAlignment="Left"   VerticalAlignment="Top" Width="50" Grid.Row="1" Grid.Column="3"  Click="ZaswiadczenieSzablon" Tag="{Binding }">
+
+                                    </Button>
+                                </Grid>
+                                
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                    <Button Background="Transparent" Height="30" HorizontalAlignment="Left" Margin="620,19,0,0" Name="Button3" VerticalAlignment="Top" Width="110">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Margin="-10" Source="/Medison;component/Images/add.png" Width="40" />
+                            <Label Content="Nowe" FontWeight="Bold" Margin="10,0" />
+                        </StackPanel>
+                    </Button>
+                </Grid>
+            </TabItem>
+            <TabItem Header="FV" >
+                <Grid>
+                    <DataGrid Background="Transparent" ItemsSource="{Binding Path=Rachunki}" IsReadOnly="True" HorizontalGridLinesBrush="Gray" VerticalGridLinesBrush="Gray" AlternatingRowBackground="WhiteSmoke" AlternationCount="2" AutoGenerateColumns="False" >
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="rocznik" Binding="{Binding Path=rocznik}"/>
+                            <DataGridTextColumn Header="Z dnia" Binding="{Binding Path=DataWystawienia,StringFormat=\{0:d\}}"/>
+                            <DataGridTextColumn Header="" Binding="{Binding Path=TypRachunku}"/>
+                            <DataGridTextColumn Header="Nr rachunku" Binding="{Binding Path=nrRachunku1}"/>
+                            <DataGridTextColumn Header="NIP Wystawcy" Binding="{Binding Path=NIPVW}"/>
+                            <DataGridTextColumn Header="Na kogo NIP" Binding="{Binding Path=NaKogoNIP}"/>
+                            <DataGridTextColumn Header="Na kogo" Binding="{Binding Path=NaKogo}"/>
+                            <DataGridTextColumn Header="Brutto" Binding="{Binding Path=brutto1,StringFormat=\{0:c\}}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Dane" >
+                <Grid>
+                    <Label Content="Nazwisko" Height="28" HorizontalAlignment="Left" Margin="11,8,0,0" Name="Label1" VerticalAlignment="Top" />
+                    <TextBox Height="23" HorizontalAlignment="Left" Margin="11,33,0,0" Name="TextBox1" VerticalAlignment="Top" Width="180" Text="{Binding Path=Nazwisko}" FontWeight="Bold" Background="Wheat" />
+                    <Label Content="Imię" Height="28" HorizontalAlignment="Left" Margin="195,8,0,0" Name="Label2" VerticalAlignment="Top" />
+                    <TextBox Height="23" HorizontalAlignment="Left" Margin="195,33,0,0" Name="TextBox2" Text="{Binding Path=Imie}" VerticalAlignment="Top" Width="155" Background="Wheat" />
+                    <Label Content="Data urodzenia" Height="28" HorizontalAlignment="Left" Margin="356,8,0,0" Name="Label3" VerticalAlignment="Top" />
+                    <TextBox Height="23" HorizontalAlignment="Left" Margin="356,33,0,0" Name="TextBox3" Text="{Binding Path=DataUrodzenia,StringFormat=\{0:d\}}" VerticalAlignment="Top" Width="103" Background="Wheat" />
+                    <Label Content="PESEL" Height="28" HorizontalAlignment="Left" Margin="461,8,0,0" Name="Label4" VerticalAlignment="Top" />
+                    <TextBox Height="23" HorizontalAlignment="Left" Margin="461,33,0,0" Name="TextBox4" Text="{Binding Path=Pesel}" VerticalAlignment="Top" Width="129" Background="Wheat" />
+                    <Label Content="Płeć" Height="28" HorizontalAlignment="Left" Margin="596,6,0,0" Name="Label5" VerticalAlignment="Top" />
+                    <ComboBox Height="23" HorizontalAlignment="Left" Margin="596,33,0,0" Name="ComboBoxPlec" VerticalAlignment="Top" Width="46" SelectedValue="{Binding Path=Plec}" />
+                    <Label Content="Kod poczt." Height="28" HorizontalAlignment="Left" Margin="11,64,0,0" Name="Label6" VerticalAlignment="Top" />
+                    <TextBox Height="23" HorizontalAlignment="Left" Margin="11,89,0,0" Name="TextBox5" Text="{Binding Path=Kod
+                        }" VerticalAlignment="Top" Width="66" Background="Wheat" />
+                    <Label Content="Miejscowość" Height="28" HorizontalAlignment="Left" Margin="83,64,0,0" Name="Label7" VerticalAlignment="Top" />
+                    <TextBox Height="23" HorizontalAlignment="Left" Margin="83,89,0,0" Name="TextBox6" Text="{Binding Path=Miejscowosc}" VerticalAlignment="Top" Width="155" Background="Wheat" />
+                    <Label Content="Ulica" Height="28" HorizontalAlignment="Left" Margin="244,64,0,0" Name="Label8" VerticalAlignment="Top" />
+                    <TextBox Height="23" HorizontalAlignment="Left" Margin="244,89,0,0" Name="TextBox7" Text="{Binding Path=Adres}" VerticalAlignment="Top" Width="155" Background="Wheat" />
+                    <Label Content="Nr domu" Height="28" HorizontalAlignment="Left" Margin="405,64,0,0" Name="Label9" VerticalAlignment="Top" />
+                    <TextBox Height="23" HorizontalAlignment="Left" Margin="405,89,0,0" Name="TextBox8" Text="{Binding Path=NrDomu}" VerticalAlignment="Top" Width="58" Background="Wheat" />
+                    <Label Content="Nr lok." Height="28" HorizontalAlignment="Left" Margin="473,64,0,0" Name="Label10" VerticalAlignment="Top" IsEnabled="True" />
+                    <TextBox Height="23" HorizontalAlignment="Left" Margin="473,89,0,0" Name="TextBox9" Text="{Binding Path=NrLokalu}" VerticalAlignment="Top" Width="42" Background="Wheat" />
+                    <Label Content="Telefon" Height="28" HorizontalAlignment="Left" Margin="521,64,0,0" Name="Label11" VerticalAlignment="Top" />
+                    <TextBox Height="23" HorizontalAlignment="Left" Margin="521,89,0,0" Name="TextBox10" Text="{Binding Path=Telefon}" VerticalAlignment="Top" Width="155" />
+                    <Label Content="Kasa" Height="28" HorizontalAlignment="Left" Margin="11,123,0,0" Name="Label12" VerticalAlignment="Top" />
+                    <TextBox Height="23" HorizontalAlignment="Left" Margin="11,148,0,0" Name="TextBox11" Text="{Binding Path=Telefon}" VerticalAlignment="Top" Width="66" />
+                    <Label Content="NIP" Height="28" HorizontalAlignment="Left" Margin="83,123,0,0" Name="Label13" VerticalAlignment="Top" />
+                    <TextBox Height="23" HorizontalAlignment="Left" Margin="83,148,0,0" Name="TextBox12" Text="{Binding Path=NIP}" VerticalAlignment="Top" Width="155" />
+                    <Label Content="Dowód" Height="28" HorizontalAlignment="Left" Margin="244,123,0,0" Name="Label14" VerticalAlignment="Top" />
+                    <TextBox Height="23" HorizontalAlignment="Left" Margin="244,148,0,0" Name="TextBox13" Text="{Binding Path=Dowod}" VerticalAlignment="Top" Width="155" />
+                    <Label Content="Paszport" Height="28" HorizontalAlignment="Left" Margin="405,123,0,0" Name="Label15" VerticalAlignment="Top" />
+                    <TextBox Height="23" HorizontalAlignment="Left" Margin="405,148,0,0" Name="TextBox14" Text="{Binding Path=Paszport}" VerticalAlignment="Top" Width="155" />
+                    <GroupBox Header="Zakład pracy" Height="79" HorizontalAlignment="Left" Margin="10,181,0,0" Name="GroupBox1" VerticalAlignment="Top" Width="701">
+                        <Grid>
+                            <Label Content="NIP" Height="28" HorizontalAlignment="Left" Margin="6,2,0,0" Name="Label16" VerticalAlignment="Top" />
+                            <TextBox Height="23" HorizontalAlignment="Left" Margin="6,27,0,0" Name="TextBox15" Text="{Binding Path=Zaklady.NIPzakladu}" VerticalAlignment="Top" Width="155" />
+                            <Label Content="Nazwa" Height="28" HorizontalAlignment="Left" Margin="167,2,0,0" Name="Label17" VerticalAlignment="Top" />
+                            <TextBox Height="23" HorizontalAlignment="Left" Margin="167,27,0,0" Name="TextBox16" Text="{Binding Path=Zaklady.NazwaZakladuPracy}" VerticalAlignment="Top" Width="250" />
+                            <Button Background="Transparent" Height="30" HorizontalAlignment="Left" Margin="434,13,0,0" Name="Button2" VerticalAlignment="Top" Width="157">
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Margin="-10" Source="/Medison;component/Images/search.png" Width="40" />
+                                    <Label Content="Szukaj firmy" FontWeight="Bold" Margin="10,0" />
+                                </StackPanel>
+                            </Button>
+                        </Grid>
+                    </GroupBox>
+                    <Label Content="Data urodzenia opiekuna" Height="28" HorizontalAlignment="Left" Margin="22,268,0,0" Name="Label18" VerticalAlignment="Top" />
+                    <TextBox Height="23" HorizontalAlignment="Left" Margin="22,293,0,0" Name="TextBox17" Text="{Binding Path=DataUrodzeniaOsobyPodOp,StringFormat=\{0:d\}}" VerticalAlignment="Top" Width="155" />
+                </Grid>
+            </TabItem>
+        </TabControl>
+        <Button Background="Transparent" Height="30" HorizontalAlignment="Right" Margin="0,7,128,0" Name="Button5" VerticalAlignment="Top" Width="110">
+            <StackPanel Orientation="Horizontal">
+                <Image Margin="-10" Source="/Medison;component/Images/Print.png" Width="40" />
+                <Label Content="Historia" FontWeight="Bold" Margin="10,0" />
+            </StackPanel>
+        </Button>
+        <Button Content="Zazn. wszystkie" Height="23" HorizontalAlignment="Left" Margin="332,33,0,0" Name="Button4" VerticalAlignment="Top" Width="93" />
+        <Button Content="Usuń wszystkie" Height="23" HorizontalAlignment="Left" Margin="428,33,0,0" Name="Button6" VerticalAlignment="Top" Width="88" />
+        <Button Content="Podgląd" Height="23" HorizontalAlignment="Left" Margin="218,33,0,0" Name="Button7" VerticalAlignment="Top" Width="88" />
+    </Grid>
+</UserControl>
