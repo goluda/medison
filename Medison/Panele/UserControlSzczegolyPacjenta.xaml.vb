@@ -32,6 +32,14 @@
         Me.DataContext = p
         Me.ListViewWizyty.ItemsSource = p.Wizyty.OrderByDescending(Function(o) o.DataWizyty)
 
+        OdswiezListy()
+
+
+    End Sub
+
+    Sub OdswiezListy()
+        Me.ListBoxZaswiadczenia.ItemsSource = p.Zaswiadczenia.OrderByDescending(Function(o) o.DataZaswiad)
+        Me.ListBoxSkierowania.ItemsSource = p.Skierowania.OrderByDescending(Function(o) o.DataSkierow)
     End Sub
 
     Sub info()
@@ -113,6 +121,8 @@
 
         Dim z As Zaswiadczenia = New Zaswiadczenia With {.DataZaswiad = Now.Date}
         p.Zaswiadczenia.Add(z)
+        OdswiezListy()
+
         Me.ListBoxZaswiadczenia.ScrollIntoView(z)
         Me.ListBoxZaswiadczenia.SelectedItem = z
         Me.ListBoxZaswiadczenia.Items.Refresh()
@@ -122,6 +132,8 @@
     Private Sub ButtonNoweSkierowanie_Click(ByVal sender As System.Object, ByVal e As System.Windows.RoutedEventArgs) Handles ButtonNoweSkierowanie.Click
         Dim s As New Skierowania With {.DataSkierow = Now.Date}
         p.Skierowania.Add(s)
+        OdswiezListy()
+
         Me.ListBoxSkierowania.ScrollIntoView(s)
         Me.ListBoxSkierowania.SelectedValue = s
         Me.ListBoxSkierowania.Items.Refresh()
