@@ -68,5 +68,9 @@
             <Border Width="20" Height="20" BorderThickness="2" BorderBrush="Black" />
             <TextBlock  Text="L4" FontSize="14" Padding="3"/>
         </StackPanel>
+        <StackPanel Orientation="Horizontal" Margin="600,290,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25">
+            <Border Width="20" Height="20" BorderThickness="2" BorderBrush="Black" />
+            <TextBlock  Text="Steryd" FontSize="14" Padding="3"/>
+        </StackPanel>
     </Grid>
 </UserControl>
