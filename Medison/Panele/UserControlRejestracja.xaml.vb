@@ -202,7 +202,8 @@
             ' If If(w.Wplata IsNot Nothing, w.Wplata, 0) = 0 Then
             If test = 0 Then
                 'w.Wplata = 150
-                w.Wplata = 200
+                'w.Wplata = 200
+                w.Wplata = 250
 
                 db.SaveChanges()
 
